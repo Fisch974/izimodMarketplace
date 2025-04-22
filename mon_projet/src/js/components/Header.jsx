@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, User, LogOut } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,23 +26,13 @@ const Header = () => {
         <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
           <ul className="navbar-nav ms-auto mb-2 mb-md-0">
             <li className="nav-item">
-              <a className="nav-link" href="#home">
-                Accueil
+              <a className="nav-link" href="login">
+                < User />
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#about">
-                À propos
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#services">
-                Nos services
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contact">
-                Contactez-nous
+              <a className="nav-link" href="#">
+                  <LogOut />
               </a>
             </li>
           </ul>
