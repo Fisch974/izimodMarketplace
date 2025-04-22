@@ -1,0 +1,33 @@
+# EditorConfig aide à maintenir des styles de codage cohérents entre différents éditeurs et IDE
+# Ce fichier s'applique à SCSS, JS, HTML et Markdown
+
+# Configuration globale pour tous les fichiers
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Règles spécifiques pour les fichiers JavaScript
+[*.js]
+indent_style = tab
+indent_size = 4
+
+# Règles spécifiques pour les fichiers SCSS
+[*.scss]
+indent_style = tab
+indent_size = 4
+
+# Règles spécifiques pour les fichiers HTML
+[*.html]
+indent_style = tab
+indent_size = 4
+
+# Règles spécifiques pour les fichiers Markdown
+[*.md]
+indent_size = 2
+trim_trailing_whitespace = false  # Évite de supprimer les espaces en fin de ligne, utiles en Markdown
