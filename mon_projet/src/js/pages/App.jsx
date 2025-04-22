@@ -5,10 +5,14 @@ import Admin from './Admin_page.jsx';
 import Login from './Login_page.jsx';
 import User from './User_account.jsx';
 
+// Components
+import Header from '../components/Header.jsx';
+
 
 function App() {
   return (
-    
+<app>
+    <Header></Header>
     <BrowserRouter> {/*Integrated routing to redirect links */}
       <Routes>
         <Route path="/" element={<Login />} /> {/* Add link with path*/}
@@ -16,6 +20,7 @@ function App() {
         <Route path="/users" element={<User />} />
       </Routes>
     </BrowserRouter>
+</app>
   );
 }
 
