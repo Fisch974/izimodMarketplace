@@ -37,7 +37,7 @@ function Card_product() {
                 <img src={product.image} alt={product.name} />
                 <h3>{product.name}</h3>
                 <p>{product.price} €</p>
-                <button className='rounded-2 button-panier'>Ajouter au panier</button>
+                <button className='btn rounded-2 button-panier'>Ajouter au panier</button>
               </div>
             ))}
           </div>
