@@ -15,15 +15,15 @@ function Admin() {
             </div>
             <div className="admin-main">
                 <Routes>
-                <Route path="usersList" element={<List_Users />} />
-                <Route path="products" element={<Product_Manager />} />
-                <Route path="dashboard" element={<DashBoard />} />
+                    <Route path="usersList" element={<List_Users />} />
+                    <Route path="products" element={<Product_Manager />} />
+                    <Route path="dashboard" element={<DashBoard />} />
                 </Routes>
             </div>
         </div>
-        
-        
-      );
+
+
+    );
 }
 
 

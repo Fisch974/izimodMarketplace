@@ -1,19 +1,19 @@
-import '../bootstrap.js';
+import { Link } from 'react-router-dom';
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import '../bootstrap.js';
 
 // Simulation des données de l'admin
 const fakeUsers = [
-    { id: 1, name: "Jean Dupont", email: "jean.dupont@example.com", role: "Vendeur" },
-    { id: 2, name: "Marie Curie", email: "marie.curie@example.com", role: "Utilisateur" },
-    { id: 3, name: "Albert Einstein", email: "albert.einstein@example.com", role: "Utilisateur" },
-    { id: 4, name: "Isaac Newton", email: "isaac.newton@example.com", role: "Vendeur" },
-    { id: 5, name: "Nikola Tesla", email: "nikola.tesla@example.com", role: "Utilisateur" },
-  ];
+  { id: 1, name: "Jean Dupont", email: "jean.dupont@example.com", role: "Vendeur" },
+  { id: 2, name: "Marie Curie", email: "marie.curie@example.com", role: "Utilisateur" },
+  { id: 3, name: "Albert Einstein", email: "albert.einstein@example.com", role: "Utilisateur" },
+  { id: 4, name: "Isaac Newton", email: "isaac.newton@example.com", role: "Vendeur" },
+  { id: 5, name: "Nikola Tesla", email: "nikola.tesla@example.com", role: "Utilisateur" },
+];
 
 function DashBoard() {
-   // État des informations de l'admin
+  // État des informations de l'admin
   const [userInfo, setUserInfo] = useState({
     name: "Jean Dupont",
     email: "jean.dupont@example.com",
@@ -141,6 +141,5 @@ function DashBoard() {
     </div>
   );
 };
-
 
 export default DashBoard;

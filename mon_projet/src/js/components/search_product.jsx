@@ -1,6 +1,5 @@
-import '../bootstrap.js';
 import React from 'react';
-
+import '../bootstrap.js';
 
 function Search(params) {
     return (
@@ -18,11 +17,8 @@ function Search(params) {
                     </div>
                 </div>
             </div>
-            
-            
         </>
     )
 }
-
 
 export default Search;

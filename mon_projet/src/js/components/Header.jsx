@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="bg-white shadow-sm fixed-top">
       <nav className="navbar navbar-expand-md container py-2">
-        <Link  to='/' className="navbar-link link fw-bold text-primary">
+        <Link to='/' className="navbar-link link fw-bold text-primary">
           iziMOD
         </Link>
 
@@ -33,7 +33,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                  <LogOut />
+                <LogOut />
               </a>
             </li>
           </ul>
