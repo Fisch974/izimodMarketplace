@@ -8,7 +8,7 @@ function Login(params) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
     if (data.email === 'admin@local.host' && data.password === 'admin') {
-      navigate('/admin');
+      navigate('/admin/dashboard');
     }
   };
 
@@ -47,7 +47,7 @@ function Login(params) {
           width={999}
           onSuccess={(credentialResponse) => {
             console.log(credentialResponse);
-            navigate("/admin");
+            navigate("/admin/dashboard");
           }}
           onError={() => console.log("Connexion echouée")}
         />
