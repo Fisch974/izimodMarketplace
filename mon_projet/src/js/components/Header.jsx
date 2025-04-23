@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, User, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,9 +9,9 @@ const Header = () => {
   return (
     <header className="bg-white shadow-sm fixed-top">
       <nav className="navbar navbar-expand-md container py-2">
-        <a className="navbar-brand fw-bold text-primary" href="#home">
+        <Link  to='/' className="navbar-link link fw-bold text-primary">
           iziMOD
-        </a>
+        </Link>
 
         <button
           className="navbar-toggler"
