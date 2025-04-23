@@ -1,9 +1,7 @@
-import '../bootstrap.js';
-import React from 'react';
 import { Link } from "react-router-dom";
+import React from 'react';
 import { User, ShoppingCart, Star, LayoutDashboard } from 'lucide-react';
-
-
+import '../bootstrap.js';
 
 function Menus_aside() {
     return (
@@ -16,10 +14,8 @@ function Menus_aside() {
                     <li><Link to="/admin"><Star size={18} style={{ marginRight: '8px' }} />Avis</Link></li>
                 </ul>
             </aside>
-
         </>
     )
 }
-
 
 export default Menus_aside;

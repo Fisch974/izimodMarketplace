@@ -1,13 +1,12 @@
-import '../bootstrap.js';
 import React from 'react';
+import '../bootstrap.js';
 
 function User(params) {
     return (
         <>
-        <p>Page user</p>
-    </>
+            <p>Page utilisateur</p>
+        </>
     )
 }
-
 
 export default User;
