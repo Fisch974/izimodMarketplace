@@ -13,15 +13,15 @@ import Header from '../components/Header.jsx';
 
 function App() {
   return (
-        <BrowserRouter> {/*Integrated routing to redirect links */}
-          <Header />
-          <Routes>
-            <Route path="/" element={<Product />} /> {/* Add link with path*/}
-            <Route path="/admin/*" element={<Admin />} />
-            <Route path="/users" element={<User />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </BrowserRouter>
+    <BrowserRouter> {/*Integrated routing to redirect links */}
+      <Header />
+      <Routes>
+        <Route path="/" element={<Product />} /> {/* Add link with path*/}
+        <Route path="/admin/*" element={<Admin />} />
+        <Route path="/users" element={<User />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

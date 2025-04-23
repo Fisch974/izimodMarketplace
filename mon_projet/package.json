@@ -1,14 +1,14 @@
 {
-  "name": "boilerplate-node",
-  "version": "1.1.0",
-  "description": "Un boilerplate Node.js avec Vite et Bootstrap pour un démarrage rapide.",
-  "homepage": "https://github.com/Ti-Jacque-GPT/node-bootstrap-boilerplate",
+  "name": "izimod",
+  "version": "1.0.0",
+  "description": "Un projet NodeJS avec Vite et Bootstrap pour un démarrage rapide.",
+  "homepage": "https://github.com/Fisch974/izimodMarketplace",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ti-Jacque-GPT/node-bootstrap-boilerplate.git"
+    "url": "https://github.com/Fisch974/izimodMarketplace.git"
   },
   "bugs": {
-    "url": "https://github.com/Ti-Jacque-GPT/node-bootstrap-boilerplate/issues"
+    "url": "https://github.com/Fisch974/izimodMarketplace/issues"
   },
   "type": "module",
   "keywords": [
@@ -19,8 +19,7 @@
     "sass",
     "javascript"
   ],
-  "author": "Payet michel <michel.payet974@live.fr>",
-  "license": "MIT",
+  "author": "Payet Michel, Fontaine Jeremy, Fisch Adrien",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -35,6 +34,7 @@
     "lucide-react": "^0.503.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.56.1",
     "react-router-dom": "^7.5.1"
   },
   "devDependencies": {
