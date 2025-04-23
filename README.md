@@ -1,6 +1,6 @@
 # iziMOD : Projet NodeJS avec Vite et Bootstrap
 
-## Installation des dépendances** :
+## Installation des dépendances :
 
    ```sh
    npm install
