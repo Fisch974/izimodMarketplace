@@ -17,7 +17,7 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Product />} /> {/* Add link with path*/}
-            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/*" element={<Admin />} />
             <Route path="/users" element={<User />} />
             <Route path="/login" element={<Login />} />
           </Routes>
