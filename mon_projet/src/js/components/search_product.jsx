@@ -2,22 +2,25 @@ import '../bootstrap.js';
 import React from 'react';
 
 
-function Search(params) {
+function Search() {
     return (
         <>
-            <div className='container mt-4'>
-                <div className='row '>
-                    <div className="input-group d-flex  justify-content-center d">
-                        <select className="form-select col-6 rounded" id="inputGroupSelect04" aria-label="Example select with button addon">
+            <div className='d-flex flex-column justify-content-center align-items-center'>
+                <div className='p-5'></div>
+                <div className='row row-col-6'>
+                    <div className="input-group d-flex justify-content-center align-items-center" id="inputGroupSelect04">
+                        <select className="form-select form-select-sm col rounded"  aria-label="select with button addon">
                             <option selected>Categorie</option>
                             <option value="1">Outillages</option>
                             <option value="2">Protections</option>
                             <option value="3">Produits de jardin</option>
+                            <option value="4">Services</option>
                         </select>
-                        <button className="btn col-4 col-md-2 button-search mx-2" type="button">Recherche</button>
                     </div>
                 </div>
             </div>
+
+
             
             
         </>

@@ -24,7 +24,7 @@ const Header = () => {
           </span>
         </button>
 
-        <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
+        <div className={`collapse navbar-collapse ${isOpen ? "show" : "login"}`}>
           <ul className="navbar-nav ms-auto mb-2 mb-md-0">
             <li className="nav-item">
               <a className="nav-link" href="login">

@@ -198,6 +198,49 @@
 .btn-modifier {
 	margin-right: 10px;
 }
+
+
+.carousel {
+    width: 70%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Définir une hauteur fixe ou relative au viewport pour le carousel */
+.carousel-inner {
+    height: 35vh; /* ou 50vh par exemple pour responsive */
+}
+
+/* Forcer les images à prendre toute la place disponible dans chaque item */
+.carousel-inner .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Recadre sans déformer */
+	border-radius: 5px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: transparent !important;
+    box-shadow: 0 0 1 0.15rem rgba(0, 123, 255, 0.25); /* ou autre couleur + transparence */
+    outline: none !important;
+}
+
+
+
+
+
+
+
+
+/* Redimensionner le select */
+#inputGroupSelect04 {
+    width: 500px; /* Ajuste la largeur à ce que tu veux */
+    height: 35px; /* Ajuste la hauteur */
+    font-size: 14px; /* Ajuste la taille du texte si nécessaire */
+}
+
+
   
   
 

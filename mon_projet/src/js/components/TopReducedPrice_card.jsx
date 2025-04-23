@@ -20,9 +20,13 @@ function Middle_ReducedPrice(params) {
         <div className="big-card">
           <h2>Nos prix réduit 💖</h2>
           <div className="big-card-images">
-            {productImages.map((img) => (
-                <img src={img.src} alt={img.name} className="big-card-image" />
-
+          {productImages.map((img) => (
+                <img 
+                  key={img.id}  // Ajoute la clé unique ici
+                  src={img.src} 
+                  alt={img.name} 
+                  className="big-card-image" 
+                />
             ))}
           </div>
         </div>
