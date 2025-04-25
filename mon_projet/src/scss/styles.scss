@@ -3,6 +3,10 @@
 //
 // Custom styles
 //
+
+body {
+	background-color: #f2edf3;
+}
 .product-grid {
 	display: flex;
 	gap: 1rem;
@@ -75,14 +79,19 @@
 
 .sidebar {
 	width: 200px;
-	padding: 1rem;
 	background-color: #f5f5f5;
 	height: 100vh;
-	padding: 40px;
+	padding: 10px;
+	padding-top: 70px;
+	font-weight: bold;
 
 	a {
 		text-decoration: none;
 		color: black;
+	}
+
+	a:hover {
+		color: #0056b3;
 	}
 
 	ul {
@@ -92,6 +101,10 @@
 
 	li {
 		margin-bottom: 1rem;
+	}
+
+	.menus {
+		padding-right: 50px;
 	}
 }
 
@@ -104,9 +117,10 @@
 
 .dashboard-container {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	flex-wrap: wrap;
 	padding: 20px;
-	background-color: #f9f9f9;
+
 }
 
 h2 {
@@ -235,6 +249,27 @@ table td button:hover {
     width: 500px; /* Ajuste la largeur à ce que tu veux */
     height: 35px; /* Ajuste la hauteur */
     font-size: 14px; /* Ajuste la taille du texte si nécessaire */
+}
+
+.user-actif {
+	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 5px;
+	background-color: white;
+	background: linear-gradient(95deg, #b8dcfa,  #3297e7);
+}
+
+.affair_actif {
+	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 5px;
+	background-color: white;
+	background: linear-gradient(95deg, #b6fcf6,  #31d1ba);
+}
+
+.visitor_actif {
+	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 5px;
+	background-color: white;
+	background: linear-gradient(95deg, #fdeade,  #fe8896);
 }
 
 
