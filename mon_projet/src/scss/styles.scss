@@ -246,9 +246,8 @@ table td button:hover {
 
 /* Redimensionner le select */
 #inputGroupSelect04 {
-    width: 500px; /* Ajuste la largeur à ce que tu veux */
-    height: 35px; /* Ajuste la hauteur */
-    font-size: 14px; /* Ajuste la taille du texte si nécessaire */
+    width: 500px; 
+    height: 35px;
 }
 
 .user-actif {
@@ -273,9 +272,40 @@ table td button:hover {
 }
 
 
-  
+.table td,
+.table th {
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px; /* ou ce que tu veux */
+}
+
+
+.fixed-card {
+	width: 250px; /* Largeur fixe pour chaque carte */
+	height: 200px; /* Hauteur fixe pour chaque carte */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Assure que le contenu est bien espacé dans la carte */
+  }
   
 
+  .card-admin {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	background: linear-gradient(95deg, #126b34, #0056b3);
+  }
+  
+  .card-admin:hover {
+	box-shadow: 6px 6px 12px 8px rgba(0, 0, 255, 0.2);
+	transform: scale(1.05);
+	
+  }
+
+  .graph {
+	display: flex;
+	gap: 50px;
+  }
   
   
 
