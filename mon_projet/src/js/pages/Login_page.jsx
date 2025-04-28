@@ -20,7 +20,7 @@ function Login(params) {
 
   return (
     <>
-      <form className='container mt-5' onSubmit={handleSubmit(onSubmit)}>
+      <form className='container mt-5 flex-grow-1' onSubmit={handleSubmit(onSubmit)}>
         <div className="my-5 pt-5">
           <label for="exampleInputEmail1" className="form-label">Votre adresse mail</label>
           <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" {...register("email", { required: true })} />

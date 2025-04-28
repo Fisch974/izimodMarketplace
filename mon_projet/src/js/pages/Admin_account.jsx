@@ -15,7 +15,8 @@ function Admin() {
         <>
             <div className='d-flex'>
                 <div>
-                    <Menus_aside />
+                <Menus_aside userRole="admin" />
+
                 </div>
                 <div className="admin-main">
                     <Routes>
@@ -26,7 +27,6 @@ function Admin() {
                         <Route path="alerts" element={<Alerts />} />
                         <Route path="stats" element={<Admin_Stats />} />
                         <Route path="review" element={<Review />} />
-                        
                     </Routes>
                 </div>
             </div>

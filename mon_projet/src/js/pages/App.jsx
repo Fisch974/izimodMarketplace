@@ -1,12 +1,12 @@
 import '../bootstrap.js';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Admin from './Admin_page.jsx';
+import Admin from './Admin_account.jsx';
 import Login from './Login_page.jsx';
 import User from './User_account.jsx';
 import Product from './Product_page.jsx';
 import Footer_page from '../components/Footer.jsx';
-
+import Sellers from './Seller_account.jsx';
 
 // Components
 import Header from '../components/Header.jsx';
@@ -21,6 +21,7 @@ function App() {
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/users" element={<User />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/seller/*" element={<Sellers />} />
       </Routes>
       <Footer_page />
     </BrowserRouter>

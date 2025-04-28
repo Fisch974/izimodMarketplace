@@ -4,8 +4,15 @@
 // Custom styles
 //
 
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 body {
 	background-color: #f2edf3;
+	min-height: 100%;
 }
 .product-grid {
 	display: flex;
@@ -397,6 +404,12 @@ table td button:hover {
 	.review-card {
 	  margin: 10px;
 	}
+}
+
+.carte-vendeur {
+	background: linear-gradient(95deg, #121f6b, #0056b3);
+	color: white;
+	padding: 50px;
 }
 
 
