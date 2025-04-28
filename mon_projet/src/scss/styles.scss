@@ -1,0 +1,428 @@
+@import 'bootstrap';
+
+//
+// Custom styles
+//
+
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+body {
+	background-color: #f2edf3;
+}
+
+.navbar-link {
+	text-decoration: none;
+}
+
+.product-grid {
+	display: flex;
+	gap: 1rem;
+	flex-wrap: wrap;
+	padding: 1rem;
+	justify-content: center;
+}
+
+.product-card {
+	border: 2px solid #ccc;
+	border-radius: 8px;
+	padding: 1rem;
+	width: 200px;
+	text-align: center;
+	box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+	width: 100%;
+	height: 200px;
+}
+
+.button-panier {
+	background-color: rgb(132, 134, 136);
+	color: white;
+}
+
+.button-panier:hover {
+	background-color: cornflowerblue;
+	color: white;
+}
+
+.button-search {
+	background-color: rgb(132, 134, 136);
+	color: white;
+}
+
+.button-search:hover {
+	background-color: cornflowerblue;
+	color: white;
+}
+
+.big-card {
+	padding: 2rem;
+	background-color: #f8f9fa;
+	border-radius: 12px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.big-card-images {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	flex-wrap: wrap;
+	margin-top: 1rem;
+}
+
+.big-card-image {
+	width: 150px;
+	height: auto;
+	border-radius: 8px;
+	transition: transform 0.3s ease;
+	cursor: pointer;
+}
+
+.big-card-image:hover {
+	transform: scale(1.05);
+}
+
+.sidebar {
+	width: 200px;
+	height: 120vh;
+	padding: 10px;
+	padding-top: 70px;
+	font-weight: bold;
+	background: linear-gradient(95deg, #121f6b, #0056b3);
+	color: white;
+
+	a {
+		text-decoration: none;
+		color: white;
+		transition: transform 0.3s ease, color 0.3s ease; /* Ajoute une transition fluide */
+	}
+	
+	a:hover {
+		color: #0056b3;
+		transform: scale(1.1); /* Légère augmentation de taille */
+	}
+	
+
+	ul {
+		list-style-type: none;
+		padding-left: 0;
+	}
+
+	li {
+		margin-bottom: 1rem;
+	}
+
+	.menus {
+		padding-right: 50px;
+	}
+}
+
+.admin-main {
+	display: flex;
+	min-height: 90vh;
+	align-items: center;
+	margin: auto;
+}
+
+.dashboard-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 20px;
+
+}
+
+h2 {
+	text-align: center;
+}
+
+.stats {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 20px;
+}
+
+.stat-card {
+	background: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	text-align: center;
+	width: 30%;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 400px;
+	margin: 20px auto;
+}
+
+form div {
+	margin-bottom: 1rem;
+}
+
+input {
+	padding: 0.5rem;
+	margin-top: 0.25rem;
+	width: 100%;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+}
+
+button {
+	padding: 0.5rem 1rem;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-top: 1rem;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+table {
+	width: 100%;
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+
+table th,
+table td {
+	padding: 10px;
+	text-align: left;
+	border-bottom: 1px solid #ddd;
+}
+
+table th {
+	background-color: #f2f2f2;
+}
+
+table td button {
+	background-color: #dc3545;
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+table td button:hover {
+	background-color: #c82333;
+}
+
+.btn-modifier {
+	margin-right: 10px;
+}
+
+
+.carousel {
+    width: 70%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Définir une hauteur fixe ou relative au viewport pour le carousel */
+.carousel-inner {
+    height: 35vh; /* ou 50vh par exemple pour responsive */
+}
+
+/* Forcer les images à prendre toute la place disponible dans chaque item */
+.carousel-inner .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* Recadre sans déformer */
+	border-radius: 5px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: transparent !important;
+    box-shadow: 0 0 1 0.15rem rgba(0, 123, 255, 0.25); /* ou autre couleur + transparence */
+    outline: none !important;
+}
+
+
+/* Redimensionner le select */
+#inputGroupSelect04 {
+    width: 500px; 
+    height: 35px;
+}
+
+.user-actif {
+	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 5px;
+	background-color: white;
+	background: linear-gradient(95deg, #b8dcfa,  #3297e7);
+}
+
+.affair_actif {
+	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 5px;
+	background-color: white;
+	background: linear-gradient(95deg, #b6fcf6,  #31d1ba);
+}
+
+.visitor_actif {
+	box-shadow: 1px 1px 1px 1px black;
+	border-radius: 5px;
+	background-color: white;
+	background: linear-gradient(95deg, #fdeade,  #fe8896);
+}
+
+
+.table td,
+.table th {
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 200px; /* ou ce que tu veux */
+}
+
+
+.fixed-card {
+	width: 250px; /* Largeur fixe pour chaque carte */
+	height: 200px; /* Hauteur fixe pour chaque carte */
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Assure que le contenu est bien espacé dans la carte */
+  }
+  
+
+  .card-admin {
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	background: linear-gradient(95deg, #121f6b, #0056b3);
+  }
+  
+  .card-admin:hover {
+	box-shadow: 6px 6px 12px 8px rgba(0, 0, 255, 0.2);
+	transform: scale(1.05);
+	
+  }
+
+  .graph {
+	display: flex;
+	gap: 50px;
+  }
+
+.footer {
+	background: linear-gradient(95deg, #121f6b, #0056b3);
+}
+
+.footer-link {
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+
+}
+
+.footer-link:hover {
+    color: #0d6efd; /* Bleu Bootstrap */
+    transform: scale(1.05);
+}
+
+/* Conteneur de la liste d'utilisateurs */
+.user-list-container {
+	height: 600px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding-right: 10px; /* Pour éviter que le scroll cache le contenu */
+  }
+  
+  /* Pour éviter le scroll horizontal sur mobile */
+  .row.g-3 {
+	margin-right: 0;
+	margin-left: 0;
+  }
+  
+
+/* Conteneur général */
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+  }
+  
+  /* Style des cartes de review */
+  .review-card {
+	background-color: #fff;
+	border-radius: 15px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .review-card:hover {
+	transform: translateY(-10px);
+	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Titre de l'avis (Nom de l'utilisateur) */
+  .review-card .card-title {
+	font-size: 1.25rem;
+	font-weight: bold;
+	color: #333;
+  }
+  
+  /* Nom du magasin (ajouté sous le nom de l'utilisateur) */
+  .review-card .card-subtitle {
+	font-size: 1rem;
+	color: #888;
+  }
+  
+  /* Étoiles d'évaluation */
+  .card-subtitle {
+	font-size: 1rem;
+	color: #f39c12;
+  }
+  
+  /* Texte des avis */
+  .review-card .card-text {
+	font-size: 1rem;
+	color: #555;
+	line-height: 1.5;
+  }
+  
+  /* Onglets */
+  .nav-tabs .nav-link {
+	cursor: pointer;
+	font-size: 1.1rem;
+  }
+  
+  /* Onglet actif */
+  .nav-tabs .nav-link.active {
+	font-weight: bold;
+	color: #007bff;
+  }
+  
+  /* Card container responsif */
+  @media (max-width: 768px) {
+	.review-card {
+	  margin: 10px;
+	}
+}
+
+
+
+
+
+
+
+  
+  
+  
+  
+
+  
+  
+
+  
+  

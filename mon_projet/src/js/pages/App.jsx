@@ -5,6 +5,7 @@ import Admin from './Admin_page.jsx';
 import Login from './Login_page.jsx';
 import User from './User_account.jsx';
 import Product from './Product_page.jsx';
+import Footer_page from '../components/Footer.jsx';
 
 
 // Components
@@ -21,6 +22,7 @@ function App() {
         <Route path="/users" element={<User />} />
         <Route path="/login" element={<Login />} />
       </Routes>
+      <Footer_page />
     </BrowserRouter>
   );
 }
