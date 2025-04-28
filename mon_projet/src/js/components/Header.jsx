@@ -33,7 +33,7 @@ const Header = () => {
         </Link>
 
         <button
-          className="bg-white me-3 text-black border-0 mb-3"
+          className="bg-white me-3 text-black border-0 mb-3 d-md-none"
           onClick={toggleMenu}
           aria-label="Ouvrir le menu"
         >
