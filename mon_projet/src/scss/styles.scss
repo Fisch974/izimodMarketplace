@@ -4,6 +4,12 @@
 // Custom styles
 //
 
+#root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
 body {
 	background-color: #f2edf3;
 }
