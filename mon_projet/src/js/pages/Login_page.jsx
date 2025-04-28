@@ -21,8 +21,8 @@ function Login(params) {
   return (
     <>
       <div className='container'>
-        <div className='row'>
-          <form className='col-lg-5 col-3 mt-5 flex-grow-1' onSubmit={handleSubmit(onSubmit)}>
+        <div className='container-fluid row'>
+          <form className='mt-5 flex-grow-1' onSubmit={handleSubmit(onSubmit)}>
         <div className='mx-auto my-3 pt-3'><img src="../../data/logo/logoBlueSlogan.svg" width={333} height={333} /></div>
             <div className="mx-auto w-50">
             <div>
