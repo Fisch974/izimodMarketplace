@@ -8,6 +8,7 @@ import Product_Manager from '../components/Manage_Product_Admin.jsx';
 import Orders from "../components/Orders_admin.jsx";
 import Alerts from "../components/Alert_Admin.jsx";
 import Admin_Stats from "../components/Stats_Admin.jsx";
+import Review from "../components/User_review.jsx";
 
 function Admin() {
     return (
@@ -24,6 +25,8 @@ function Admin() {
                         <Route path="orders" element={<Orders />} />
                         <Route path="alerts" element={<Alerts />} />
                         <Route path="stats" element={<Admin_Stats />} />
+                        <Route path="review" element={<Review />} />
+                        
                     </Routes>
                 </div>
             </div>

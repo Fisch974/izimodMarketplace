@@ -33,7 +33,7 @@ function Menus_aside() {
                         <li><Link to="/admin/products"><ScanBarcode size={18} style={{ marginRight: '8px' }} />Produits</Link></li>
                         <li><Link to="/admin/alerts"><OctagonAlert size={18} style={{ marginRight: '8px' }} />Alertes</Link></li>
                         <li><Link to="/admin/stats"><ChartLine size={18} style={{ marginRight: '8px' }} />Statistiques</Link></li>
-                        <li><Link to="/admin"><Star size={18} style={{ marginRight: '8px' }} />Avis</Link></li>
+                        <li><Link to="/admin/review"><Star size={18} style={{ marginRight: '8px' }} />Avis</Link></li>
                         
                     </ul>
                 </div>
