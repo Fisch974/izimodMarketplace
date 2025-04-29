@@ -21,8 +21,8 @@ const menus = {
     ],
     vendeur: [
         { to: "/seller/boardseller", label: "Dashboard", icon: LayoutDashboard },
-        { to: "/seller/orders", label: "Commandes", icon: ShoppingCart },
-        { to: "/seller/products", label: "Mes Produits", icon: ScanBarcode },
+        { to: "/seller/orderseller", label: "Commandes", icon: ShoppingCart },
+        { to: "/seller/productseller", label: "Mes Produits", icon: ScanBarcode },
         { to: "/seller/alerts", label: "Alertes", icon: ScanBarcode },
         { to: "/seller/stats", label: "Statistiques", icon: ChartLine },
         { to: "/seller/reviews", label: "Avis", icon: Star }

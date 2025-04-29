@@ -126,6 +126,11 @@ body {
 	margin: auto;
 }
 
+.seller_main {
+	min-height: 100vh;
+	margin: auto;
+}
+
 .dashboard-container {
 	display: flex;
 	flex-direction: row;
@@ -409,8 +414,30 @@ table td button:hover {
 .carte-vendeur {
 	background: linear-gradient(95deg, #121f6b, #0056b3);
 	color: white;
-	padding: 50px;
+	padding: 100px;
+	margin: auto;
 }
+
+
+
+.carte-articles {
+	width: 800px;
+	height: 1200px;
+	
+}
+
+.conteneur_orders {
+	width: 1600px;
+}
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 

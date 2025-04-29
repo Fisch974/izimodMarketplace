@@ -8,7 +8,7 @@ import Product_Manager from '../components/Manage_Product_Admin.jsx';
 import Orders from "../components/Orders_admin.jsx";
 import Alerts from "../components/Alert_Admin.jsx";
 import Admin_Stats from "../components/Stats_Admin.jsx";
-import Review from "../components/User_review.jsx";
+import Review from "../components/User_review_admin.jsx";
 
 function Admin() {
     return (

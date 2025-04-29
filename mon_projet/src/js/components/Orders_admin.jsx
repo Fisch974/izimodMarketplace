@@ -24,31 +24,32 @@ const initialOrders = [
   { id: 20, client: 'Benjamin Laurent', total: 22.50, status: 'En attente', objet: 'Gazon en rouleau', magasin: 'JardinExcellence' },
 ];
 
-function Orders() {
+function Orders({ magasin }) {
   const [orders] = useState(initialOrders);
   const [activeTab, setActiveTab] = useState('Expédiée');
 
+  const filteredOrders = orders
+    .filter(order => order.status === activeTab)
+    .filter(order => !magasin || order.magasin === magasin); // 👈 filtrer par magasin si défini
+
   const getStatusClass = (status) => {
     switch (status) {
-      case 'Payée':
-        return 'badge bg-success';
-      case 'En attente':
-        return 'badge bg-warning text-dark';
-      case 'Expédiée':
-        return 'badge bg-info text-dark';
-      case 'Annulée':
-        return 'badge bg-danger';
-      default:
-        return 'badge bg-secondary';
+      case 'Payée': return 'badge bg-success';
+      case 'En attente': return 'badge bg-warning text-dark';
+      case 'Expédiée': return 'badge bg-info text-dark';
+      case 'Annulée': return 'badge bg-danger';
+      default: return 'badge bg-secondary';
     }
+
+  
   };
 
-  // Filtrer les commandes selon l'onglet actif
-  const filteredOrders = orders.filter(order => order.status === activeTab);
 
   return (
     <div className="container py-4">
-      <h2 className="mb-4">Commandes - Statut : {activeTab}</h2>
+      <h2 className="mb-4">
+        {magasin ? `Commandes du magasin : ${magasin}` : 'Toutes les commandes'} - {activeTab}
+      </h2>
 
       <ul className="nav nav-tabs mb-3">
         {['Expédiée', 'Payée', 'En attente', 'Annulée'].map(tab => (
@@ -63,9 +64,8 @@ function Orders() {
         ))}
       </ul>
 
-      {/* Conteneur avec une hauteur fixe et défilement activé */}
-      <div style={{ height: '450px', overflowY: 'auto', overflowX: 'hidden' }}>
-        <table className="table table-bordered table-striped mb-0" style={{ width: '100%', tableLayout: 'fixed' }}>
+      <div style={{ height: '450px', overflowY: 'auto' }}>
+        <table className="table table-bordered table-striped mb-0" style={{ tableLayout: 'fixed' }}>
           <thead>
             <tr>
               <th style={{ width: '10%' }}>ID</th>
@@ -77,17 +77,22 @@ function Orders() {
             </tr>
           </thead>
           <tbody>
-            {/* Affichage des commandes filtrées par statut */}
-            {filteredOrders.map(order => (
-              <tr key={order.id}>
-                <td>{order.id}</td>
-                <td>{order.client}</td>
-                <td>{order.total.toFixed(2)}</td>
-                <td style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{order.objet}</td>
-                <td>{order.magasin}</td>
-                <td><span className={getStatusClass(order.status)}>{order.status}</span></td>
+            {filteredOrders.length === 0 ? (
+              <tr>
+                <td colSpan="6" className="text-center">Aucune commande trouvée.</td>
               </tr>
-            ))}
+            ) : (
+              filteredOrders.map(order => (
+                <tr key={order.id}>
+                  <td>{order.id}</td>
+                  <td>{order.client}</td>
+                  <td>{order.total.toFixed(2)}</td>
+                  <td style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{order.objet}</td>
+                  <td>{order.magasin}</td>
+                  <td><span className={getStatusClass(order.status)}>{order.status}</span></td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
