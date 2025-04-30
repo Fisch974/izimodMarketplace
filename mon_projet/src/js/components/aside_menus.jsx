@@ -23,13 +23,14 @@ const menus = {
         { to: "/seller/boardseller", label: "Dashboard", icon: LayoutDashboard },
         { to: "/seller/orderseller", label: "Commandes", icon: ShoppingCart },
         { to: "/seller/productseller", label: "Mes Produits", icon: ScanBarcode },
-        { to: "/seller/alerts", label: "Alertes", icon: ScanBarcode },
-        { to: "/seller/stats", label: "Statistiques", icon: ChartLine },
-        { to: "/seller/reviews", label: "Avis", icon: Star }
+        { to: "/seller/alertseller", label: "Alertes", icon: OctagonAlert },
+        { to: "/seller/statseller", label: "Statistiques", icon: ChartLine },
+        { to: "/seller/reviewseller", label: "Avis", icon: Star }
     ],
     user: [
-        { to: "/user/profile", label: "Mon Profil", icon: ShieldUser },
-        { to: "/user/orders", label: "Commandes", icon: ShoppingCart },
+        { to: "/user/boarduser", label: "Mon Profil", icon: ShieldUser },
+        { to: "/user/orders", label: "Achats", icon: ShoppingCart },
+        { to: "/user/paiment", label: "Paiement", icon: Star },
         { to: "/user/reviews", label: "Mes Avis", icon: Star }
     ]
 };

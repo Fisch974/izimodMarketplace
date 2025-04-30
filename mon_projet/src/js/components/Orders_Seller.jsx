@@ -38,6 +38,7 @@ const commandes = [
     return (
       <>
         <div className="container-fluid m-4 conteneur_orders">
+          
           {/* Onglets */}
           <div className="nav nav-tabs mb-5">
             {['Payée', 'Expédiée', 'En attente'].map((onglet) => (
@@ -53,6 +54,7 @@ const commandes = [
   
           {/* Conteneur scrollable */}
           <div className='container' style={{ maxHeight: '800px', overflowY: 'auto' }}>
+            <h3>Voir Commandes</h3>
             <div className="carte-articles row">
               {commandesFiltrées.length > 0 ? (
                 commandesFiltrées.map((cmd) => (

@@ -57,7 +57,7 @@ const userReviews = [
     const stores = [...new Set(userReviews.map(review => review.store))];
   
     return (
-      <div className="container py-4">
+      <div className="conteneur_product container-fluid m-5">
         <h2 className="mb-4">Avis des utilisateurs</h2>
   
         {/* Onglets des magasins */}

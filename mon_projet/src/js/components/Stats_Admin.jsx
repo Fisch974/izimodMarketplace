@@ -97,7 +97,7 @@ function Admin_Stats() {
   const [salesThisMonth, setSalesThisMonth] = useState(salesThisMonthFictive);
 
   return (
-    <div className="container py-4">
+    <div className="conteneur_product container-fluid m-5">
       <h2 className="mb-4">Statistiques Admin</h2>
       
       {/* Cards pour résumé des stats */}

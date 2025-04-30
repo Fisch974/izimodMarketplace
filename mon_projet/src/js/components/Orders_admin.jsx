@@ -46,7 +46,7 @@ function Orders({ magasin }) {
 
 
   return (
-    <div className="container py-4">
+    <div className="conteneur_product container-fluid m-5">
       <h2 className="mb-4">
         {magasin ? `Commandes du magasin : ${magasin}` : 'Toutes les commandes'} - {activeTab}
       </h2>
