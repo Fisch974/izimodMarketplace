@@ -5,17 +5,26 @@
 //
 
 #root {
-	display: flex;
-	flex-direction: column;
 	min-height: 100vh;
 }
 
 body {
-	background-color: #f2edf3;
+	background-color: $gray-100;
 }
 
+//! - HEADER
 .navbar-link {
 	text-decoration: none;
+}
+
+//! -- SEARCH BAR
+#searchForm {
+	position: relative;
+
+	#searchBtn {
+		position: absolute;
+		right: calc($spacer / 100);
+	}
 }
 
 .product-grid {
@@ -100,7 +109,7 @@ body {
 	a {
 		text-decoration: none;
 		color: white;
-		transition: transform 0.3s ease, color 0.3s ease; /* Ajoute une transition fluide */
+		transition: all 0.3s ease; /* Ajoute une transition fluide */
 	}
 	
 	a:hover {
