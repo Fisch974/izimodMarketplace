@@ -19,10 +19,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Product />} /> {/* Add link with path*/}
         <Route path="/admin/*" element={<Admin />} />
-        <Route path="/users" element={<User />} />
+        <Route path="/users/*" element={<User />} />
         <Route path="/login" element={<Login />} />
         <Route path="/seller/*" element={<Sellers />} />
-        <Route path="/user/*" element={<User />} />
       </Routes>
       <Footer_page />
     </BrowserRouter>

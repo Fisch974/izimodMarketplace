@@ -13,12 +13,12 @@ import Review from "../components/User_Review_Admin.jsx";
 function Admin() {
     return (
         <>
-            <div className='d-flex'>
+            <div className=''>
                 <div>
                 <Menus_aside userRole="admin" />
 
                 </div>
-                <div className="admin-main">
+                <div className="">
                     <Routes>
                         <Route path="usersList" element={<List_Users />} />
                         <Route path="products" element={<Product_Manager />} />
