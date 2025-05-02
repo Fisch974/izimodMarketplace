@@ -10,7 +10,7 @@ import {
   PanelTopClose,
   Search,
   User,
-  X,
+  XCircle,
   PanelTopOpen
 } from "lucide-react";
 
@@ -28,15 +28,11 @@ const Header = () => {
     setIsClicked(!isClicked);
   }
 
-  const notImplemented = () => {
-    alert('Fonction en cours d\'implémentation')
-  }
-
   return (
     <>
       <header className="bg-white shadow stick-top">
         {isClicked ? "": <SubHeader />}
-        <nav className="navbar navbar-expand-md container py-2">
+        <nav className="navbar navbar-expand-md container p-3">
           <div className="container-fluid d-flex align-items-center justify-content-between">
 
             <div className="d-flex align-items-center">
@@ -55,7 +51,7 @@ const Header = () => {
                 placeholder="Rechercher..."
                 aria-label="Rechercher..."
               />
-              <a className="me-2 text-dark" id="searchBtn" type="submit">
+              <a className="me-2" id="searchBtn" type="submit">
                 <Search />
               </a>
             </form>
@@ -66,24 +62,24 @@ const Header = () => {
                 onClick={toggleMenu}
                 aria-label="Ouvrir le menu"
               >
-                {isOpen ? <X className="mb-4" /> : <Menu className="mb-2" />}
+                {isOpen ? <XCircle className="mb-4" /> : <Menu className="mb-2" />}
               </button>
 
 
               <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
-                <ul className="navbar-nav text-center mb-3 mb-md-0 d-md-flex flex-row gap-3 navbar-nav-scroll">
-                  <li className="nav-item">
-                    <a className="nav-link" href="login">
+                <ul className="navbar-nav text-center mb-3 mb-md-0 d-md-flex flex-md-row flex-column gap-3 navbar-nav-scroll">
+                  <li className="nav-item me-auto">
+                    <a className="nav-link text-primary btn btn-primary shadow" href="login">
                       <User /> <span className="d-md-none">Connexion</span>
                     </a>
                   </li>
-                  <li className="nav-item" onClick={notImplemented}>
-                    <a className="nav-link" href="#">
+                  <li className="nav-item me-auto" onClick={notImplemented}>
+                    <a className="nav-link text-primary btn btn-primary shadow" href="#">
                       <LogOut /> <span className="d-md-none">Déconnexion</span>
                     </a>
                   </li>
-                  <li className="nav-item" onClick={toggleClick}>
-                    <a className="nav-link" href="#">
+                  <li className="nav-item me-auto" onClick={toggleClick}>
+                    <a className="nav-link text-primary btn btn-primary shadow" href="#">
                       {isClicked ? <PanelTopOpen /> : <PanelTopClose />} <span className="d-md-none">Afficher/Masquer la barre du haut</span>
                     </a>
                   </li>
@@ -98,7 +94,7 @@ const Header = () => {
 }
 
 const SubHeader = () => {
-  return <nav className="navbar bg-primary d-flex flex-md-row flex-column">
+  return <nav className="navbar bg-primary d-flex flex-md-row flex-column" onClick={notImplemented}>
     <div className="ms-3 mb-md-0 mb-3">
       <span className="navbar-text text-light">
         <CheckCheck /> Livraison offerte à partir de 120 €
