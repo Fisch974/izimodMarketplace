@@ -19,7 +19,7 @@ function Alerts() {
     };
 
     return (
-        <div className="container py-4">
+        <div className="conteneur_product container-fluid m-5">
             <h2 className="mb-4">Alertes de sécurité</h2>
             {alerts.length === 0 ? (
                 <p>Aucune alerte pour le moment.</p>

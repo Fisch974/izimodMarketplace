@@ -68,7 +68,7 @@ function List_Users() {
   const filteredUsers = users.filter(user => user.role === activeTab || activeTab === "Tous");
 
   return (
-    <div className="container py-4">
+    <div className="conteneur_product container-fluid m-5">
       <ul className="nav nav-tabs mb-3">
         {["Utilisateur", "Vendeur"].map(tab => (
           <li className="nav-item" key={tab}>
