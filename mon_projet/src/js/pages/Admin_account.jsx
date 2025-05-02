@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import React from 'react';
 import '../bootstrap.js';
 import DashBoard from '../components/Board_Admin.jsx';
@@ -20,6 +20,7 @@ function Admin() {
                 </div>
                 <div className="">
                     <Routes>
+                        <Route index element={<Navigate to="dashboard" replace />} />
                         <Route path="usersList" element={<List_Users />} />
                         <Route path="products" element={<Product_Manager />} />
                         <Route path="dashboard" element={<DashBoard />} />

@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import React from 'react';
 import '../bootstrap.js';
 import Menus_aside from '../components/aside_menus.jsx';
@@ -36,6 +36,7 @@ function User() {
       {/* Contenu principal */}
       <div style={{ flexGrow: 1 }}>
         <Routes>
+          <Route index element={<Navigate to="boarduser" replace />} />
           <Route
             path="boarduser"
             element={
