@@ -49,7 +49,7 @@ function Product_Manager() {
     : products.filter(p => p.category === activeCategory);
 
   return (
-    <div className="container-fluid py-4">
+    <div className="conteneur_product container-fluid m-5">
       <h2 className="mb-4">Gestion des Produits</h2>
 
       {/* Onglets catégories */}

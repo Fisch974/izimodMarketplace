@@ -3,44 +3,66 @@ import React from 'react';
 import { User, ShoppingCart, Star, LayoutDashboard, ShieldUser, ScanBarcode, OctagonAlert, ChartLine } from 'lucide-react';
 import '../bootstrap.js';
 
+const users = [
+    { id: 1, nom: 'David', prenom: 'Grey', role: 'admin' },
+    { id: 2, nom: 'Sophie', prenom: 'Martin', role: 'vendeur' },
+    { id: 3, nom: 'Lucas', prenom: 'Durand', role: 'user' }
+];
 
+const menus = {
+    admin: [
+        { to: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
+        { to: "/admin/usersList", label: "Utilisateurs", icon: User },
+        { to: "/admin/orders", label: "Commandes", icon: ShoppingCart },
+        { to: "/admin/products", label: "Produits", icon: ScanBarcode },
+        { to: "/admin/alerts", label: "Alertes", icon: OctagonAlert },
+        { to: "/admin/stats", label: "Statistiques", icon: ChartLine },
+        { to: "/admin/review", label: "Avis", icon: Star }
+    ],
+    vendeur: [
+        { to: "/seller/boardseller", label: "Dashboard", icon: LayoutDashboard },
+        { to: "/seller/orderseller", label: "Commandes", icon: ShoppingCart },
+        { to: "/seller/productseller", label: "Mes Produits", icon: ScanBarcode },
+        { to: "/seller/alertseller", label: "Alertes", icon: OctagonAlert },
+        { to: "/seller/statseller", label: "Statistiques", icon: ChartLine },
+        { to: "/seller/reviewseller", label: "Avis", icon: Star }
+    ],
+    user: [
+        { to: "/user/boarduser", label: "Mon Profil", icon: ShieldUser },
+        { to: "/user/orders", label: "Achats", icon: ShoppingCart },
+        { to: "/user/paiment", label: "Paiement", icon: Star },
+        { to: "/user/reviews", label: "Mes Avis", icon: Star }
+    ]
+};
 
-const Admin = [
-    {id: 1, nom:'David', prenom: 'Grey', admin: true}
-]
+function Menus_aside({ userRole = 'admin' }) {
+    const currentUser = users.find(user => user.role === userRole);
 
-function Menus_aside() {
     return (
-        <>
-            
-            <aside className="sidebar">
-                <div className="pb-5 d-flex align-items-start flex-column">
-
-                    {Admin.map((admin) => (
-                        <div key={admin.id} className="d-flex flex-column">
-                        {admin.admin && (
-                            <span className="badge bg-primary mb-1" style={{ width: 'fit-content' }}>Admin</span>
-                        )}
-                        <p className="mb-0">{admin.prenom} {admin.nom}</p>
-                        </div>
+        <aside className="sidebar">
+            <div className="pb-5 d-flex align-items-start flex-column">
+                {currentUser && (
+                    <div className="d-flex flex-column">
+                        <span className="badge bg-primary mb-1" style={{ width: 'fit-content' }}>{userRole.toUpperCase()}</span>
+                        <p className="mb-0">{currentUser.prenom} {currentUser.nom}</p>
+                    </div>
+                )}
+            </div>
+            <div className="menus">
+                <ul>
+                    {menus[userRole]?.map((item, index) => (
+                        <li key={index}>
+                            <Link to={item.to}>
+                                {React.createElement(item.icon, { size: 18, style: { marginRight: '8px' } })}
+                                {item.label}
+                            </Link>
+                        </li>
                     ))}
-                </div>
-                <div className="menus">
-                    <ul>
-                        <li><Link to="/admin/dashboard"><LayoutDashboard size={18} style={{ marginRight: '8px' }} />Dashboard</Link></li>
-                        <li><Link to="/admin/usersList"><User size={18} style={{ marginRight: '8px' }} />Utilisateurs</Link></li>
-                        <li><Link to="/admin/orders"><ShoppingCart size={18} style={{ marginRight: '8px' }} />Commandes</Link></li>
-                        <li><Link to="/admin/products"><ScanBarcode size={18} style={{ marginRight: '8px' }} />Produits</Link></li>
-                        <li><Link to="/admin/alerts"><OctagonAlert size={18} style={{ marginRight: '8px' }} />Alertes</Link></li>
-                        <li><Link to="/admin/stats"><ChartLine size={18} style={{ marginRight: '8px' }} />Statistiques</Link></li>
-                        <li><Link to="/admin/review"><Star size={18} style={{ marginRight: '8px' }} />Avis</Link></li>
-                        
-                    </ul>
-                </div>
-                
-            </aside>
-        </>
-    )
+                </ul>
+            </div>
+        </aside>
+    );
 }
 
 export default Menus_aside;
+
