@@ -55,7 +55,7 @@ function PaimentUser() {
   };
 
   return (
-    <div className="container-fluid conteneur_paiment mt-4">
+    <div className="conteneur_paiment_user m-auto">
       <h4 className="mb-3">Paiement</h4>
 
       <ul className="nav nav-tabs mb-3">

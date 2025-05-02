@@ -44,7 +44,7 @@ function ReviewSeller() {
   };
 
   return (
-    <div className="conteneur_product container-fluid">
+    <div className="conteneur_review">
       <h2 className="mb-4">📝 Avis des clients</h2>
       {reviews.length === 0 ? (
         <p>Aucun avis pour le moment.</p>

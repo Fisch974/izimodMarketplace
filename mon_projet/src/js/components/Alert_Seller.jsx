@@ -36,7 +36,7 @@ function AlertSeller() {
   ];
 
   return (
-    <div className="conteneur_product container-fluid m-5">
+    <div className="conteneur_alert">
       <h2 className="mb-4">Mes alertes vendeur</h2>
       <div className="table-responsive">
         <table className="table table-bordered table-hover align-middle">

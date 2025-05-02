@@ -11,21 +11,21 @@ import ReviewSeller from "../components/Review_Seller.jsx";
 
 function Sellers() {
     return (
-        <div className='d-flex'>
+        <div className=''>
             {/* Menu Aside */}
             <div>
                 <Menus_aside userRole="vendeur" />
             </div>
 
             {/* Contenu principal */}
-            <div className="seller_main">
+            <div>
                 <Routes>
                     <Route path="boardseller" element={<DashboardInfoCard />} />
                     <Route path="orderseller" element={<Orders_seller />} />
                     <Route path="productseller" element={<ProductSeller />} />
                     <Route path="alertseller" element={<AlertSeller />} />
                     <Route path="statseller" element={<StatsSeller />} />
-                    <Route path="reviewseller" element={<UserReviewSeller />} />
+                    <Route path="reviewseller" element={<ReviewSeller />} />
                 </Routes>
             </div>
         </div>

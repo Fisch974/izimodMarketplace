@@ -155,12 +155,6 @@ body {
 		width: 300px;
 	}
 }
-  
-
-.seller_main {
-	min-height: 100vh;
-	margin: auto;
-}
 
 
 
@@ -334,21 +328,21 @@ table td button:hover {
   }
   
 
-  .card-admin {
+.card-admin {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 	background: linear-gradient(95deg, #121f6b, #0056b3);
-  }
+}
   
-  .card-admin:hover {
+.card-admin:hover {
 	box-shadow: 6px 6px 12px 8px rgba(0, 0, 255, 0.2);
 	transform: scale(1.05);
 	
-  }
+}
 
-  .graph {
+.graph {
 	display: flex;
 	gap: 50px;
-  }
+}
 
 .footer {
 	background: linear-gradient(95deg, #121f6b, #0056b3);
@@ -452,8 +446,14 @@ table td button:hover {
 .carte-vendeur {
 	background: linear-gradient(95deg, #121f6b, #0056b3);
 	color: white;
-	padding: 100px;
+	width: 400px;
 	margin: auto;
+	margin-bottom: 50px;
+	
+
+	@include responsive('xs') {
+		width: 300px !important;
+	}
 }
 
 
@@ -477,4 +477,28 @@ table td button:hover {
 	width: 1000px;
 	height: 500px;
 }
+
+.list_product {
+	height: 700px;
+}
+
+.conteneur_alert{
+	height: 700px;
+}
+
+
+.conteneur_review {
+	height: 630px;
+}
   
+.conteneur_purchase {
+	height: 630px;
+}
+
+.conteneur_paiment_user {
+	height: 650px;
+}
+
+.conteneur_user_review {
+	height: 800px;
+}

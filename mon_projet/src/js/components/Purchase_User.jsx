@@ -23,7 +23,7 @@ function PurchaseUser() {
   };
 
   return (
-    <div className="conteneur_product container-fluid">
+    <div className="conteneur_purchase">
       <h4 className="mb-4 text-center">Mes Achats</h4>
       <div className="table-responsive">
         <table className="table table-striped table-hover align-middle">

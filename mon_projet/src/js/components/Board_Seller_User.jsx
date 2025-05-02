@@ -65,7 +65,7 @@ function DashboardInfoCard({
   };
 
   return (
-    <div className="card shadow-sm carte-vendeur">
+    <div className="card carte-vendeur">
       <div className="card-body">
         <h5 className="card-title mb-4 text-center">{title}</h5>
 
@@ -75,7 +75,7 @@ function DashboardInfoCard({
             className="mb-4 d-flex justify-content-between align-items-center p-3"
             style={{ borderBottom: '1px solid #eee' }}
           >
-            <div className="me-3 w-100">
+            <div className="me-3">
               <strong>{info.label} :</strong>{' '}
               {editIndex === index ? (
                 <input

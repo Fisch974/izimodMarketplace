@@ -27,14 +27,14 @@ const userFields = [
 
 function User() {
   return (
-    <div className="d-flex">
+    <div>
       {/* Menu aside */}
       <div>
         <Menus_aside userRole="user" />
       </div>
 
       {/* Contenu principal */}
-      <div className="admin-main p-4" style={{ flexGrow: 1 }}>
+      <div style={{ flexGrow: 1 }}>
         <Routes>
           <Route
             path="boarduser"

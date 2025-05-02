@@ -27,7 +27,7 @@ function ProductSeller() {
   };
 
   return (
-    <div className="conteneur_product container-fluid m-5">
+    <div className="">
       <ul className="nav nav-tabs mb-4">
         <li className="nav-item">
           <button
@@ -138,7 +138,7 @@ function ProductSeller() {
       )}
 
       {activeTab === 'onlineProduct' && (
-        <div className="card shadow-lg p-4 col-lg-10 mx-auto">
+        <div className="card shadow-lg p-4 col-lg-10 mx-auto list_product">
           <h3 className="text-center">Liste des Produits en Ligne</h3>
           {/* À compléter */}
         </div>
