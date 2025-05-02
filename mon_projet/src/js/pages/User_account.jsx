@@ -1,16 +1,19 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import React from 'react';
 import '../bootstrap.js';
 import Menus_aside from '../components/aside_menus.jsx';
 import DashboardInfoCard from "../components/Board_Seller_User.jsx"; // ce fichier contient initialSeller et DashboardInfoCard
-
+import PurchaseUser from "../components/Purchase_User.jsx";
+import PaimentUser from "../components/Paiment_user.jsx";
+import ReviewUser from "../components/Review_User.jsx";
 // 👇 Données fictives pour l'utilisateur
 const initialUser = {
   nom: 'Durand',
   prenom: 'Lucas',
   adresse: '14 avenue des Lilas',
   telephone: '0654789652',
-  adresseMail: 'lucas.durand@mail.com'
+  adresseMail: 'lucas.durand@mail.com',
+  motdepasse: '********'
 };
 
 // 👇 Champs adaptés à l'utilisateur (pas besoin du nomMagasin)
@@ -24,15 +27,16 @@ const userFields = [
 
 function User() {
   return (
-    <div className="d-flex">
+    <div>
       {/* Menu aside */}
       <div>
         <Menus_aside userRole="user" />
       </div>
 
       {/* Contenu principal */}
-      <div className="admin-main p-4" style={{ flexGrow: 1 }}>
+      <div style={{ flexGrow: 1 }}>
         <Routes>
+          <Route index element={<Navigate to="boarduser" replace />} />
           <Route
             path="boarduser"
             element={
@@ -43,6 +47,9 @@ function User() {
               />
             }
           />
+          <Route path="purchaseuser" element={<PurchaseUser />} />
+          <Route path="paimentuser" element={<PaimentUser />} />
+          <Route path="reviewuser" element={<ReviewUser />} />
         </Routes>
       </div>
     </div>

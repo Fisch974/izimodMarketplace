@@ -1,0 +1,23 @@
+@import 'bootstrap';
+@import '_root';
+
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == 'xs' {
+      @media (max-width: (var(--breakpoint-xs) - 1)) { // Moins de 576px
+        @content;
+      }
+    } @else if $breakpoint == 'sm' {
+      @media (min-width: var(--breakpoint-sm)) { // À partir de 576px
+        @content;
+      }
+    } @else if $breakpoint == 'md' { // 768px
+      @media (min-width: var(--breakpoint-md)) { @content; }
+    } @else if $breakpoint == 'lg' { // 992px
+      @media (min-width: var(--breakpoint-lg)) { @content; }
+    } @else if $breakpoint == 'xl' {
+      @media (min-width: var(--breakpoint-xl)) { @content; }
+    } @else if $breakpoint == 'xxl' {
+      @media (min-width: var(--breakpoint-xxl)) { @content; }
+    }
+}

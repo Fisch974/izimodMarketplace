@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
-function UserReviewSeller() {
+function ReviewSeller() {
   // Données fictives avec le produit
   const [reviews] = useState([
     {
@@ -44,7 +44,7 @@ function UserReviewSeller() {
   };
 
   return (
-    <div className="conteneur_product container-fluid m-5">
+    <div className="conteneur_review">
       <h2 className="mb-4">📝 Avis des clients</h2>
       {reviews.length === 0 ? (
         <p>Aucun avis pour le moment.</p>
@@ -69,4 +69,4 @@ function UserReviewSeller() {
   );
 }
 
-export default UserReviewSeller;
+export default ReviewSeller;

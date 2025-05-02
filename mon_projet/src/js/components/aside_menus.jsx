@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React from 'react';
-import { User, ShoppingCart, Star, LayoutDashboard, ShieldUser, ScanBarcode, OctagonAlert, ChartLine } from 'lucide-react';
+import { User, ShoppingCart, Star, LayoutDashboard, ShieldUser, ScanBarcode, OctagonAlert, ChartLine, CreditCard, Menu  } from 'lucide-react';
 import '../bootstrap.js';
 
 const users = [
@@ -28,10 +28,10 @@ const menus = {
         { to: "/seller/reviewseller", label: "Avis", icon: Star }
     ],
     user: [
-        { to: "/user/boarduser", label: "Mon Profil", icon: ShieldUser },
-        { to: "/user/orders", label: "Achats", icon: ShoppingCart },
-        { to: "/user/paiment", label: "Paiement", icon: Star },
-        { to: "/user/reviews", label: "Mes Avis", icon: Star }
+        { to: "/users/boarduser", label: "Mon Profil", icon: ShieldUser },
+        { to: "/users/purchaseuser", label: "Achats", icon: ShoppingCart },
+        { to: "/users/paimentuser", label: "Paiement", icon: CreditCard },
+        { to: "/users/reviewuser", label: "Mes Avis", icon: Star }
     ]
 };
 
@@ -39,28 +39,37 @@ function Menus_aside({ userRole = 'admin' }) {
     const currentUser = users.find(user => user.role === userRole);
 
     return (
-        <aside className="sidebar">
-            <div className="pb-5 d-flex align-items-start flex-column">
-                {currentUser && (
-                    <div className="d-flex flex-column">
-                        <span className="badge bg-primary mb-1" style={{ width: 'fit-content' }}>{userRole.toUpperCase()}</span>
-                        <p className="mb-0">{currentUser.prenom} {currentUser.nom}</p>
-                    </div>
-                )}
+        <>
+            <button className="btn btn-primary m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Menus </button>
+
+            <div className="sidebar offcanvas offcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+                <div className="offcanvas-header">
+                    <aside className="" >
+                        <div className="d-flex align-items-start flex-column">
+                            {currentUser && (
+                                <div className="d-flex flex-column text-white">
+                                    <span className="badge bg-primary mb-1" style={{ width: 'fit-content' }}>{userRole.toUpperCase()}</span>
+                                    <p className="mb-0">{currentUser.prenom} {currentUser.nom}</p>
+                                </div>
+                            )}
+                        </div>
+                        <div className="menus">
+                            <ul>
+                                {menus[userRole]?.map((item, index) => (
+                                    <li key={index}>
+                                        <Link to={item.to}>
+                                            {React.createElement(item.icon, { size: 18, style: { marginRight: '8px' } })}
+                                            {item.label}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </aside>
+                </div>          
             </div>
-            <div className="menus">
-                <ul>
-                    {menus[userRole]?.map((item, index) => (
-                        <li key={index}>
-                            <Link to={item.to}>
-                                {React.createElement(item.icon, { size: 18, style: { marginRight: '8px' } })}
-                                {item.label}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </aside>
+        </>
+        
     );
 }
 

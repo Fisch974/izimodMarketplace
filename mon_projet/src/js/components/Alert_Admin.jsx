@@ -19,8 +19,8 @@ function Alerts() {
     };
 
     return (
-        <div className="conteneur_product container-fluid m-5">
-            <h2 className="mb-4">Alertes de sécurité</h2>
+        <div className="m-5">
+            <h2 className="mb-5">Alertes de sécurité</h2>
             {alerts.length === 0 ? (
                 <p>Aucune alerte pour le moment.</p>
             ) : (
@@ -28,7 +28,7 @@ function Alerts() {
                     {alerts.map(alert => (
                         <li key={alert.id} className={`list-group-item d-flex justify-content-between align-items-start ${alert.status === 'Non lu' ? 'bg-warning-subtle' : ''}`}>
                             <div>
-                                <h6 className="mb-1"><strong>{alert.type}</strong></h6>
+                                <h6 className="mb-3"><strong>{alert.type}</strong></h6>
                                 <p className="mb-1">{alert.message}</p>
                                 <small className="text-muted">Statut : {alert.status}</small>
                             </div>

@@ -37,7 +37,7 @@ const commandes = [
   
     return (
       <>
-        <div className="container-fluid m-4 conteneur_orders">
+        <div className="">
           
           {/* Onglets */}
           <div className="nav nav-tabs mb-5">
