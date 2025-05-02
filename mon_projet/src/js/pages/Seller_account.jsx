@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import React from 'react';
 import '../bootstrap.js';
 import Menus_aside from '../components/aside_menus.jsx';
@@ -20,6 +20,7 @@ function Sellers() {
             {/* Contenu principal */}
             <div>
                 <Routes>
+                    <Route index element={<Navigate to="boardseller" replace />} />
                     <Route path="boardseller" element={<DashboardInfoCard />} />
                     <Route path="orderseller" element={<Orders_seller />} />
                     <Route path="productseller" element={<ProductSeller />} />
