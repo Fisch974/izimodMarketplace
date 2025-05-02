@@ -46,12 +46,12 @@ function Orders({ magasin }) {
 
 
   return (
-    <div className="conteneur_product container-fluid m-5">
-      <h2 className="mb-4">
+    <div className="commande_admin">
+      <h2 className="m-5 ">
         {magasin ? `Commandes du magasin : ${magasin}` : 'Toutes les commandes'} - {activeTab}
       </h2>
 
-      <ul className="nav nav-tabs mb-3">
+      <ul className="nav nav-tabs mb-5">
         {['Expédiée', 'Payée', 'En attente', 'Annulée'].map(tab => (
           <li className="nav-item" key={tab}>
             <button
@@ -64,8 +64,8 @@ function Orders({ magasin }) {
         ))}
       </ul>
 
-      <div style={{ height: '450px', overflowY: 'auto' }}>
-        <table className="table table-bordered table-striped mb-0" style={{ tableLayout: 'fixed' }}>
+      <div id='' style={{ height: '450px', overflowY: 'auto' }}>
+        <table className="table table-bordered table-striped" style={{ tableLayout: 'fixed' }}>
           <thead>
             <tr>
               <th style={{ width: '10%' }}>ID</th>

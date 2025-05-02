@@ -7,7 +7,7 @@ import Orders_seller from "../components/Orders_Seller.jsx";
 import ProductSeller from "../components/Product_seller.jsx";
 import AlertSeller from "../components/Alert_Seller.jsx";
 import StatsSeller from "../components/Stats_Seller.jsx";
-import UserReviewSeller from "../components/User_Review_Seller.jsx";
+import ReviewSeller from "../components/Review_Seller.jsx";
 
 function Sellers() {
     return (

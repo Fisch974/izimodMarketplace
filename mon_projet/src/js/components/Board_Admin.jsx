@@ -29,8 +29,8 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
 function DashBoard() {
   return (
-    <div className="conteneur-dash">
-      <div className="container py-4">
+    <div className="">
+      <div className="py-4">
         <h2 className="mb-4">Tableau de Bord</h2>
 
         {/* Cartes résumées */}
@@ -103,7 +103,7 @@ function DashBoard() {
         </div>
 
         {/* Graphiques et résumés supplémentaires */}
-        <div className="row py-4">
+        <div className="row py-4 graph">
           <div className="col-md-6">
             <div className="card p-4">
               <h5>Graphique des Ventes (Simulation)</h5>
@@ -124,7 +124,7 @@ function DashBoard() {
         </div>
 
         <div className='graph'>
-          <div className="bg-white shadow rounded p-4" style={{ width: '350px' }}>
+          <div className="bg-white shadow rounded p-4 graph-rond" style={{ width: '350px' }}>
             <h5 className="mb-3">Répartition des utilisateurs</h5>
             <PieChart width={300} height={250}>
               <Pie
@@ -145,7 +145,7 @@ function DashBoard() {
             </PieChart>
           </div>
 
-          <div className="bg-white shadow rounded p-4" style={{ width: '350px' }}>
+          <div className="bg-white shadow rounded p-4 graph-rond" style={{ width: '350px' }}>
             <h5 className="mb-3 ">Répartition des ventes</h5>
             <PieChart width={300} height={250}>
               <Pie

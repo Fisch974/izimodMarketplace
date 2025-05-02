@@ -1,11 +1,13 @@
 @import 'bootstrap';
+@import '_mixin';
+
 
 //
 // Custom styles
 //
 
 #root {
-	min-height: 100vh;
+	min-height: 60vh;
 }
 
 body {
@@ -98,51 +100,69 @@ body {
 }
 
 .sidebar {
-	width: 200px;
-	height: 120vh;
-	padding: 10px;
-	padding-top: 70px;
 	font-weight: bold;
 	background: linear-gradient(95deg, #121f6b, #0056b3);
-	color: white;
 
 	a {
-		text-decoration: none;
 		color: white;
-		transition: all 0.3s ease; /* Ajoute une transition fluide */
 	}
-	
+
 	a:hover {
-		color: #0056b3;
-		transform: scale(1.1); /* Légère augmentation de taille */
-	}
-	
-
-	ul {
-		list-style-type: none;
-		padding-left: 0;
-	}
-
-	li {
-		margin-bottom: 1rem;
-	}
-
-	.menus {
-		padding-right: 50px;
+		color: #007bff;
 	}
 }
 
-.admin-main {
+#tab {
+	@include responsive('xs') {
+		height: 200px !important;
+		width: 300px !important;
+	}
+}
+
+.commande_admin {
+	margin: none !important;
+}
+
+/* Personnaliser le fond de l'overlay du offcanvas */
+.offcanvas-backdrop {
+	background-color: rgba(0, 0, 0, 0.1); /* Vous pouvez ajuster l'opacité ou la couleur */
+}
+  
+  /* Personnaliser le fond du sidebar lui-même */
+.offcanvas {
+	background-color: #121f6b; /* Par exemple, bleu foncé, ou toute autre couleur que vous souhaitez */
+}
+  
+
+.graph {
 	display: flex;
-	min-height: 90vh;
-	align-items: center;
-	margin: auto;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+  
+	@include responsive('xs') {
+	  flex-direction: column;
+	  align-items: center;
+	  flex-wrap: wrap;
+	  width: 150px;
+  
+
+	}
 }
+
+.graph-rond {
+	@include responsive('xs') {
+		width: 300px;
+	}
+}
+  
 
 .seller_main {
 	min-height: 100vh;
 	margin: auto;
 }
+
+
 
 .dashboard-container {
 	display: flex;
@@ -301,7 +321,7 @@ table td button:hover {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  max-width: 200px; /* ou ce que tu veux */
+  max-width: 200px;
 }
 
 
@@ -351,6 +371,11 @@ table td button:hover {
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding-right: 10px; /* Pour éviter que le scroll cache le contenu */
+
+
+	@include responsive('xs') {
+		margin: auto;
+	}
   }
   
   /* Pour éviter le scroll horizontal sur mobile */
@@ -445,5 +470,11 @@ table td button:hover {
   
 .conteneur_product {
 	width: 1500px;
+	height: 500px;
+}
+
+.conteneur_paiment {
+	width: 1000px;
+	height: 500px;
 }
   

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+// Données fictives par défaut (vendeur)
 const initialSeller = {
   nom: 'Martin',
   prenom: 'Sophie',
@@ -8,22 +9,45 @@ const initialSeller = {
   adresse: '26 rue de la joie, Batiment B, 2e Etage',
   telephone: '0692453685',
   adresseMail: 'Martin_Sophie@mail.com',
-  nomMagasin: 'JardinPlus'
+  nomMagasin: 'JardinPlus',
+  motDePasse: '********'
 };
 
-const defaultFields = [
-  { key: 'nom', label: 'Nom' },
-  { key: 'prenom', label: 'Prénom' },
-  { key: 'adresse', label: 'Adresse' },
-  { key: 'telephone', label: 'Téléphone' },
-  { key: 'adresseMail', label: 'Mail Professionnel' },
-  { key: 'nomMagasin', label: 'Nom du Magasin' }
-];
+// Fonction pour générer les champs selon le rôle
+const getFieldsByRole = (role) => {
+  const commonFields = [
+    { key: 'nom', label: 'Nom' },
+    { key: 'prenom', label: 'Prénom' },
+    { key: 'adresse', label: 'Adresse' },
+    { key: 'telephone', label: 'Téléphone' },
+    { key: 'motDePasse', label: 'Mot de passe' }
+  ];
 
-function DashboardInfoCard({ title = 'Informations du vendeur', initialData = initialSeller, fields = defaultFields }) {
+  if (role === 'Vendeur') {
+    return [
+      ...commonFields.slice(0, 4),
+      { key: 'adresseMail', label: 'Mail Professionnel' },
+      { key: 'nomMagasin', label: 'Nom du Magasin' },
+      commonFields[4] // mot de passe
+    ];
+  } else {
+    return [
+      ...commonFields.slice(0, 4),
+      { key: 'adresseMail', label: 'Adresse Mail' },
+      commonFields[4] // mot de passe
+    ];
+  }
+};
+
+function DashboardInfoCard({
+  title = 'Informations du vendeur',
+  initialData = initialSeller,
+}) {
   const [formData, setFormData] = useState(initialData);
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState('');
+
+  const fields = getFieldsByRole(formData.role);
 
   const handleEdit = (index, key) => {
     setEditIndex(index);
@@ -55,13 +79,15 @@ function DashboardInfoCard({ title = 'Informations du vendeur', initialData = in
               <strong>{info.label} :</strong>{' '}
               {editIndex === index ? (
                 <input
-                  type="text"
+                  type={info.key === 'motDePasse' ? 'password' : 'text'}
                   className="form-control mt-1"
                   value={editValue}
                   onChange={(e) => setEditValue(e.target.value)}
                 />
               ) : (
-                <span className="fw-normal">{formData[info.key]}</span>
+                <span className="fw-normal">
+                  {info.key === 'motDePasse' ? '********' : formData[info.key]}
+                </span>
               )}
             </div>
 
@@ -87,6 +113,7 @@ function DashboardInfoCard({ title = 'Informations du vendeur', initialData = in
 }
 
 export default DashboardInfoCard;
+
 
 
 
