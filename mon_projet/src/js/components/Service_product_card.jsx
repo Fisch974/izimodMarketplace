@@ -14,37 +14,62 @@ function ProductService() {
     ];
 
     return (
-        <div className=''>
-            <p className='fs-3 fw-bold text-center'>Services à la carte : </p>
+        <div id='sliderServices' className='bg-dark-subtle rounded-bottom-5 p-5 mb-5 mx-5 position-relative'>
+            {/* <p className='fs-3 fw-bold text-center'>Services à la carte : </p> */}
             <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
-            
-            <div className="carousel-inner">
-                {services.map((service, index) => (
-                    <div
-                    key={service.id}
-                    className={`carousel-item position-relative ${index === 0 ? 'active' : ''}`}
-                    >
-                    <img src={service.image} className="d-block w-100" alt={service.title} style={{ height: '350px', objectFit: 'cover' }} />
-                    <div className="position-absolute bottom-0 start-0 w-100 p-3 text-white bg-dark bg-opacity-50">
-                        <h5 className="m-0">{service.title}</h5>
-                        <p className="m-0">{service.description}</p>
-                    </div>
-                    </div>
-                ))}
-            </div>
-            <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="visually-hidden fleche">Previous</span>
-            </button>
-            <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="visually-hidden fleche">Next</span>
-            </button>
-        </div>
 
+                <div className="carousel-inner mb-5">
+                    {services.map((service, index) => (
+                        <div
+                        key={service.id}
+                        className={`carousel-item position-relative ${index === 0 ? 'active' : ''}`}
+                        >
+                            <img src={service.image} className="d-block w-100" alt={service.title} style={{ height: '350px', objectFit: 'cover' }} />
+                            <div className="position-absolute bottom-0 start-0 w-100 p-3 text-white bg-dark bg-opacity-50">
+                                <h5 className="m-0">{service.title}</h5>
+                                <p className="m-//0">{service.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                    <NavigationButtons />
+            </div>
+            <CardGuarantee />
         </div>
-        
     );
+}
+
+const NavigationButtons = () => {
+    return <>
+        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden fleche">Previous</span>
+        </button>
+        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden fleche">Next</span>
+        </button>
+    </>
+}
+
+const CardGuarantee = () => {
+    return <div className="position-absolute top-100 start-50 translate-middle w-100 pb-5">
+        {/* <div className="p-1"></div> */}
+        <div id='guaranteeImages' className="container bg-light w-75 mt-5 pt-3 pb-1 d-flex flex-md-row flex-column justify-content-around text-center text-primary fw-lighter rounded-3 mx-auto">
+            <div>
+                <img src="../../data/icons/delivery-truck.svg" alt="garantie1" className='mb-2' width={64} height={64} />
+                <p>Livraison rapide</p>
+            </div>
+            <div>
+                <img src="../../data/icons/24-hours.svg" alt="garantie2" className='mb-2' width={64} height={64} />
+                <p>Support 24/7</p>
+            </div>
+            <div>
+                <img src="../../data/icons/shield.svg" alt="garantie3" className='mb-2' width={64} height={64} />
+                <p>Paiement sécurisé</p>
+            </div>
+        </div>
+    </div>;
 }
 
 export default ProductService;

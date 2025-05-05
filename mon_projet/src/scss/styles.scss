@@ -34,6 +34,8 @@ body {
 	}
 }
 
+//TODO Slide responsive
+
 .product-grid {
 	display: flex;
 	gap: 1rem;
@@ -130,28 +132,27 @@ body {
 
 /* Personnaliser le fond de l'overlay du offcanvas */
 .offcanvas-backdrop {
-	background-color: rgba(0, 0, 0, 0.1); /* Vous pouvez ajuster l'opacité ou la couleur */
+	background-color: rgba(0, 0, 0, 0.1);
+	/* Vous pouvez ajuster l'opacité ou la couleur */
 }
-  
-  /* Personnaliser le fond du sidebar lui-même */
+
+/* Personnaliser le fond du sidebar lui-même */
 .offcanvas {
-	background-color: #121f6b; /* Par exemple, bleu foncé, ou toute autre couleur que vous souhaitez */
+	background-color: #121f6b;
+	/* Par exemple, bleu foncé, ou toute autre couleur que vous souhaitez */
 }
-  
 
 .graph {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1rem;
-  
-	@include responsive('xs') {
-	  flex-direction: column;
-	  align-items: center;
-	  flex-wrap: wrap;
-	  width: 150px;
-  
 
+	@include responsive('xs') {
+		flex-direction: column;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 150px;
 	}
 }
 
@@ -161,14 +162,11 @@ body {
 	}
 }
 
-
-
 .dashboard-container {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	padding: 20px;
-
 }
 
 h2 {
@@ -258,89 +256,89 @@ table td button:hover {
 	margin-right: 10px;
 }
 
-
 .carousel {
-    width: 70%;
-    max-width: 600px;
-    margin: 0 auto;
+	width: 70%;
+	max-width: 600px;
+	margin: 0 auto;
 }
 
 /* Définir une hauteur fixe ou relative au viewport pour le carousel */
 .carousel-inner {
-    height: 35vh; /* ou 50vh par exemple pour responsive */
+	height: 35vh;
+	/* ou 50vh par exemple pour responsive */
 }
 
 /* Forcer les images à prendre toute la place disponible dans chaque item */
 .carousel-inner .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Recadre sans déformer */
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	/* Recadre sans déformer */
 	border-radius: 5px;
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-    background-color: transparent !important;
-    box-shadow: 0 0 1 0.15rem rgba(0, 123, 255, 0.25); /* ou autre couleur + transparence */
-    outline: none !important;
+	background-color: transparent !important;
+	box-shadow: 0 0 1 0.15rem rgba(0, 123, 255, 0.25);
+	/* ou autre couleur + transparence */
+	outline: none !important;
 }
-
 
 /* Redimensionner le select */
 #inputGroupSelect04 {
-    width: 500px; 
-    height: 35px;
+	width: 500px;
+	height: 35px;
 }
 
 .user-actif {
 	box-shadow: 1px 1px 1px 1px black;
 	border-radius: 5px;
 	background-color: white;
-	background: linear-gradient(95deg, #b8dcfa,  #3297e7);
+	background: linear-gradient(95deg, #b8dcfa, #3297e7);
 }
 
 .affair_actif {
 	box-shadow: 1px 1px 1px 1px black;
 	border-radius: 5px;
 	background-color: white;
-	background: linear-gradient(95deg, #b6fcf6,  #31d1ba);
+	background: linear-gradient(95deg, #b6fcf6, #31d1ba);
 }
 
 .visitor_actif {
 	box-shadow: 1px 1px 1px 1px black;
 	border-radius: 5px;
 	background-color: white;
-	background: linear-gradient(95deg, #fdeade,  #fe8896);
+	background: linear-gradient(95deg, #fdeade, #fe8896);
 }
-
 
 .table td,
 .table th {
-  vertical-align: middle;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  max-width: 200px;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	max-width: 200px;
 }
 
-
 .fixed-card {
-	width: 250px; /* Largeur fixe pour chaque carte */
-	height: 200px; /* Hauteur fixe pour chaque carte */
+	width: 250px;
+	/* Largeur fixe pour chaque carte */
+	height: 200px;
+	/* Hauteur fixe pour chaque carte */
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between; /* Assure que le contenu est bien espacé dans la carte */
-  }
-  
+	justify-content: space-between;
+	/* Assure que le contenu est bien espacé dans la carte */
+}
 
 .card-admin {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-  
+
 .card-admin:hover {
 	box-shadow: 6px 6px 12px 8px rgba(0, 0, 255, 0.2);
 	transform: scale(1.05);
-	
 }
 
 .graph {
@@ -357,14 +355,14 @@ table td button:hover {
 }
 
 .footer-link {
-    text-decoration: none;
-    transition: transform 0.3s ease, color 0.3s ease;
-
+	text-decoration: none;
+	transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .footer-link:hover {
-    color: #0d6efd; /* Bleu Bootstrap */
-    transform: scale(1.05);
+	color: #0d6efd;
+	/* Bleu Bootstrap */
+	transform: scale(1.05);
 }
 
 /* Conteneur de la liste d'utilisateurs */
@@ -372,104 +370,102 @@ table td button:hover {
 	height: 600px;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding-right: 10px; /* Pour éviter que le scroll cache le contenu */
-
+	padding-right: 10px;
+	/* Pour éviter que le scroll cache le contenu */
 
 	@include responsive('xs') {
 		margin: auto;
 	}
-  }
-  
-  /* Pour éviter le scroll horizontal sur mobile */
-  .row.g-3 {
+}
+
+/* Pour éviter le scroll horizontal sur mobile */
+.row.g-3 {
 	margin-right: 0;
 	margin-left: 0;
-  }
-  
+}
 
 /* Conteneur général */
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
-  }
-  
-  /* Style des cartes de review */
-  .review-card {
+}
+
+/* Style des cartes de review */
+.review-card {
 	background-color: #fff;
 	border-radius: 15px;
 	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .review-card:hover {
+}
+
+.review-card:hover {
 	transform: translateY(-10px);
 	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Titre de l'avis (Nom de l'utilisateur) */
-  .review-card .card-title {
+}
+
+/* Titre de l'avis (Nom de l'utilisateur) */
+.review-card .card-title {
 	font-size: 1.25rem;
 	font-weight: bold;
 	color: #333;
-  }
-  
-  /* Nom du magasin (ajouté sous le nom de l'utilisateur) */
-  .review-card .card-subtitle {
+}
+
+/* Nom du magasin (ajouté sous le nom de l'utilisateur) */
+.review-card .card-subtitle {
 	font-size: 1rem;
 	color: #888;
-  }
-  
-  /* Étoiles d'évaluation */
-  .card-subtitle {
+}
+
+/* Étoiles d'évaluation */
+.card-subtitle {
 	font-size: 1rem;
 	color: #f39c12;
-  }
-  
-  /* Texte des avis */
-  .review-card .card-text {
+}
+
+/* Texte des avis */
+.review-card .card-text {
 	font-size: 1rem;
 	color: #555;
 	line-height: 1.5;
-  }
-  
-  /* Onglets */
-  .nav-tabs .nav-link {
+}
+
+/* Onglets */
+.nav-tabs .nav-link {
 	cursor: pointer;
 	font-size: 1.1rem;
-  }
-  
-  /* Onglet actif */
-  .nav-tabs .nav-link.active {
+}
+
+/* Onglet actif */
+.nav-tabs .nav-link.active {
 	font-weight: bold;
 	color: #007bff;
-  }
-  
-  /* Card container responsif */
-  @include responsive('md') {
+}
+
+/* Card container responsif */
+@include responsive('md') {
 	.review-card {
-	  margin: 10px;
+		margin: 10px;
 	}
 }
 
 .carte-vendeur {
 	width: 40%;
 	border-radius: 20px;
+
 	@include responsive('xs') {
 		width: 80%;
 	}
-
 }
 
 .carte-articles {
 	width: 800px;
 	height: 1200px;
-	
 }
 
 .conteneur_orders {
 	width: 1600px;
 }
-  
+
 .conteneur_product {
 	width: 1500px;
 	height: 500px;
@@ -484,15 +480,14 @@ table td button:hover {
 	height: 700px;
 }
 
-.conteneur_alert{
+.conteneur_alert {
 	height: 700px;
 }
-
 
 .conteneur_review {
 	height: 640px;
 }
-  
+
 .conteneur_purchase {
 	height: 630px;
 }
