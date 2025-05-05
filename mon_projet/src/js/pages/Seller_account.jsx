@@ -11,7 +11,7 @@ import ReviewSeller from "../components/Review_Seller.jsx";
 
 function Sellers() {
     return (
-        <div className=''>
+        <div>
             {/* Menu Aside */}
             <div>
                 <Menus_aside userRole="vendeur" />

@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
-import React from 'react';
+import React, { useRef } from 'react';
 import { User, ShoppingCart, Star, LayoutDashboard, ShieldUser, ScanBarcode, OctagonAlert, ChartLine, CreditCard, Menu  } from 'lucide-react';
 import '../bootstrap.js';
 
 const users = [
     { id: 1, nom: 'David', prenom: 'Grey', role: 'admin' },
-    { id: 2, nom: 'Sophie', prenom: 'Martin', role: 'vendeur' },
-    { id: 3, nom: 'Lucas', prenom: 'Durand', role: 'user' }
 ];
+
+const roleLabels = {
+    admin: 'Menu Administrateur',
+    vendeur: 'Menu Vendeur',
+    user: 'Menu Utilisateur'
+};
+
 
 const menus = {
     admin: [
@@ -36,15 +41,34 @@ const menus = {
 };
 
 function Menus_aside({ userRole = 'admin' }) {
+    const offcanvasRef = useRef(null);
     const currentUser = users.find(user => user.role === userRole);
+
+    const handleLinkClick = () => {
+        const offcanvasElement = offcanvasRef.current;
+        if (offcanvasElement) {
+            const offcanvas = bootstrap.Offcanvas.getInstance(offcanvasElement);
+            if (offcanvas) {
+                offcanvas.hide();
+            }
+        }
+    };
+
+    const roleLabels = {
+        admin: 'Menu Administrateur',
+        vendeur: 'Menu Vendeur',
+        user: 'Menu Utilisateur'
+    };
 
     return (
         <>
-            <button className="btn btn-primary m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Menus </button>
+            <button className="btn btn-primary m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                {roleLabels[userRole] || 'Menu'}
+            </button>
 
-            <div className="sidebar offcanvas offcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+            <div ref={offcanvasRef} className="sidebar offcanvas offcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
                 <div className="offcanvas-header">
-                    <aside className="" >
+                    <aside>
                         <div className="d-flex align-items-start flex-column">
                             {currentUser && (
                                 <div className="d-flex flex-column text-white">
@@ -57,7 +81,7 @@ function Menus_aside({ userRole = 'admin' }) {
                             <ul>
                                 {menus[userRole]?.map((item, index) => (
                                     <li key={index}>
-                                        <Link to={item.to}>
+                                        <Link to={item.to} onClick={handleLinkClick}>
                                             {React.createElement(item.icon, { size: 18, style: { marginRight: '8px' } })}
                                             {item.label}
                                         </Link>
@@ -66,12 +90,12 @@ function Menus_aside({ userRole = 'admin' }) {
                             </ul>
                         </div>
                     </aside>
-                </div>          
+                </div>
             </div>
         </>
-        
     );
 }
+
 
 export default Menus_aside;
 

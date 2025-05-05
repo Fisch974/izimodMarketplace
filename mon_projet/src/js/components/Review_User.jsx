@@ -8,21 +8,24 @@ function ReviewUser() {
       note: 5,
       produit: "Nettoyage jardin",
       commentaire: "Excellent service, rapide et efficace !",
-      date: "2024-04-01"
+      date: "2024-04-01",
+      magasin: "Flower Garden"
     },
     {
       id: 2,
       note: 3,
       produit: "Engrais bio",
       commentaire: "Produit correct mais emballage abîmé.",
-      date: "2024-03-28"
+      date: "2024-03-28",
+      magasin: "Jardin Plus"
     },
     {
       id: 3,
       note: 4,
       produit: "Fertilisant fleur",
       commentaire: "Très bon produit, je recommande.",
-      date: "2024-03-20"
+      date: "2024-03-20",
+      magasin: "Destiny Flower"
     },
   ]);
 
@@ -107,6 +110,7 @@ function ReviewUser() {
                   ) : (
                     <>
                       <div className="mb-2">{renderStars(review.note)}</div>
+                      <p><strong>Magasin:</strong> {review.magasin}</p>
                       <p className="mb-1"><strong>Produit :</strong> {review.produit}</p>
                       <p className="card-text">{review.commentaire}</p>
                       <div className="d-flex justify-content-end gap-2">
