@@ -1,0 +1,31 @@
+@import 'bootstrap';
+@import '_root';
+
+// Variables SCSS pour les breakpoints
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1440px;
+
+
+@mixin responsive($breakpoint) {
+    @if $breakpoint == 'xs' {
+      @media (max-width: ($breakpoint-sm - 1)) { // Moins de 576px
+        @content;
+      }
+    } @else if $breakpoint == 'sm' {
+      @media (min-width: $breakpoint-sm) { // À partir de 576px
+        @content;
+      }
+    } @else if $breakpoint == 'md' { // 768px
+      @media (min-width: $breakpoint-md) { @content; }
+    } @else if $breakpoint == 'lg' { // 992px
+      @media (min-width: $breakpoint-lg) { @content; }
+    } @else if $breakpoint == 'xl' {
+      @media (min-width: $breakpoint-xl) { @content; }
+    } @else if $breakpoint == 'xxl' {
+      @media (min-width: $breakpoint-xxl) { @content; }
+    }
+}
