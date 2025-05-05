@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../bootstrap.js';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
-// Simuler quelques données pour le résumé du tableau de bord
-const activeUsers = 238;  // nombre fictif d’utilisateurs actifs
-const totalOrders = 512;  // nombre fictif de commandes
-const totalProducts = 120;  // nombre fictif de produits
-const totalAlerts = 10;  // nombre fictif d'alertes
-const totalReviews = 85;  // nombre fictif d'avis
-const totalRevenue = 3500;  // Chiffre d'affaires total
+const activeUsers = 238;
+const totalOrders = 512;
+const totalProducts = 120;
+const totalAlerts = 10;
+const totalReviews = 85;
+const totalRevenue = 3500;
+
+
 
 const pieData = [
   { name: 'Utilisateurs actifs', value: 238 },
@@ -25,107 +26,126 @@ const pieData2 = [
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
-
-
 function DashBoard() {
+  const users = [
+    { id: 1, nom: 'David', prenom: 'Grey', role: 'admin' },
+  ];
+
+  
   return (
-    <div className="">
+    <>
+      <div className=" m-5">
       <div className="py-4">
-        <h2 className="mb-4">Tableau de Bord</h2>
+        <h2 className="mb-4 text-primary fw-bold">TABLEAU DE BORD ADMINISTRATEUR</h2>
+        <h3 className='text-center mb-3 bg-primary w-25 m-auto text-white rounded'>
+          {users.map((admin, index) => (
+            <div key={index}>ADMIN: {admin.nom} {admin.prenom}</div>
+          ))}
+        </h3>
 
         {/* Cartes résumées */}
         <div className="row g-4 justify-content-center">
-          {/* Utilisateurs */}
-          <div className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-            <div className="card text-white mb-3 fixed-card  card-admin">
-              <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Utilisateurs</h5>
-                <p className="fs-4 fw-bold flex-grow-1">{activeUsers}</p>
-                <Link to="/admin/usersList" className="btn btn-light mt-auto">les utilisateurs</Link>
-              </div>
-            </div>
-          </div>
 
-          {/* Commandes */}
-          <div className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-            <div className="card text-white mb-3 fixed-card card-admin">
+          {/* Carte réutilisable avec lien */}
+          <Link to="/admin/usersList" className="text-decoration-none col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <div className="card text-white mb-3 fixed-card card-admin w-100 bg-primary">
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Commandes</h5>
-                <p className="fs-4 fw-bold flex-grow-1">{totalOrders}</p>
-                <Link to="/admin/orders" className="btn btn-light mt-auto">les commandes</Link>
+                <div className='m-auto'>
+                  <h5 className="card-title">UTILISATEURS</h5>
+                  <p className="fs-4 fw-bold flex-grow-1 text-center">{activeUsers}</p>
+                </div>
+                
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Produits */}
-          <div className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-            <div className="card text-white mb-3 fixed-card  card-admin">
+          <Link to="/admin/orders" className="text-decoration-none col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <div className="card text-white mb-3 fixed-card card-admin w-100 bg-success">
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Produits</h5>
-                <p className="fs-4 fw-bold flex-grow-1">{totalProducts}</p>
-                <Link to="/admin/products" className="btn btn-light mt-auto">les produits</Link>
+                <div className='m-auto'>
+                  <h5 className="card-title">COMMANDES</h5>
+                  <p className="fs-4 fw-bold flex-grow-1 text-center">{totalOrders}</p>
+                </div>
+                
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Alertes */}
-          <div className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-            <div className="card text-white mb-3 fixed-card card-admin">
+          <Link to="/admin/products" className="text-decoration-none col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <div className="card text-white mb-3 fixed-card card-admin w-100 bg-secondary">
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Alertes</h5>
-                <p className="fs-4 fw-bold flex-grow-1">{totalAlerts}</p>
-                <Link to="/admin/alerts" className="btn btn-light mt-auto">les alertes</Link>
+                <div className='m-auto'>
+                  <h5 className="card-title">PRODUITS</h5>
+                  <p className="fs-4 fw-bold flex-grow-1 text-center">{totalProducts}</p>
+                </div>
+                
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Statistiques */}
-          <div className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-            <div className="card text-white mb-3 fixed-card card-admin">
+          <Link to="/admin/alerts" className="text-decoration-none col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <div className="card text-white mb-3 fixed-card card-admin w-100 bg-danger">
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Statistiques</h5>
-                <p className="fs-4 fw-bold flex-grow-1">{totalRevenue.toLocaleString()} €</p>
-                <Link to="/admin/stats" className="btn btn-light mt-auto">les statistiques</Link>
+                <div className='m-auto'>
+                  <h5 className="card-title">ALERTES</h5>
+                  <p className="fs-4 fw-bold flex-grow-1 text-center">{totalAlerts}</p>
+                </div>
+                
               </div>
             </div>
-          </div>
+          </Link>
 
-          {/* Avis */}
-          <div className="col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
-            <div className="card text-white mb-3 fixed-card card-admin">
+          <Link to="/admin/stats" className="text-decoration-none col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <div className="card text-white mb-3 fixed-card card-admin w-100 bg-warning">
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">Avis</h5>
-                <p className="fs-4 fw-bold flex-grow-1">{totalReviews}</p>
-                <Link to="/admin/avis" className="btn btn-light mt-auto">les avis</Link>
+                <div className='m-auto'>
+                  <h5 className="card-title">STATISTIQUES</h5>
+                  <p className="fs-4 fw-bold flex-grow-1 text-center">{totalRevenue.toLocaleString()} €</p>
+                </div>
+                
               </div>
             </div>
-          </div>
+          </Link>
+
+          <Link to="/admin/avis" className="text-decoration-none col-12 col-sm-6 col-md-4 col-lg-2 d-flex justify-content-center">
+            <div className="card text-white mb-3 fixed-card card-admin w-100 bg-info">
+              <div className="card-body d-flex flex-column">
+                <div className='m-auto'>
+                  <h5 className="card-title">AVIS CLIENTS</h5>
+                  <p className="fs-4 fw-bold flex-grow-1 text-center">{totalReviews}</p>
+                </div>
+                
+              </div>
+            </div>
+          </Link>
+
         </div>
 
         {/* Graphiques et résumés supplémentaires */}
         <div className="row py-4 graph">
           <div className="col-md-6">
-            <div className="card p-4">
-              <h5>Graphique des Ventes (Simulation)</h5>
-              <div style={{ height: '200px', backgroundColor: '#f1f1f1' }}>
+            <div className="card p-2">
+              <h5 className='fw-bold text-center bg-info'>Graphique des Ventes (Simulation)</h5>
+              <div style={{ height: '200px', backgroundColor: '#f1f1f1', }} className='rounded'>
                 <p style={{ textAlign: 'center', paddingTop: '80px' }}>Graphique Ventes</p>
               </div>
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="card p-4">
-              <h5>Répartition des Produits par Catégorie (Simulation)</h5>
-              <div style={{ height: '200px', backgroundColor: '#f1f1f1' }}>
+            <div className="card p-2">
+              <h5 className='fw-bold text-center bg-info'>Répartition des Produits par Catégorie (Simulation)</h5>
+              <div style={{ height: '200px', backgroundColor: '#f1f1f1' }} className='rounded'>
                 <p style={{ textAlign: 'center', paddingTop: '80px' }}>Graphique Catégories</p>
               </div>
             </div>
           </div>
         </div>
 
+        {/* Graphiques en camembert */}
         <div className='graph'>
           <div className="bg-white shadow rounded p-4 graph-rond" style={{ width: '350px' }}>
-            <h5 className="mb-3">Répartition des utilisateurs</h5>
+            <h5 className="mb-3 ">Répartition des utilisateurs</h5>
             <PieChart width={300} height={250}>
               <Pie
                 data={pieData}
@@ -166,11 +186,14 @@ function DashBoard() {
             </PieChart>
           </div>
         </div>
-        
+
       </div>
     </div>
+    </>
+    
   );
 }
 
 export default DashBoard;
+
 

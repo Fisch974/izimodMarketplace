@@ -16,7 +16,7 @@ const initialUser = {
   motdepasse: '********'
 };
 
-// 👇 Champs adaptés à l'utilisateur (pas besoin du nomMagasin)
+// 👇 Champs adaptés à l'utilisateur
 const userFields = [
   { key: 'nom', label: 'Nom' },
   { key: 'prenom', label: 'Prénom' },
@@ -41,7 +41,7 @@ function User() {
             path="boarduser"
             element={
               <DashboardInfoCard
-                title="Informations de l'utilisateur"
+                title="Informations de l'utilisateur: "
                 initialData={initialUser}
                 fields={userFields}
               />

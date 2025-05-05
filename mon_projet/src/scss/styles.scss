@@ -1,10 +1,15 @@
 @import 'bootstrap';
-@import '_mixin';
+@import '_mixins';
+@import '_root';
 
 
 //
 // Custom styles
 //
+
+* {
+	box-sizing: border-box;
+}
 
 #root {
 	min-height: 60vh;
@@ -330,7 +335,6 @@ table td button:hover {
 
 .card-admin {
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
-	background: linear-gradient(95deg, #121f6b, #0056b3);
 }
   
 .card-admin:hover {
@@ -344,8 +348,12 @@ table td button:hover {
 	gap: 50px;
 }
 
+.card-graph {
+	background: linear-gradient(95deg, #121f6b, #3791f1);
+}
+
 .footer {
-	background: linear-gradient(95deg, #121f6b, #0056b3);
+	background: linear-gradient(95deg, #121f6b, #3791f1);
 }
 
 .footer-link {
@@ -437,26 +445,20 @@ table td button:hover {
   }
   
   /* Card container responsif */
-  @media (max-width: 768px) {
+  @include responsive('md') {
 	.review-card {
 	  margin: 10px;
 	}
 }
 
 .carte-vendeur {
-	background: linear-gradient(95deg, #121f6b, #0056b3);
-	color: white;
-	width: 400px;
-	margin: auto;
-	margin-bottom: 50px;
-	
-
+	width: 40%;
+	border-radius: 20px;
 	@include responsive('xs') {
-		width: 300px !important;
+		width: 80%;
 	}
+
 }
-
-
 
 .carte-articles {
 	width: 800px;
@@ -488,7 +490,7 @@ table td button:hover {
 
 
 .conteneur_review {
-	height: 630px;
+	height: 640px;
 }
   
 .conteneur_purchase {

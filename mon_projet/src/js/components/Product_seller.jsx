@@ -85,7 +85,7 @@ function ProductSeller() {
                   </div>
 
                   <div className="col-12">
-                    <label htmlFor="imageInput" className="form-label fw-bold">Ajouter jusqu'à 3 images</label>
+                    <label htmlFor="imageInput" className="form-label fw-bold">Ajouter 1 images de votre produit</label>
                     <input
                       className="form-control"
                       type="file"
@@ -93,7 +93,7 @@ function ProductSeller() {
                       multiple
                       accept="image/*"
                       onChange={handleImageChange}
-                      disabled={images.length >= 3}
+                      disabled={images.length >= 1}
                     />
                     <label>* Image au format JPEG</label>
                   </div>
@@ -107,22 +107,22 @@ function ProductSeller() {
           </div>
 
           {/* Aperçu à droite de la card */}
-          <div className="col-lg-3 ms-lg-3 mt-4 mt-lg-0">
-            {[0, 1, 2].map((slot) => (
+          <div className="col-lg-3">
+            {[0].map((slot) => (
               <div className="card mb-3 shadow-sm" key={slot}>
-                <div className="card-header text-center">Image {slot + 1}</div>
-                <div className="card-body d-flex justify-content-center align-items-center" style={{ height: '180px' }}>
+                <div className="card-header text-center bg-info">Image {slot + 1}</div>
+                <div className="card-body d-flex justify-content-center align-items-center" style={{ height: '200px'}}>
                   {images[slot] ? (
                     <div className="position-relative w-100">
                       <img
                         src={images[slot].preview}
                         alt={`preview-${slot}`}
                         className="img-fluid rounded"
-                        style={{ objectFit: 'cover', width: '100%', height: '150px' }}
+                        style={{ objectFit: 'contain', width: '100%', height: '200px' }}
                       />
                       <button
                         type="button"
-                        className="btn-close position-absolute top-0 end-0 m-2"
+                        className="btn-close position-absolute top-0 end-0 m-2 bg-white"
                         aria-label="Supprimer"
                         onClick={() => removeImage(slot)}
                       ></button>

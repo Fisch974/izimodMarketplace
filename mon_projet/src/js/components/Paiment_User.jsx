@@ -56,17 +56,9 @@ function PaimentUser() {
 
   return (
     <div className="conteneur_paiment_user m-auto">
-      <h4 className="mb-3">Paiement</h4>
+      <h4 className="mb-3 text-center">Paiement</h4>
 
       <ul className="nav nav-tabs mb-3">
-        <li className="nav-item">
-          <button
-            className={`nav-link ${activeTab === 'ajouter' ? 'active' : ''}`}
-            onClick={() => setActiveTab('ajouter')}
-          >
-            Ajouter une carte
-          </button>
-        </li>
         <li className="nav-item">
           <button
             className={`nav-link ${activeTab === 'voir' ? 'active' : ''}`}
@@ -75,7 +67,16 @@ function PaimentUser() {
             Voir cartes enregistrées
           </button>
         </li>
+        <li className="nav-item">
+          <button
+            className={`nav-link ${activeTab === 'ajouter' ? 'active' : ''}`}
+            onClick={() => setActiveTab('ajouter')}
+          >
+            Ajouter un moyen de paiment
+          </button>
+        </li>
       </ul>
+
 
       {activeTab === 'ajouter' && (
         <form onSubmit={handleSubmit}>
