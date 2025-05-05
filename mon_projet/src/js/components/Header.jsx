@@ -30,8 +30,8 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-white shadow stick-top">
-        {isClicked ? "": <SubHeader />}
+      <header className="bg-dark-subtle shadow stick-top">
+        {isClicked ? "": <SupHeader />}
         <nav className="navbar navbar-expand-md container p-3">
           <div className="container-fluid d-flex align-items-center justify-content-between">
 
@@ -58,7 +58,7 @@ const Header = () => {
 
             <div className="d-flex align-items-center justify-content-center">
               <button
-                className="bg-white text-black border-0 d-md-none"
+                className="bg-transparent text-black border-0 d-md-none"
                 onClick={toggleMenu}
                 aria-label="Ouvrir le menu"
               >
@@ -69,17 +69,17 @@ const Header = () => {
               <div className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
                 <ul className="navbar-nav text-center mb-3 mb-md-0 d-md-flex flex-md-row flex-column gap-3 navbar-nav-scroll">
                   <li className="nav-item me-auto">
-                    <a className="nav-link text-primary btn btn-primary shadow" href="login">
+                    <a className="nav-link text-primary btn btn-transparent shadow-md" href="login">
                       <User /> <span className="d-md-none">Connexion</span>
                     </a>
                   </li>
                   <li className="nav-item me-auto" onClick={notImplemented}>
-                    <a className="nav-link text-primary btn btn-primary shadow" href="#">
+                    <a className="nav-link text-primary btn btn-transparent shadow-md" href="#">
                       <LogOut /> <span className="d-md-none">Déconnexion</span>
                     </a>
                   </li>
                   <li className="nav-item me-auto" onClick={toggleClick}>
-                    <a className="nav-link text-primary btn btn-primary shadow" href="#">
+                    <a className="nav-link text-primary btn btn-transparent shadow-md" href="#">
                       {isClicked ? <PanelTopOpen /> : <PanelTopClose />} <span className="d-md-none">Afficher/Masquer la barre du haut</span>
                     </a>
                   </li>
@@ -88,14 +88,15 @@ const Header = () => {
             </div>
           </div>
         </nav>
+        <SubHeader />
       </header>
     </>
   );
 }
 
-const SubHeader = () => {
-  return <nav className="navbar bg-primary d-flex flex-md-row flex-column" onClick={notImplemented}>
-    <div className="ms-3 mb-md-0 mb-3">
+const SupHeader = () => {
+  return <nav className="navbar bg-primary d-flex flex-md-row flex-column justify-content-around" onClick={notImplemented}>
+    <div className="mb-md-0 mb-3">
       <span className="navbar-text text-light">
         <CheckCheck /> Livraison offerte à partir de 120 €
       </span>
@@ -106,6 +107,25 @@ const SubHeader = () => {
       </div>
       <div>
         Besoin d'aide <HelpCircle />
+      </div>
+    </div>
+  </nav>
+}
+
+const SubHeader = () => {
+  return <nav className="navbar bg-light d-flex flex-md-row flex-column justify-content-around align-items-center">
+    <div className="mb-md-0 mb-3 d-flex align-items-center gap-3">
+      <button className="btn btn-light shadow mb-3 text-primary">
+        <Menu size={20} className="me-1" /> Catégories
+      </button>
+      <Link style={{textDecoration: 'none'}} to="/" aria-selected="true">Accueil</Link>
+      <Link style={{textDecoration: 'none'}} to="login" aria-selected="false" className="text-dark">Boutique</Link>
+      <Link style={{textDecoration: 'none'}} to="login" aria-selected="false" className="text-dark">Produits</Link>
+      <Link style={{textDecoration: 'none'}} to="https://github.com/Fisch974/izimodMarketplace/tree/develop" target="_blank" aria-selected="false" className="text-dark">À propos</Link>
+    </div>
+    <div className="d-flex flex-md-row flex-column me-3 gap-3">
+      <div>
+        Contact : <span className="text-primary">(692) 123 123</span>
       </div>
     </div>
   </nav>
