@@ -33,6 +33,8 @@ const Header = () => {
   const toggleClick = () => {
     setIsClicked(!isClicked);
   }
+  
+  const shopOwner = "Fisch";
 
   return (
     <>
@@ -43,10 +45,10 @@ const Header = () => {
 
             <div className="d-flex align-items-center">
               <Link to="/">
-                <img src="../../data/logo/iconBlue.svg" width={64} height={64} className="me-2" alt="Logo" />
+                <img src="../../data/logo/iconBlue.svg" width={64} height={64} className="me-3" alt="Logo" />
               </Link>
-              <Link to="/" className="navbar-link link fw-bold fs-5 d-none d-md-block">
-                iziMOD<span className="d-lg-inline d-md-none"> | VOTRE Marketplace</span>
+              <Link to="/" className="navbar-link link fw-bold fs-5 d-none d-md-block text-decoration-none">
+                iziMOD<span className="d-lg-inline d-md-none"> | {shopOwner}'s place</span>
               </Link>
             </div>
 
@@ -124,10 +126,10 @@ const SubHeader = () => {
       <button className="btn btn-light shadow mb-3 text-primary">
         <Menu size={20} className="me-1" /> Catégories
       </button>
-      <Link style={{textDecoration: 'none'}} to="/" aria-selected="true">Accueil</Link>
-      <Link style={{textDecoration: 'none'}} to="login" aria-selected="false" className="text-dark">Boutique</Link>
-      <Link style={{textDecoration: 'none'}} to="login" aria-selected="false" className="text-dark">Produits</Link>
-      <Link style={{textDecoration: 'none'}} to="https://github.com/Fisch974/izimodMarketplace/tree/develop" target="_blank" aria-selected="false" className="text-dark">À propos</Link>
+      <Link className="text-decoration-none menuLink" to="/" aria-selected="true">Accueil</Link>
+      <Link className="text-decoration-none menuLink text-black-50" to="login" aria-selected="false">Boutique</Link>
+      <Link className="text-decoration-none menuLink text-black-50" to="login" aria-selected="false">Produits</Link>
+      <Link className="text-decoration-none menuLink text-black-50" to="https://github.com/Fisch974/izimodMarketplace/tree/develop" target="_blank" aria-selected="false">À propos</Link>
     </div>
     <div className="d-flex flex-md-row flex-column me-3 gap-3">
       <div>
