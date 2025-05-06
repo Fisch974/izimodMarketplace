@@ -1,6 +1,10 @@
 import React from 'react';
 import '../bootstrap.js';
 
+
+// Footer component to display the footer of the page
+// This component is responsible for showing the footer links and copyright information
+// It includes links to privacy policy, terms of use, about page, and contact page
 function Footer_page() {
     return (
         <footer className="text-white py-4 mt-auto footer">

@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+
+// Dummy data for purchases
+// This data is used to simulate the purchases made by the user
+// It includes product name, store name, purchase date, and price
 const dummyPurchases = Array.from({ length: 23 }).map((_, index) => ({
   id: index + 1,
   produit: `Produit ${index + 1}`,
@@ -9,6 +13,9 @@ const dummyPurchases = Array.from({ length: 23 }).map((_, index) => ({
   prix: (Math.random() * 100).toFixed(2),
 }));
 
+
+// PurchaseUser component to display and manage user purchases
+// This component is responsible for showing the list of purchases made by the user
 function PurchaseUser() {
   const [currentPage, setCurrentPage] = useState(1);
   const purchasesPerPage = 10;

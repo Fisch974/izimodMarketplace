@@ -5,6 +5,9 @@ import desherb from '../../data/desherb.jpg';
 import plantation from '../../data/plantation-automne.jpg';
 import taille from '../../data/taille2.jpeg';
 
+
+// ProductService component to display a carousel of services
+// This component is responsible for showing the services available for selection
 function ProductService() {
     const services = [
         { id: 1, title: "Tonte de pelouse", description: "Service de tonte de pelouse de haute qualité.", price: 30, image: tonte },

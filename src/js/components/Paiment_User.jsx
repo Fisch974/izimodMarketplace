@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import '../bootstrap.js';
 import { sendAlert } from './Alert_System.jsx';
 
+
+// PaimentUser component to display and manage user payment methods
+// This component is responsible for showing the payment methods and allowing the user to add a new payment method
 function PaimentUser() {
   const [activeTab, setActiveTab] = useState('ajouter');
   const [cardData, setCardData] = useState({

@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import '../bootstrap.js';
 import { Menu, Store, Brush, SquarePlus, Radio, RectangleEllipsis, ArrowDownToLine } from 'lucide-react';
 
-
+// Function to create a new product seller
+// This component is responsible for creating a new product and managing the images associated with it
 function ProductSeller() {
   const [activeTab, setActiveTab] = useState('createProduct');
   const [images, setImages] = useState([]);

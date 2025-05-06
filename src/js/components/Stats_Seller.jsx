@@ -5,6 +5,11 @@ import {
 } from 'recharts';
 import '../bootstrap.js';
 
+
+// StatsSeller component to display statistics for the seller
+// This component is responsible for showing the statistics of the seller's products and visits
+// It includes charts for daily, monthly, and yearly product sales
+// as well as a real-time visitor counter
 function StatsSeller() {
   // Données simulées
   const [liveVisitors, setLiveVisitors] = useState(0);

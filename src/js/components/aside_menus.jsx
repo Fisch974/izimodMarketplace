@@ -3,17 +3,19 @@ import React, { useRef } from 'react';
 import { User, ShoppingCart, Star, LayoutDashboard, ShieldUser, ScanBarcode, OctagonAlert, ChartLine, CreditCard, Menu  } from 'lucide-react';
 import '../bootstrap.js';
 
+// Initial list of users with their roles and names
 const users = [
     { id: 1, nom: 'David', prenom: 'Grey', role: 'admin' },
 ];
 
+// Initial list of sellers with their roles and names
 const roleLabels = {
     admin: 'Menu Administrateur',
     vendeur: 'Menu Vendeur',
     user: 'Menu Utilisateur'
 };
 
-
+// Menu items for different user roles
 const menus = {
     admin: [
         { to: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -40,6 +42,7 @@ const menus = {
     ]
 };
 
+// Main component to display the sidebar menu based on user role and seller role
 function Menus_aside({ userRole = 'admin' }) {
     const offcanvasRef = useRef(null);
     const currentUser = users.find(user => user.role === userRole);
@@ -60,6 +63,7 @@ function Menus_aside({ userRole = 'admin' }) {
         user: 'Menu Utilisateur'
     };
 
+    // Function to handle the click event on the menu links
     return (
         <>
             <button className="btn btn-primary m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">

@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+
+// ReviewSeller component to display and manage customer reviews for a seller
+// This component is responsible for showing customer reviews related to the seller's products and services
 function ReviewSeller() {
-  // Données fictives avec le produit
+
   const [reviews] = useState([
     {
       id: 1,
@@ -30,7 +33,8 @@ function ReviewSeller() {
     },
   ]);
 
-  // Fonction pour afficher les étoiles
+  // Function to render stars based on the rating
+  // This function takes a rating (note) and returns an array of star elements
   const renderStars = (note) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-// Librairie d'icônes
+
 import {
   CheckCheck,
   ChevronDown,
@@ -14,16 +14,22 @@ import {
   PanelTopOpen
 } from "lucide-react";
 
+
+// Function to handle the click event on the "Marquer comme traité" button
 const Header = () => {
-  // useState pour gérer l'état (ouvert/fermé) du menu
+  
+  // Function to handle the click event on the "Marquer comme traité" button
   const [isOpen, setIsOpen] = useState(false);
-  // Fonction fléchée qui altère l'état du menu (du useState)
+  
+  // Function to handle the click event on the "Marquer comme traité" button
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   }
-  // Trigger l'icône pour affichage ou non de la deuxième
+  
+  // Function to handle the click event on the "Marquer comme traité" button
   const [isClicked, setIsClicked] = useState(false);
-  // Fonction fléchée qui altère l'état du menu (du useState)
+  
+  // Function to handle the click event on the "Marquer comme traité" button
   const toggleClick = () => {
     setIsClicked(!isClicked);
   }

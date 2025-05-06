@@ -9,6 +9,9 @@ import AlertSeller from "../components/Alert_Seller.jsx";
 import StatsSeller from "../components/Stats_Seller.jsx";
 import ReviewSeller from "../components/Review_Seller.jsx";
 
+
+// Components
+// This component is responsible for rendering the seller account page with its respective routes and components
 function Sellers() {
     return (
         <div>

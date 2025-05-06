@@ -2,6 +2,10 @@
 import React, { useState, useRef } from 'react';
 import '../bootstrap.js';
 
+
+// List_Users component to display a list of users with their roles and actions
+// This component is responsible for showing the users available in the system
+// It includes functionality to add, edit, and delete users
 const fakeUsers = [
   { id: 1, name: "Jean Dupont", role: "Utilisateur" },
   { id: 2, name: "Marie Curie", role: "Utilisateur" },
@@ -31,7 +35,8 @@ const fakeUsers = [
   { id: 26, name: "Isaac Newton", role: "Vendeur", store: "Ficus Power" },
 ];
 
-
+// Main component to display and manage users
+// This component is responsible for showing the list of users and allowing filtering by role
 function List_Users() {
   const [users, setUsers] = useState(fakeUsers);
   const [activeTab, setActiveTab] = useState("Utilisateur");

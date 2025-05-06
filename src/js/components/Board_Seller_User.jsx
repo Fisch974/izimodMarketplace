@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../bootstrap.js';
 import '../../scss/_root.scss';
 
+
+// DashboardInfoCard component to display and manage seller information
 const initialSeller = {
   nom: 'Martin',
   prenom: 'Sophie',
@@ -13,6 +15,7 @@ const initialSeller = {
   motDePasse: '********'
 };
 
+// Function to get fields based on user role
 const getFieldsByRole = (role) => {
   const commonFields = [
     { key: 'nom', label: 'Nom' },
@@ -38,6 +41,10 @@ const getFieldsByRole = (role) => {
   }
 };
 
+
+// Main component to display the seller's information card
+// This component is responsible for showing the seller's information and allowing editing of the fields
+// It also allows the user to customize the background color of the card
 function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSeller }) {
   const [formData, setFormData] = useState(initialData);
   const [editIndex, setEditIndex] = useState(null);
@@ -63,7 +70,7 @@ function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSe
 
   return (
     <>
-      {/* Choix de couleur */}
+      {/* Choice Colors */}
       <div className="mb-3">
         <p className='align-items-center m-1'>Personnaliser la couleur de votre interface :</p>
         {[
@@ -95,13 +102,13 @@ function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSe
         ))}
       </div>
 
-      {/* Carte */}
+      {/* Card */}
       <div className="card carte-vendeur mb-5 m-auto p-5" style={background}>
         <h5 className="card-title text-center p-4 fw-bold">
           {title} {formData.nom} {formData.prenom}
         </h5>
 
-        {/* Affichage des champs 2 par 2 */}
+        {/*Display card */}
         {Array.from({ length: Math.ceil(fields.length / 2) }).map((_, rowIndex) => (
           <div key={rowIndex} className="row">
             {[0, 1].map((offset) => {

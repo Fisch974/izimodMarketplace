@@ -1,6 +1,9 @@
 import React from 'react';
 import '../bootstrap.js';
 
+
+// SelectSearch component to display a dropdown for selecting categories
+// This component is responsible for showing the categories available for selection
 function SelectSearch() {
     return (
         <>
