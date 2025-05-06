@@ -4,7 +4,7 @@ import '../bootstrap.js';
 import Menus_aside from '../components/aside_menus.jsx';
 import DashboardInfoCard from "../components/Board_Seller_User.jsx"; // ce fichier contient initialSeller et DashboardInfoCard
 import PurchaseUser from "../components/Purchase_User.jsx";
-import PaimentUser from "../components/Paiment_user.jsx";
+import PaimentUser from "../components/Paiment_User.jsx";
 import ReviewUser from "../components/Review_User.jsx";
 // 👇 Données fictives pour l'utilisateur
 const initialUser = {
