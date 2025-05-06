@@ -1,27 +1,33 @@
+//! IMPORTING STYLES FROM THE SCSS FILES (BOOTSTRAP)
 @import 'bootstrap';
 @import '_mixins';
 @import '_root';
 
-
-//
-// Custom styles
-//
-
+//! CUSTOM STYLING ABOVE
+//! APP
 * {
 	box-sizing: border-box;
 }
 
 #root {
 	min-height: 60vh;
+
+	.bg-dark-subtle {
+		// Changed the dark-subtle BS variable cause it wasn't THAT subtle
+		background-color: $gray-200 !important;
+	}
+
+	.text-primary {
+		color: $primary !important;
+	}
+}
+
+.menuLink[aria-selected="true"] {
+	color: $primary;
 }
 
 body {
 	background-color: $gray-100;
-}
-
-//! - HEADER
-.navbar-link {
-	text-decoration: none;
 }
 
 //! -- SEARCH BAR
@@ -34,7 +40,27 @@ body {
 	}
 }
 
+//! - START PAGE
+//! -- SLIDER
+button[data-bs-slide="next"],
+button[data-bs-slide="prev"] {
+	color: $primary;
+	height: 75%;
+	width: 15%;
+	transition: all .5s ease-in-out;
+
+	&:hover {
+		background-color: $primary;
+		color: $light;
+	}
+}
+
 //TODO Slide responsive
+
+//! GARANTEE CARD
+#guaranteeImages div * {
+	color: $primary;
+}
 
 .product-grid {
 	display: flex;
@@ -45,7 +71,7 @@ body {
 }
 
 .product-card {
-	border: 2px solid #ccc;
+	// border: 0px solid #ccc;
 	border-radius: 8px;
 	padding: 1rem;
 	width: 200px;
@@ -58,10 +84,10 @@ body {
 	height: 200px;
 }
 
-.button-panier {
-	background-color: rgb(132, 134, 136);
-	color: white;
-}
+// .button-panier {
+// 	background-color: rgb(132, 134, 136);
+// 	color: white;
+// }
 
 .button-panier:hover {
 	background-color: cornflowerblue;
@@ -130,16 +156,16 @@ body {
 	margin: none !important;
 }
 
-/* Personnaliser le fond de l'overlay du offcanvas */
+// Personnaliser le fond de l'overlay du offcanvas
 .offcanvas-backdrop {
 	background-color: rgba(0, 0, 0, 0.1);
-	/* Vous pouvez ajuster l'opacité ou la couleur */
+	// Vous pouvez ajuster l'opacité ou la couleur
 }
 
-/* Personnaliser le fond du sidebar lui-même */
+// Personnaliser le fond du sidebar lui-même
 .offcanvas {
 	background-color: #121f6b;
-	/* Par exemple, bleu foncé, ou toute autre couleur que vous souhaitez */
+	// Par exemple, bleu foncé, ou toute autre couleur que vous souhaitez
 }
 
 .graph {
@@ -262,30 +288,27 @@ table td button:hover {
 	margin: 0 auto;
 }
 
-/* Définir une hauteur fixe ou relative au viewport pour le carousel */
+// Définir une hauteur fixe ou relative au viewport pour le carousel
 .carousel-inner {
-	height: 35vh;
-	/* ou 50vh par exemple pour responsive */
+	&::before {
+		content: "👌";
+		width: 100px;
+		top: 0;
+		right: 0;
+		background-color: #FFF;
+	}
 }
 
-/* Forcer les images à prendre toute la place disponible dans chaque item */
+// Forcer les images à prendre toute la place disponible dans chaque item
 .carousel-inner .carousel-item img {
+	border-radius: $border-radius-lg;
+	// height: 100%;
+	object-fit: contain;
+	// Recadre sans déformer
 	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	/* Recadre sans déformer */
-	border-radius: 5px;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-	background-color: transparent !important;
-	box-shadow: 0 0 1 0.15rem rgba(0, 123, 255, 0.25);
-	/* ou autre couleur + transparence */
-	outline: none !important;
-}
-
-/* Redimensionner le select */
+// Redimensionner le select
 #inputGroupSelect04 {
 	width: 500px;
 	height: 35px;
@@ -323,13 +346,13 @@ table td button:hover {
 
 .fixed-card {
 	width: 250px;
-	/* Largeur fixe pour chaque carte */
+	// Largeur fixe pour chaque carte
 	height: 200px;
-	/* Hauteur fixe pour chaque carte */
+	// Hauteur fixe pour chaque carte
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	/* Assure que le contenu est bien espacé dans la carte */
+	// Assure que le contenu est bien espacé dans la carte
 }
 
 .card-admin {
@@ -361,36 +384,36 @@ table td button:hover {
 
 .footer-link:hover {
 	color: #0d6efd;
-	/* Bleu Bootstrap */
+	// Bleu Bootstrap
 	transform: scale(1.05);
 }
 
-/* Conteneur de la liste d'utilisateurs */
+// Conteneur de la liste d'utilisateurs
 .user-list-container {
 	height: 600px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding-right: 10px;
-	/* Pour éviter que le scroll cache le contenu */
+	// Pour éviter que le scroll cache le contenu
 
 	@include responsive('xs') {
 		margin: auto;
 	}
 }
 
-/* Pour éviter le scroll horizontal sur mobile */
+// Pour éviter le scroll horizontal sur mobile
 .row.g-3 {
 	margin-right: 0;
 	margin-left: 0;
 }
 
-/* Conteneur général */
+// Conteneur général
 .container {
 	max-width: 1200px;
 	margin: 0 auto;
 }
 
-/* Style des cartes de review */
+// Style des cartes de review
 .review-card {
 	background-color: #fff;
 	border-radius: 15px;
@@ -403,45 +426,45 @@ table td button:hover {
 	box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Titre de l'avis (Nom de l'utilisateur) */
+// Titre de l'avis (Nom de l'utilisateur)
 .review-card .card-title {
 	font-size: 1.25rem;
 	font-weight: bold;
 	color: #333;
 }
 
-/* Nom du magasin (ajouté sous le nom de l'utilisateur) */
+// Nom du magasin (ajouté sous le nom de l'utilisateur)
 .review-card .card-subtitle {
 	font-size: 1rem;
 	color: #888;
 }
 
-/* Étoiles d'évaluation */
+// Étoiles d'évaluation
 .card-subtitle {
 	font-size: 1rem;
 	color: #f39c12;
 }
 
-/* Texte des avis */
+// Texte des avis
 .review-card .card-text {
 	font-size: 1rem;
 	color: #555;
 	line-height: 1.5;
 }
 
-/* Onglets */
+// Onglets
 .nav-tabs .nav-link {
 	cursor: pointer;
 	font-size: 1.1rem;
 }
 
-/* Onglet actif */
+// Onglet actif
 .nav-tabs .nav-link.active {
 	font-weight: bold;
 	color: #007bff;
 }
 
-/* Card container responsif */
+// Card container responsif
 @include responsive('md') {
 	.review-card {
 		margin: 10px;
