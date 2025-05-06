@@ -6,7 +6,8 @@ import kit_6 from '../../data/kit-6-outils.jpg';
 import kit7 from '../../data/kit7.jpeg';
 import set_3 from '../../data/set-3-outils.jpg';
 
-// Simulated backend
+// Middle_ReducedPrice component to display a section with reduced price products
+// This component is responsible for showing a selection of products with reduced prices
 const productImages = [
   { id: 1, src: complet_kit, name: "Chaussures" },
   { id: 2, src: ensemble1, name: "Montre" },
@@ -15,6 +16,9 @@ const productImages = [
   { id: 5, src: set_3, name: "Écouteurs" },
 ];
 
+
+// This component is responsible for displaying a section with reduced price products
+// It includes a title and a grid of images representing the products
 function Middle_ReducedPrice(params) {
   return (
     <div className="big-card">

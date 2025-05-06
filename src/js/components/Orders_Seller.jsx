@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
-
+// OrdersSeller component to display and manage seller orders
+// This component is responsible for showing the orders based on their status (Paid, Shipped, Pending)
 const commandes = [
     { id: 1, client: 'Alice Dupont', objet: 'Tondeuse', total: 45.5, statut: 'Payée', ref: 'a2d5d23' },
     { id: 2, client: 'Marc Lefevre', objet: 'Brouette', total: 120, statut: 'Expédiée' },
@@ -20,8 +21,9 @@ const commandes = [
     { id: 15, client: 'Thierry Simon', objet: 'Râteau', total: 25.0, statut: 'Payée' },
   ];
   
-
-  function OrdersSeller() {
+// Main component to display and manage orders
+// This component is responsible for showing the list of orders and allowing filtering by status
+function OrdersSeller() {
     const [ongletActif, setOngletActif] = useState('Payée');
     const [commande, setCommandes] = useState(commandes);
   
@@ -100,7 +102,7 @@ const commandes = [
         </div>
       </>
     );
-  }
+}
   
   export default OrdersSeller;
 

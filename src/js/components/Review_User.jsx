@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+
+// ReviewUser component to display and manage user reviews
+// This component is responsible for showing the list of reviews made by the user
+// It allows the user to edit or delete their reviews
+// It also allows the user to add a new review
 function ReviewUser() {
   const [reviews, setReviews] = useState([
     {

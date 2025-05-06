@@ -7,11 +7,15 @@ import User from './User_account.jsx';
 import Product from './Product_page.jsx';
 import Footer_page from '../components/Footer.jsx';
 import Sellers from './Seller_account.jsx';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // Components
+// This component is responsible for rendering the header, footer, and the main content based on the current route
+// It uses React Router for navigation between different pages of the application
 import Header from '../components/Header.jsx';
 
-
+// Main App component to handle routing and rendering of different pages
+// This component is responsible for rendering the header, footer, and the main content based on the current route
 function App() {
   return (
     <BrowserRouter> {/*Integrated routing to redirect links */}

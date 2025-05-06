@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import '../bootstrap.js';
 
-// Données fictives des avis avec le nom du magasin (au-dessus de la fonction)
+// Dummy data for user reviews
+// This data is used to simulate user reviews for different stores
 const userReviews = [
     // Avis Magasin A
     { id: 1, name: "Alice", rating: 4, review: "Super produit, vraiment satisfait ! Livraison rapide.", store: "Magasin A" },
@@ -40,59 +41,58 @@ const userReviews = [
     { id: 30, name: "Tom", rating: 5, review: "Produit au top, rien à redire.", store: "Magasin C" }
 ];
   
+
+// Review component to display user reviews for different stores
+// This component is responsible for showing the list of reviews made by users for different stores
+function Review() {
+
+  const [activeTab, setActiveTab] = useState('Magasin A');
   
-  function Review() {
-    // State pour gérer l'onglet actif
-    const [activeTab, setActiveTab] = useState('Magasin A');
+  const handleTabClick = (store) => {
+    setActiveTab(store);
+  };
+  const filteredReviews = userReviews.filter((review) => review.store === activeTab);
   
-    // Fonction pour changer l'onglet actif
-    const handleTabClick = (store) => {
-      setActiveTab(store);
-    };
+
+  const stores = [...new Set(userReviews.map(review => review.store))];
   
-    // Filtrer les avis par magasin
-    const filteredReviews = userReviews.filter((review) => review.store === activeTab);
+  return (
+    <div className="m-5">
+      <h2 className="mb-4">Avis des utilisateurs</h2>
   
-    // Récupérer les magasins uniques
-    const stores = [...new Set(userReviews.map(review => review.store))];
+
+      <ul className="nav nav-tabs mb-4">
+        {stores.map((store) => (
+          <li className="nav-item" key={store}>
+            <button
+              className={`nav-link ${activeTab === store ? 'active' : ''}`}
+              onClick={() => handleTabClick(store)}
+            >
+              {store}
+            </button>
+          </li>
+        ))}
+      </ul>
   
-    return (
-      <div className="m-5">
-        <h2 className="mb-4">Avis des utilisateurs</h2>
-  
-        {/* Onglets des magasins */}
-        <ul className="nav nav-tabs mb-4">
-          {stores.map((store) => (
-            <li className="nav-item" key={store}>
-              <button
-                className={`nav-link ${activeTab === store ? 'active' : ''}`}
-                onClick={() => handleTabClick(store)}
-              >
-                {store}
-              </button>
-            </li>
-          ))}
-        </ul>
-  
-        {/* Affichage des avis du magasin actif */}
-        <div className="row">
-          {filteredReviews.map((review) => (
-            <div key={review.id} className="col-md-4 mb-4">
-              <div className="card review-card">
-                <div className="card-body">
-                  <h5 className="card-title">{review.name}</h5>
-                  <h6 className="card-subtitle mb-2 text-muted">{review.store}</h6>
-                  <div className="card-subtitle mb-2 text-muted">
-                    {`Évaluation: ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}`}
-                  </div>
-                  <p className="card-text">{review.review}</p>
+
+      <div className="row">
+        {filteredReviews.map((review) => (
+          <div key={review.id} className="col-md-4 mb-4">
+            <div className="card review-card">
+              <div className="card-body">
+                <h5 className="card-title">{review.name}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">{review.store}</h6>
+                <div className="card-subtitle mb-2 text-muted">
+                  {`Évaluation: ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}`}
                 </div>
+                <p className="card-text">{review.review}</p>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    );
-  }
+    </div>
+  );
+}
   
   export default Review;

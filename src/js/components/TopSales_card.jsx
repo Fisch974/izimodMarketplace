@@ -9,7 +9,8 @@ import gant from '../../data/gants.jpg';
 import img_pelle from '../../data/Mini-pelle.jpeg';
 import rateau from '../../data/rateau.jpg';
 
-// Backend simulation
+// Card_product component to display a section with top-selling products
+// This component is responsible for showing a selection of products that are popular among customers
 const products = [
   {
     id: 1,
@@ -37,6 +38,9 @@ const products = [
   }
 ];
 
+
+// This component is responsible for displaying a section with top-selling products
+// It includes a title and a grid of product cards representing the products
 function Card_product() {
   return (
     <div className='pt-5'>

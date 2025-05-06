@@ -1,11 +1,15 @@
-// Alert_System.js
-const API_URL = '/api/alerts'; // adapte au bon endpoint backend
+
+// This file is part of the "Alert System" project
+const API_URL = '/api/alerts';
 
 /**
- * Envoie une alerte au backend
+ * Function for sending alerts to the backend
  * @param {string} type - Exemple : "Signalement", "Erreur serveur", etc.
  * @param {string} message - Le message détaillé de l'alerte
  */
+
+// This function sends an alert to the backend API
+// It takes the type and message of the alert as parameters
 export async function sendAlert(type, message) {
   try {
     const res = await fetch(API_URL, {

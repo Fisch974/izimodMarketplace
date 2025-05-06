@@ -2,11 +2,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import React from 'react';
 import '../bootstrap.js';
 import Menus_aside from '../components/aside_menus.jsx';
-import DashboardInfoCard from "../components/Board_Seller_User.jsx"; // ce fichier contient initialSeller et DashboardInfoCard
+import DashboardInfoCard from "../components/Board_Seller_User.jsx";
 import PurchaseUser from "../components/Purchase_User.jsx";
 import PaimentUser from "../components/Paiment_User.jsx";
 import ReviewUser from "../components/Review_User.jsx";
-// 👇 Données fictives pour l'utilisateur
+
+
 const initialUser = {
   nom: 'Durand',
   prenom: 'Lucas',
@@ -16,7 +17,8 @@ const initialUser = {
   motdepasse: '********'
 };
 
-// 👇 Champs adaptés à l'utilisateur
+// Fields to be displayed in the user information card
+// These fields are used to display the user's information in the DashboardInfoCard component
 const userFields = [
   { key: 'nom', label: 'Nom' },
   { key: 'prenom', label: 'Prénom' },
@@ -25,15 +27,15 @@ const userFields = [
   { key: 'adresseMail', label: 'Adresse Mail' }
 ];
 
+
+// Main component to display the user account page with its respective routes and components
+// This component is responsible for rendering the user account page with its respective routes and components
 function User() {
   return (
     <div>
-      {/* Menu aside */}
       <div>
         <Menus_aside userRole="user" />
       </div>
-
-      {/* Contenu principal */}
       <div style={{ flexGrow: 1 }}>
         <Routes>
           <Route index element={<Navigate to="boarduser" replace />} />

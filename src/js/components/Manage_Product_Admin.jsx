@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+// Product_Manager component to display and manage products
+// This component is responsible for showing the list of products, allowing validation, deletion, and editing of products
+// It also includes a category filter to display products based on their category
+// and a table to show the product details
 const initialProducts = [
   { id: 1, name: 'Pelle de jardin', category: 'Outillage', price: 15, validated: false },
   { id: 2, name: 'Gants de protection', category: 'Protection', price: 8, validated: true },
@@ -24,8 +28,11 @@ const initialProducts = [
   { id: 20, name: 'Tuyau d’arrosage 20m', category: 'Outillage', price: 32, validated: true },
 ];
 
+// List of categories for filtering products
 const categories = ['Tous', 'Outillage', 'Protection', 'Produits de jardin'];
 
+// Main component to display the product manager
+// This component is responsible for showing the list of products, allowing validation, deletion, and editing of products
 function Product_Manager() {
   const [products, setProducts] = useState(initialProducts);
   const [activeCategory, setActiveCategory] = useState('Tous');

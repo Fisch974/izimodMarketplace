@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+// Initial list of alerts with information such as type, message, and status
 const initialAlerts = [
     { id: 1, type: 'Signalement', message: "L'utilisateur Jean a été signalé pour propos inappropriés.", status: 'Non lu' },
     { id: 2, type: 'Comportement suspect', message: "Tentative de connexion échouée plusieurs fois sur le compte de Laura.", status: 'Non lu' },
@@ -9,9 +10,11 @@ const initialAlerts = [
     { id: 5, type: 'Signalement', message: "Plusieurs signalements pour l'utilisateur Emma.", status: 'Traité' },
 ];
 
+// Main component to display and manage alerts
 function Alerts() {
     const [alerts, setAlerts] = useState(initialAlerts);
 
+    // Function to mark an alert as "Resolved"
     const markAsRead = (id) => {
         setAlerts(alerts.map(alert =>
             alert.id === id ? { ...alert, status: 'Traité' } : alert
@@ -21,6 +24,7 @@ function Alerts() {
     return (
         <div className="m-5">
             <h2 className="mb-5">Alertes de sécurité</h2>
+            {/* Display a message if no alerts are available */}
             {alerts.length === 0 ? (
                 <p>Aucune alerte pour le moment.</p>
             ) : (

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+// Orders component to display and manage orders
+// This component is responsible for showing the list of orders and allowing filtering by status and store
 const initialOrders = [
   { id: 1, client: 'Alice Dupont', total: 45.50, status: 'Payée', objet: 'Tondeuse à gazon', magasin: 'JardinPlus' },
   { id: 2, client: 'Jean Martin', total: 78.99, status: 'En attente', objet: 'Pelle de jardin', magasin: 'JardinExcellence' },
@@ -23,6 +25,10 @@ const initialOrders = [
   { id: 19, client: 'Claire Lefevre', total: 62.80, status: 'Expédiée', objet: 'Cisaille à haie', magasin: 'JardinPlus' },
   { id: 20, client: 'Benjamin Laurent', total: 22.50, status: 'En attente', objet: 'Gazon en rouleau', magasin: 'JardinExcellence' },
 ];
+
+
+// Main component to display and manage orders
+// This component is responsible for showing the list of orders and allowing filtering by status and store
 
 function Orders({ magasin }) {
   const [orders] = useState(initialOrders);

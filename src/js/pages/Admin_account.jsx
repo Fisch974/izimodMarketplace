@@ -10,6 +10,8 @@ import Alerts from "../components/Alert_Admin.jsx";
 import Admin_Stats from "../components/Stats_Admin.jsx";
 import Review from "../components/User_Review_Admin.jsx";
 
+
+// Components
 function Admin() {
     return (
         <>

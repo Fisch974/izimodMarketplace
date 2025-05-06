@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../bootstrap.js';
 import { PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 
+// Initial list of numbers users with their roles and names
 const activeUsers = 238;
 const totalOrders = 512;
 const totalProducts = 120;
@@ -11,27 +12,32 @@ const totalReviews = 85;
 const totalRevenue = 3500;
 
 
-
+// Sample data for pie charts
 const pieData = [
   { name: 'Utilisateurs actifs', value: 238 },
   { name: 'Visiteurs en ligne', value: 48 },
   { name: 'Vendeurs', value: 20 },
 ];
 
+// Sample data for pie charts
 const pieData2 = [
   { name: 'Ventes de produits', value: 620 },
   { name: 'Ventes de services', value: 80 },
   { name: 'Ventes en cours', value: 45 },
 ];
 
+
+// Colors for pie chart segments
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
+// Main component to display the admin dashboard
+// This component is responsible for showing the admin dashboard with various statistics and charts
 function DashBoard() {
   const users = [
     { id: 1, nom: 'David', prenom: 'Grey', role: 'admin' },
   ];
 
-  
+  // Function to handle the click event on the "Marquer comme traité" button
   return (
     <>
       <div className=" m-5">

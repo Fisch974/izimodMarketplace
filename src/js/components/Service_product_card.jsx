@@ -15,6 +15,9 @@ import tonte from '../../data/slider/tonte.jpg';
 // import ServiceProductCard from './Service_product_card.jsx';
 // import { color } from 'chart.js/helpers';
 
+
+// ProductService component to display a carousel of services
+// This component is responsible for showing the services available for selection
 function ProductService() {
     const services = [
         { id: 1, title: "Nos services, sur mesure, pour vous.", description: "Spécialiste du nettoyage haute pression depuis 30 ans.", price: 799, image: entretien },

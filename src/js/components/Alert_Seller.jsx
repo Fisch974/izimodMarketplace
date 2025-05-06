@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
 
+// AlertSeller component to display and manage seller alerts
+// This component is responsible for showing alerts related to the seller's account
 function AlertSeller() {
   const [selectedAlert, setSelectedAlert] = useState(null);
-
+  // List of alerts with information such as type, description, date, and title
   const alerts = [
     {
       id: 1,
@@ -35,6 +37,7 @@ function AlertSeller() {
     },
   ];
 
+  // Function to determine the badge color based on alert type
   return (
     <div className="conteneur_alert">
       <h2 className="mb-4">Mes alertes vendeur</h2>

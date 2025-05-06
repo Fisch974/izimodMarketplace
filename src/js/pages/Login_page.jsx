@@ -4,6 +4,9 @@ import React from 'react';
 import { GoogleLogin, googleLogout } from '@react-oauth/google';
 import '../bootstrap.js';
 
+
+// Login component to handle user authentication and redirection
+// This component is responsible for rendering the login form and handling the login process
 function Login(params) {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = (data) => {
