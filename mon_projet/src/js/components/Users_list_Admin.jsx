@@ -85,7 +85,7 @@ function List_Users() {
       <button onClick={addUser} className="btn btn-primary mb-3">Ajouter un utilisateur</button>
 
       <div ref={containerRef} className="user-list-container">
-        <div className="row g-3">
+        <div className="row g-2">
           {filteredUsers.map(user => (
             <div key={user.id} className="col-md-4">
               <div className="card h-100 d-flex flex-column">

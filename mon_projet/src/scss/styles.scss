@@ -452,7 +452,7 @@ table td button:hover {
 }
 
 .carte-vendeur {
-	width: 40%;
+	width: 50%;
 	border-radius: 20px;
 	@include responsive('xs') {
 		width: 80%;
@@ -503,4 +503,21 @@ table td button:hover {
 
 .conteneur_user_review {
 	height: 800px;
+}
+
+.product_online {
+	display: flex;
+
+	@include responsive('xs') {
+		justify-content: center;
+	}
+}
+
+.line_product:hover {
+	background: linear-gradient(95deg, #121f8f, #3791d2);
+}
+
+.line_conteneur {
+	background: linear-gradient(95deg, #121f6b, #3791f1);
+	border-radius: 5px;
 }
