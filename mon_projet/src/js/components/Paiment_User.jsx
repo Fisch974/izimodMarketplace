@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
+import { sendAlert } from './Alert_System.jsx';
 
 function PaimentUser() {
   const [activeTab, setActiveTab] = useState('ajouter');
@@ -15,22 +16,18 @@ function PaimentUser() {
   const validate = () => {
     const newErrors = {};
 
-    // Numéro de carte
     if (!/^\d{16}$/.test(cardData.number)) {
       newErrors.number = 'Le numéro de carte doit contenir 16 chiffres.';
     }
 
-    // Nom
     if (!/^[A-Za-z\s]{2,}$/.test(cardData.name)) {
       newErrors.name = 'Le nom doit contenir au moins 2 lettres.';
     }
 
-    // Expiration
     if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(cardData.expiry)) {
       newErrors.expiry = 'Format invalide. Utilisez MM/YY.';
     }
 
-    // CVV
     if (!/^\d{3,4}$/.test(cardData.cvv)) {
       newErrors.cvv = 'Le CVV doit contenir 3 ou 4 chiffres.';
     }
@@ -44,13 +41,27 @@ function PaimentUser() {
     setCardData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      setSavedCards([...savedCards, cardData]);
+
+    if (!validate()) {
+      sendAlert('Erreur de validation', 'Des champs du formulaire sont invalides.');
+      return;
+    }
+
+    try {
+      // Simuler une requête backend avec succès ou échec
+      // Exemple : await axios.post('/api/cards', cardData);
+      
+      // Si succès :
+      setSavedCards(prev => [...prev, cardData]);
       setCardData({ number: '', name: '', expiry: '', cvv: '' });
       setErrors({});
       alert('Carte enregistrée avec succès');
+    } catch (err) {
+      // En cas d’échec, envoyer une alerte système
+      sendAlert('Erreur système', `Échec de l’enregistrement de la carte : ${err.message}`);
+      alert('Une erreur est survenue lors de l’enregistrement');
     }
   };
 
@@ -72,16 +83,15 @@ function PaimentUser() {
             className={`nav-link ${activeTab === 'ajouter' ? 'active' : ''}`}
             onClick={() => setActiveTab('ajouter')}
           >
-            Ajouter un moyen de paiment
+            Ajouter un moyen de paiement
           </button>
         </li>
       </ul>
 
-
       {activeTab === 'ajouter' && (
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label>Nom sur la carte:</label>
+            <label>Nom sur la carte :</label>
             <input
               type="text"
               className={`form-control ${errors.name ? 'is-invalid' : ''}`}
@@ -94,7 +104,7 @@ function PaimentUser() {
           </div>
 
           <div className="mb-3">
-            <label>Numéro de carte:</label>
+            <label>Numéro de carte :</label>
             <input
               type="text"
               className={`form-control ${errors.number ? 'is-invalid' : ''}`}
@@ -110,7 +120,7 @@ function PaimentUser() {
 
           <div className="row">
             <div className="col-md-6 mb-3">
-              <label>Expiration (MM/YY):</label>
+              <label>Expiration (MM/YY) :</label>
               <input
                 type="text"
                 className={`form-control ${errors.expiry ? 'is-invalid' : ''}`}
@@ -122,7 +132,7 @@ function PaimentUser() {
               {errors.expiry && <div className="invalid-feedback">{errors.expiry}</div>}
             </div>
             <div className="col-md-6 mb-3">
-              <label>CVV:</label>
+              <label>CVV :</label>
               <input
                 type="text"
                 className={`form-control ${errors.cvv ? 'is-invalid' : ''}`}
@@ -167,6 +177,7 @@ function PaimentUser() {
 }
 
 export default PaimentUser;
+
 
 
 

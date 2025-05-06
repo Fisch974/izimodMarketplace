@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import '../bootstrap.js';
+import { Menu, Store, Brush, SquarePlus, Radio, RectangleEllipsis, ArrowDownToLine } from 'lucide-react';
+
 
 function ProductSeller() {
   const [activeTab, setActiveTab] = useState('createProduct');
   const [images, setImages] = useState([]);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -42,7 +46,7 @@ function ProductSeller() {
             className={`nav-link ${activeTab === 'onlineProduct' ? 'active' : ''}`}
             onClick={() => setActiveTab('onlineProduct')}
           >
-            Produit en ligne
+            Produit
           </button>
         </li>
       </ul>
@@ -137,10 +141,36 @@ function ProductSeller() {
         </div>
       )}
 
+      {/* Menu déroulant pour mobile */}
       {activeTab === 'onlineProduct' && (
-        <div className="card shadow-lg p-4 col-lg-10 mx-auto list_product">
-          <h3 className="text-center">Liste des Produits en Ligne</h3>
-          {/* À compléter */}
+        <div className="product_online">
+          {/* Bouton burger visible uniquement en mobile */}
+          <div className="d-lg-none mb-3">
+            <button
+              className="btn btn-outline-primary"
+              onClick={() => setShowMenu(prev => !prev)}
+            >
+              <Menu />
+            </button>
+          </div>
+
+          {/* Liens : visibles si menu ouvert sur mobile OU toujours visibles sur large écran */}
+          <div className={`line_conteneur ${showMenu ? 'd-flex' : 'd-none'} d-lg-flex flex-column`}>
+            <h3 className='text-center text-white m-2'>Nom du Marketplace</h3>
+            <a href="#" className="fw-bold p-2 text-white text-decoration-none line_product"><ArrowDownToLine className='m-2'/>Produits en ligne </a>
+            <a href="#" className="fw-bold p-2 text-white text-decoration-none line_product"><Store className='m-2'/>Aperçu Marketplace </a>
+            <a href="#" className="fw-bold p-2 text-white text-decoration-none line_product"><Brush className='m-2'/>Personnalisez votre page</a>
+            <a href="#" className="fw-bold p-2 text-white text-decoration-none line_product"><SquarePlus className='m-2'/>Créer catégories</a>
+            <a href="#" className="fw-bold p-2 text-white text-decoration-none line_product"><RectangleEllipsis className='m-2'/>Modifier produits</a>
+            <a href="#" className="fw-bold p-2 text-white text-decoration-none line_product"><Radio className='m-2'/>Partager votre page</a>
+            
+          </div>
+
+          {/* Liste des produits : toujours visible */}
+          <div className="card shadow-lg p-4 col-lg-10 mx-auto list_product">
+            <h3 className="text-center">Liste des Produits en Ligne</h3>
+            {/* À compléter */}
+          </div>
         </div>
       )}
     </div>
