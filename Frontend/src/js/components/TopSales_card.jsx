@@ -42,42 +42,47 @@ const products = [
 // This component is responsible for displaying a section with top-selling products
 // It includes a title and a grid of product cards representing the products
 function Card_product() {
+  const ifSales = false;
+  
   return (
-    <div className='pt-5'>
-      <div className="d-flex justify-content-around pt-5 pb-3">
-        <p className='fw-bold fs-3'>Nos produits les plus vendus :</p>
-        <div>
+    <div className='pt-md-5 pt-3'>
+      <div className="d-flex justify-content-around align-items-center pt-md-5 pb-5">
+        <div className='fw-bold fs-3'>✨ Nos produits les plus vendus ✨</div>
+        {/* <div className='mb-2'>
           <button className='btn btn-outline-primary border-1 rounded-pill me-2'>
             <ArrowLeft />
           </button>
           <button className='btn btn-outline-primary border-1 rounded-pill'>
             <ArrowRight />
           </button>
-        </div>
+        </div> */}
       </div>
 
-      <div className="cardProducts p-5">
+      <div className="cardProducts mx-5 ps-5">
         {products.map((product) => (
-          <div className="cardProduct" key={product.id}>
-            <div className="d-flex flex-column mb-1">
-              <img src={product.image} alt={'Acheter ' + product.name} />
+          <div className="cardProduct container g-0 rounded-bottom-3" key={product.id}>
+            <div className="d-flex flex-column mb-2">
+              <img className='img-fluid rounded-top-3' src={product.image} alt={'Acheter ' + product.name} />
             </div>
-            <div className="d-flex justify-content-center">
-              <div className="w-75">
-                <p className="fs-5 fw-lighter text-primary">
-                  {product.name}
-                </p>
-                <p className="fw-bold">
-                  {product.price} €
-                </p>
-              </div>
-              <div className="w-25">
-                <button className="btn btn-outline-primary rounded-1">
-                  <ShoppingCart />
-                </button>
+            <div className="hstack">
+              <div className="">
+                <div className="">
+                  <p className="fs-6 fw-lighter text-primary">
+                    {product.name}
+                  </p>
+                  <p className="fw-bold">
+                    {product.price} € 
+                    {ifSales && <span className="fw-lighter text-decoration-line-through text-black-50"> {product.price * 2} €</span>}
+                  </p>
+                </div>
+                </div>
+                <div className="mb-4 me-lg-5 ms-auto">
+                  <button className="btn btn-outline-primary rounded-3">
+                    <ShoppingCart size={20} />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
         ))}
       </div>
 
