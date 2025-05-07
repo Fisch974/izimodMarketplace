@@ -44,8 +44,8 @@ const products = [
 function Card_product() {
   return (
     <div className='pt-5'>
-      <div className="d-flex justify-content-around pt-5">
-        <p className='fw-bold fs-3 text-center'>Nos produits les plus appréciés :</p>
+      <div className="d-flex justify-content-around pt-5 pb-3">
+        <p className='fw-bold fs-3'>Nos produits les plus vendus :</p>
         <div>
           <button className='btn btn-outline-primary border-1 rounded-pill me-2'>
             <ArrowLeft />
@@ -55,10 +55,36 @@ function Card_product() {
           </button>
         </div>
       </div>
-      <div className="product-grid">
+
+      <div className="cardProducts p-5">
+        {products.map((product) => (
+          <div className="cardProduct" key={product.id}>
+            <div className="d-flex flex-column mb-1">
+              <img src={product.image} alt={'Acheter ' + product.name} />
+            </div>
+            <div className="d-flex justify-content-center">
+              <div className="w-75">
+                <p className="fs-5 fw-lighter text-primary">
+                  {product.name}
+                </p>
+                <p className="fw-bold">
+                  {product.price} €
+                </p>
+              </div>
+              <div className="w-25">
+                <button className="btn btn-outline-primary rounded-1">
+                  <ShoppingCart />
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* <div className="product-grid">
         {products.map((product) => (
           <div className="product-card" key={product.id}>
-            <img src={product.image} alt={'A' + product.name} />
+            <img src={product.image} alt={'Acheter ' + product.name} />
             <div>
               <p className='text-primary fw-light'>{product.name}</p>
               <p className='fw-bold'>{product.price} €</p>
@@ -68,7 +94,7 @@ function Card_product() {
             </button>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
 
   );

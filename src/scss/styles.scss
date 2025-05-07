@@ -62,6 +62,43 @@ button[data-bs-slide="prev"] {
 	color: $primary;
 }
 
+//! FEATURED PRODUCTS
+.cardProducts {
+	display: flex;
+	--products: 4;
+	--spacing: 1rem;
+	gap: var(--spacing);
+	overflow-x: auto;
+	padding: calc(var(--spacing) * .5);
+	margin: calc(var(--spacing) * -.5);
+	scroll-snap-type: x proximity;
+	scroll-padding-inline: calc(var(--spacing) * .5);
+
+	.cardProduct {
+		min-width: calc((100% - (var(--products) - 1) * var(--spacing)) / var(--products));
+		scroll-snap-align: start;
+
+		div img {
+			height: 200px;
+			width: 100%;
+			max-width: 250px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.cardProducts {
+		padding: 1rem;
+		margin: -1rem;
+		scroll-padding-inline: 0;
+
+		.cardProduct {
+			scroll-snap-align: center;
+			min-width: 250px;
+		}
+	}
+}
+
 .product-grid {
 	display: flex;
 	gap: 1rem;
