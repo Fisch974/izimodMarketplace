@@ -5,13 +5,16 @@ import DashBoard from '../components/Board_Admin.jsx';
 import List_Users from '../components/Users_list_Admin.jsx';
 import Menus_aside from '../components/aside_menus.jsx';
 import Product_Manager from '../components/Manage_Product_Admin.jsx';
-import Orders from "../components/Orders_Admin.jsx";
+import Orders from "../components/Orders_admin.jsx";
 import Alerts from "../components/Alert_Admin.jsx";
 import Admin_Stats from "../components/Stats_Admin.jsx";
 import Review from "../components/User_Review_Admin.jsx";
 
 
-// Components
+// Function Admin
+// This function is the main component for the admin dashboard
+// It contains the routes for the different admin pages
+// It uses React Router to navigate between the different pages
 function Admin() {
     return (
         <>

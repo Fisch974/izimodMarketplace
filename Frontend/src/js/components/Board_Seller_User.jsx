@@ -49,7 +49,11 @@ function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSe
   const [formData, setFormData] = useState(initialData);
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState('');
-  const [background, setBackground] = useState();
+  const [background, setBackground] = useState({
+    backgroundColor: 'var(--background-blue)',
+    color: 'white'
+  });
+  
 
   const fields = getFieldsByRole(formData.role);
 

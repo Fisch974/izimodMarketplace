@@ -12,6 +12,12 @@ function Login(params) {
   const onSubmit = (data) => {
     if (data.email === 'admin@local.host' && data.password === 'admin') {
       navigate('/admin/dashboard');
+    }else {
+      if (data.email === 'seller@local.host' && data.password === 'seller') {
+        navigate('/seller/boardseller');}
+      else {
+        if (data.email === 'user@local.host' && data.password === 'user') {
+          navigate('/users/boarduser');}}
     }
   };
 

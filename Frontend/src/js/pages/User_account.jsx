@@ -17,7 +17,7 @@ const initialUser = {
   motdepasse: '********'
 };
 
-// Fields to be displayed in the user information card
+
 // These fields are used to display the user's information in the DashboardInfoCard component
 const userFields = [
   { key: 'nom', label: 'Nom' },
