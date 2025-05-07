@@ -27,7 +27,7 @@ function ProductService() {
     ];
 
     return (
-        <div id='sliderServices' className='bg-dark-subtle rounded-bottom-5 p-5 mb-5 mx-5 position-relative'>
+        <div id='sliderServices' className='bg-dark-subtle rounded-bottom-5 p-md-5 mb-md-5 mx-5 position-relative'>
             {/* <p className='fs-3 fw-bold text-center'>Services à la carte : </p> */}
             <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
 
@@ -69,7 +69,7 @@ const NavigationButtons = () => {
 }
 
 const CardGuarantee = () => {
-    return <div className="position-absolute top-100 start-50 translate-middle w-100 pb-3">
+    return <div className="position-absolute top-100 start-50 translate-middle w-100 pb-3 d-none d-md-block">
         <div id='guaranteeImages' className="container bg-light w-75 mt-5 pt-3 pb-1 d-flex flex-md-row flex-column justify-content-around text-center text-primary fw-light rounded-3 mx-auto shadow">
             <div>
                 <img src="../../data/icons/delivery-truck.svg" alt="garantie1" className='mb-2' width={64} height={64} />
