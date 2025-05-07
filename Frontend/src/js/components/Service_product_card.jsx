@@ -15,7 +15,6 @@ import tonte from '../../data/slider/tonte.jpg';
 // import ServiceProductCard from './Service_product_card.jsx';
 // import { color } from 'chart.js/helpers';
 
-
 // ProductService component to display a carousel of services
 // This component is responsible for showing the services available for selection
 function ProductService() {
