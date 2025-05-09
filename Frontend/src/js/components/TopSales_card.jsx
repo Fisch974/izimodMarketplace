@@ -48,7 +48,7 @@ function Card_product() {
     return (
       <div className='pt-md-5 pt-3'>
         <div className="d-flex justify-content-around align-items-center pt-md-5 pb-5">
-          <div className='fw-bold fs-3'>✨ Nos produits les plus vendus ✨</div>
+          <div className='fw-bold fs-3'>✨ Nos produits phares ✨</div>
           {/* <div className='mb-2'>
           <button className='btn btn-outline-primary border-1 rounded-pill me-2'>
             <ArrowLeft />
