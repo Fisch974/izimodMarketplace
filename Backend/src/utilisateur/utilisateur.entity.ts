@@ -25,10 +25,6 @@ export class Utilisateur {
   @IsString()
   adresse!: string;
 
-  @Column({ type: 'varchar', length: 30 })
-  @IsString()
-  telephone!: string;
-
   @Column({ length: 255 })
   @IsEmail()
   mail!: string;
@@ -47,15 +43,13 @@ export class Utilisateur {
   magasin?: Magasin;
 
   @OneToMany(() => ProduitParJour, (produit) => produit.utilisateur)
-  produitsParJour!: ProduitParJour[];
+  produitsParJour?: ProduitParJour[];
 
   @OneToMany(() => Paiement, paiement => paiement.utilisateur)
-  paiements!: Paiement[];
+  paiements?: Paiement[];
 
   // Relation avec la table AvisUtilisateur
   @OneToMany(() => AvisUtilisateur, avis => avis.utilisateur)
-  avisUtilisateurs!: AvisUtilisateur[];
-
-  
+  avisUtilisateurs?: AvisUtilisateur[];
 
 }
