@@ -17,7 +17,7 @@ export class AvisUtilisateur {
   @Column({ type: 'date' })
   date!: Date;
 
-  @Column({ type: 'int', length: 5 })
+  @Column({ type: 'int'})
   note!: number;
 
   @Column({ type: 'boolean' })

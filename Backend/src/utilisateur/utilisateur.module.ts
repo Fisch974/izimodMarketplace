@@ -4,23 +4,20 @@ import { Utilisateur } from './utilisateur.entity';
 import { UtilisateurService } from './utilisateur.service';
 import { UtilisateurController } from './utilisateur.controller';
 import { Magasin } from 'src/magasin/magasin.entity';
-import { ProduitParJour } from 'src/produitParJour/produitParJour.entity';
-import { Paiement } from 'src/paiement/paiement.entity';
-import { AvisUtilisateur } from 'src/avisUtilisateur/avisUtilisateur.entity';
 import { Role } from 'src/role/role.entity';
+import { AvisUtilisateur } from 'src/avisUtilisateur/avisUtilisateur.entity';
+import { ProduitParJour } from 'src/produitParJour/produitParJour.entity';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Utilisateur,
+  imports: [TypeOrmModule.forFeature([Utilisateur,
     Magasin,
-    ProduitParJour,
-    Paiement,
+    Role,
     AvisUtilisateur,
-    Role
-
-    ])],
+    ProduitParJour
+  ])],
   controllers: [UtilisateurController],
   providers: [UtilisateurService],
-  exports: [TypeOrmModule],
+  exports: [UtilisateurService],
 })
 export class UtilisateurModule {}
+

@@ -21,6 +21,6 @@ import { Produit } from '../produit/produit.entity';
   ],
   controllers: [AvisUtilisateurController],
   providers: [AvisUtilisateurService],
-  exports: [TypeOrmModule],
+  exports: [TypeOrmModule, AvisUtilisateurService],
 })
 export class AvisUtilisateurModule {}

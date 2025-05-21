@@ -5,7 +5,7 @@ import { PaiementController } from './paiement.controller';
 import { PaiementService } from './paiement.service';
 import { Utilisateur } from 'src/utilisateur/utilisateur.entity';
 import { Produit } from 'src/produit/produit.entity';
-import { Transaction } from 'typeorm';
+import { Transactions } from 'src/transaction/transaction.entity';
 
 
 
@@ -18,10 +18,10 @@ import { Transaction } from 'typeorm';
       Paiement,
       Utilisateur,
       Produit,
-      Transaction
+      Transactions
     ])],
   controllers: [PaiementController],
   providers: [PaiementService],
-  exports: [TypeOrmModule],
+  exports: [TypeOrmModule, PaiementService],
 })
 export class PaiementModule {}

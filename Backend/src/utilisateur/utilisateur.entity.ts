@@ -25,6 +25,11 @@ export class Utilisateur {
   @IsString()
   adresse!: string;
 
+  @Column({ length: 20 })
+  @IsString()
+  @Length(1, 20)
+  telephone!: string;
+
   @Column({ length: 255 })
   @IsEmail()
   mail!: string;

@@ -1,12 +1,11 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, OnApplicationBootstrap } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Role } from './role.entity';
 import { CreateRoleDto } from './create_Role.dto';
 
-
 @Injectable()
-export class RoleService {
+export class RoleService implements OnApplicationBootstrap {
   constructor(
     @InjectRepository(Role)
     private readonly roleRepo: Repository<Role>,
@@ -31,4 +30,23 @@ export class RoleService {
     const role = await this.findOne(id);
     await this.roleRepo.remove(role);
   }
+
+  // ✅ Changement ici
+  async onApplicationBootstrap() {
+    await this.seedRoles();
+  }
+
+  private async seedRoles() {
+    const roles = ['utilisateur', 'vendeur', 'admin'];
+
+    for (const nom of roles) {
+      const existing = await this.roleRepo.findOne({ where: { nom } });
+      if (!existing) {
+        const role = this.roleRepo.create({ nom });
+        await this.roleRepo.save(role);
+        console.log(`✅ Rôle "${nom}" ajouté`);
+      }
+    }
+  }
 }
+

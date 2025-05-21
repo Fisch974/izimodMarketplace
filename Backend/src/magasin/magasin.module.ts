@@ -21,6 +21,6 @@ import { Visiteur } from 'src/visiteur/visiteur.entity';
 
   controllers: [MagasinController],
   providers: [MagasinService],
-  exports: [TypeOrmModule],
+  exports: [TypeOrmModule, MagasinService],
 })
 export class MagasinModule {}
