@@ -1,4 +1,4 @@
-import { Injectable, InternalServerErrorException, NotFoundException, UnauthorizedException} from '@nestjs/common';
+import { ConflictException, Injectable, InternalServerErrorException, NotFoundException, UnauthorizedException} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { UtilisateurService } from '../utilisateur/utilisateur.service';
@@ -152,6 +152,11 @@ export class AuthService {
   async register(nom: string, prenom: string, adresse: string, mail: string, motDePasse: string, role: string) {
     try {
 
+      const existingUser = await this.utilisateurRepo.findOne({ where: { mail } });
+      if (existingUser) {
+        throw new ConflictException("Un utilisateur avec cet email existe déjà.");
+      }
+
       const hashedPassword = await bcrypt.hash(motDePasse, 10);
       const roleId = await this.roleService.findByName(role)
       const newUser = this.utilisateurRepo.create({
@@ -164,7 +169,8 @@ export class AuthService {
         role: roleId,
       });
 
-    
+      
+
 
       await this.utilisateurRepo.save(newUser);
 
@@ -172,9 +178,10 @@ export class AuthService {
         return this.generateJwt(newUser)
       }
     } catch (err) {
-      console.error("Erreur lors de l'enregistrement du nouvel utilisateur")
-      throw new InternalServerErrorException("Erreur lors de l'inscription de l'utilisateur");
+      console.error("Erreur lors de l'enregistrement du nouvel utilisateur :", err.message);
+      throw new InternalServerErrorException("Erreur lors de l'inscription de l'utilisateur.");
     }
+
   }
 
 }
