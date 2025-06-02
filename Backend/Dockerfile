@@ -6,6 +6,9 @@ WORKDIR /app
 # Copier package.json et package-lock.json (ou yarn.lock si tu utilises Yarn)
 COPY package*.json ./
 
+ENV TZ=Indian/Reunion
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 # Installer les dépendances
 RUN npm install
 

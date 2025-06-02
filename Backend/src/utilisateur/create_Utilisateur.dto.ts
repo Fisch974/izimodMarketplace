@@ -12,18 +12,12 @@ export class CreateUtilisateurDto {
   @IsString()
   adresse!: string;
 
-  @IsString()
-  @Length(1, 20)
-  telephone!: string;
-  
-
   @IsEmail()
   mail!: string;
 
   @IsDateString()
   @IsNotEmpty()
   dateCreation!: string;
-
 
   @IsString()
   motDePasse!: string;

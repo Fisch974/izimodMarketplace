@@ -16,6 +16,12 @@ export class RoleService implements OnApplicationBootstrap {
     return this.roleRepo.save(role);
   }
 
+  async findByName (nom: string) : Promise<Role> {
+    const nomRole = await this.roleRepo.findOne({where: {nom}});
+    if (!nomRole) throw new NotFoundException(`Role ${nom} introuvable`);
+    return nomRole;
+  }
+
   async findAll(): Promise<Role[]> {
     return this.roleRepo.find();
   }

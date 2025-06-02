@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import {googleLogout } from '@react-oauth/google';
 import {
   CheckCheck,
   ChevronDown,
@@ -17,6 +17,8 @@ import {
 
 // Function to handle the click event on the "Marquer comme traité" button
 const Header = () => {
+
+  const navigate = useNavigate();
   
   // Function to handle the click event on the "Marquer comme traité" button
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +34,13 @@ const Header = () => {
   // Function to handle the click event on the "Marquer comme traité" button
   const toggleClick = () => {
     setIsClicked(!isClicked);
+  }
+
+  function fonctionDeDeconnexion() {
+    googleLogout();
+    localStorage.removeItem('access_token');
+    navigate('/');
+    alert("Déconnexion réussie !");
   }
   
   const shopOwner = "Fisch";
@@ -81,10 +90,17 @@ const Header = () => {
                       <User /> <span className="d-md-none">Connexion</span>
                     </a>
                   </li>
-                  <li className="nav-item me-auto" onClick={notImplemented}>
-                    <a className="nav-link text-primary btn btn-transparent shadow-md" href="#">
-                      <LogOut /> <span className="d-md-none">Déconnexion</span>
-                    </a>
+                  <li className="nav-item me-auto">
+                      {localStorage.getItem('access_token') && (
+                        <a href="#"
+                        className="nav-link text-primary btn btn-transparent shadow-md"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          fonctionDeDeconnexion();
+                        }}
+                      >
+                        <LogOut /> <span className="d-md-none">Déconnexion</span>
+                      </a>)}
                   </li>
                   <li className="nav-item me-auto" onClick={toggleClick}>
                     <a className="nav-link text-primary btn btn-transparent shadow-md" href="#">

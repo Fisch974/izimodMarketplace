@@ -2,50 +2,7 @@ import React, { useState } from 'react';
 import '../bootstrap.js';
 import '../../scss/_root.scss';
 
-
-// DashboardInfoCard component to display and manage seller information
-const initialSeller = {
-  nom: 'Martin',
-  prenom: 'Sophie',
-  role: 'Vendeur',
-  adresse: '26 rue de la joie, Batiment B, 2e Etage',
-  telephone: '0692453685',
-  adresseMail: 'Martin_Sophie@mail.com',
-  nomMagasin: 'JardinPlus',
-  motDePasse: '********'
-};
-
-// Function to get fields based on user role
-const getFieldsByRole = (role) => {
-  const commonFields = [
-    { key: 'nom', label: 'Nom' },
-    { key: 'prenom', label: 'Prénom' },
-    { key: 'adresse', label: 'Adresse' },
-    { key: 'telephone', label: 'Téléphone' },
-    { key: 'motDePasse', label: 'Mot de passe' }
-  ];
-
-  if (role === 'Vendeur') {
-    return [
-      ...commonFields.slice(0, 4),
-      { key: 'adresseMail', label: 'Mail Professionnel' },
-      { key: 'nomMagasin', label: 'Nom du Magasin' },
-      commonFields[4]
-    ];
-  } else {
-    return [
-      ...commonFields.slice(0, 4),
-      { key: 'adresseMail', label: 'Adresse Mail' },
-      commonFields[4]
-    ];
-  }
-};
-
-
-// Main component to display the seller's information card
-// This component is responsible for showing the seller's information and allowing editing of the fields
-// It also allows the user to customize the background color of the card
-function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSeller }) {
+function DashboardInfoCard({ title = '', initialData = {}, fields = [], onSave }) {
   const [formData, setFormData] = useState(initialData);
   const [editIndex, setEditIndex] = useState(null);
   const [editValue, setEditValue] = useState('');
@@ -53,18 +10,24 @@ function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSe
     backgroundColor: 'var(--background-blue)',
     color: 'white'
   });
-  
-
-  const fields = getFieldsByRole(formData.role);
 
   const handleEdit = (index, key) => {
     setEditIndex(index);
     setEditValue(formData[key]);
   };
 
-  const handleSave = (key) => {
-    setFormData({ ...formData, [key]: editValue });
+  const handleSave = async (key) => {
+    const updatedData = { ...formData, [key]: editValue };
+    setFormData(updatedData);
     setEditIndex(null);
+    if (onSave) {
+      try {
+        await onSave(updatedData);
+      } catch (err) {
+        console.error("Erreur de mise à jour:", err);
+        alert("Échec de la mise à jour.");
+      }
+    }
   };
 
   const handleCancel = () => {
@@ -74,9 +37,9 @@ function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSe
 
   return (
     <>
-      {/* Choice Colors */}
+      {/* Choix des couleurs */}
       <div className="mb-3">
-        <p className='align-items-center m-1'>Personnaliser la couleur de votre interface :</p>
+        <p className="align-items-center m-1">Personnaliser la couleur de votre interface :</p>
         {[
           { var: '--background-blue', text: 'white' },
           { var: '--background-green', text: 'white' },
@@ -106,13 +69,12 @@ function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSe
         ))}
       </div>
 
-      {/* Card */}
+      {/* Carte des infos */}
       <div className="card carte-vendeur mb-5 m-auto p-5" style={background}>
         <h5 className="card-title text-center p-4 fw-bold">
           {title} {formData.nom} {formData.prenom}
         </h5>
 
-        {/*Display card */}
         {Array.from({ length: Math.ceil(fields.length / 2) }).map((_, rowIndex) => (
           <div key={rowIndex} className="row">
             {[0, 1].map((offset) => {
@@ -160,6 +122,8 @@ function DashboardInfoCard({ title = 'COMPTE VENDEUR: ', initialData = initialSe
 }
 
 export default DashboardInfoCard;
+
+
 
 
 

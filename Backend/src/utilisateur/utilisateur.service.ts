@@ -101,7 +101,6 @@ export class UtilisateurService implements OnApplicationBootstrap {
         nom: 'Dupont',
         prenom: 'Jean',
         adresse: '123 rue Exemple',
-        telephone: '0123456789',
         mail: 'utilisateur@example.com',
         motDePasse: 'password123',
         roleName: 'utilisateur',
@@ -110,7 +109,6 @@ export class UtilisateurService implements OnApplicationBootstrap {
         nom: 'Martin',
         prenom: 'Claire',
         adresse: '456 avenue Vente',
-        telephone: '0987654321',
         mail: 'vendeur@example.com',
         motDePasse: 'vendeur456',
         roleName: 'vendeur',
@@ -140,8 +138,7 @@ export class UtilisateurService implements OnApplicationBootstrap {
       const newUser = this.utilisateurRepo.create({
         nom: u.nom,
         prenom: u.prenom,
-        adresse: u.adresse,
-        telephone: u.telephone,
+        adresse: u.adresse, 
         mail: u.mail,
         motDePasse: hashedPassword,
         dateCreation: new Date().toISOString().split('T')[0],
@@ -153,10 +150,13 @@ export class UtilisateurService implements OnApplicationBootstrap {
     }
   }
 
-  async findByEmailWithPassword(mail: string): Promise<Utilisateur | null> {
-  return this.utilisateurRepo.findOne({
-    where: { mail },
-    relations: ['role'],
-  });
+  async findByEmail(mail: string): Promise<Utilisateur | null> {
+    return this.utilisateurRepo.findOne({
+      where: { mail },
+      relations: ['role'],
+    });
   }
+
+
+
 }

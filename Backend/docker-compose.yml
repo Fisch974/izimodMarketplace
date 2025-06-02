@@ -31,6 +31,10 @@ services:
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: azerty
       DATABASE_NAME: izimod_db
+    cap_add:
+      - SYS_TIME             
+    volumes:
+      - /etc/localtime:/etc/localtime:ro 
 
 networks:
   backend:
@@ -38,3 +42,4 @@ networks:
 
 volumes:
   mysql_data:
+
