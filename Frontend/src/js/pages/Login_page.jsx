@@ -117,7 +117,7 @@ function Login() {
             </div>
           </div>
           <div className='mx-auto'>
-            <button type="submit" className="mb-3 btn btn-primary w-100 text-white">Connexion par mail</button>
+            <button type="submit" className="mb-3 btn btn-primary w-100 text-white">Connexion</button>
             <GoogleLogin
               useOneTap={true}
               onSuccess={handleGoogleSuccess}

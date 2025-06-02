@@ -2,6 +2,7 @@ import { Controller, Post, Body, Get, UseGuards, Req, UnauthorizedException } fr
 import { AuthService } from './auth.service';
 import { UtilisateurService } from '../utilisateur/utilisateur.service';
 import { AuthGuard } from '@nestjs/passport';
+import { RegisterUserDto } from './register_user.dto';
 
 
 
@@ -26,7 +27,15 @@ export class AuthController {
   }
 
   @Post('register')
-  async registerUser(@Body() body: {nom: string, prenom: string, adresse: string, mail: string, motDePasse: string, role: string}) {
-    return this.authService.register(body.nom, body.prenom, body.adresse, body.mail, body.motDePasse, body.role)
-  }
+  async registerUser(@Body() body: RegisterUserDto) {
+  return this.authService.register(
+    body.nom,
+    body.prenom,
+    body.adresse,
+    body.mail,
+    body.motDePasse,
+    body.role
+  );
+}
+
 }
