@@ -7,6 +7,8 @@ import Login from './Login_page.jsx';
 import User from './User_account.jsx';
 import Product from './Product_page.jsx';
 import Sellers from './Seller_account.jsx';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Formulaire from '../components/Form_Registration.jsx';
 
 // Components
 // This component is responsible for rendering the header, footer, and the main content based on the current route
@@ -24,8 +26,9 @@ function App() {
         <Route path="/" element={<Product />} /> {/* Add link with path*/}
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/users/*" element={<User />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login/*" element={<Login />} />
         <Route path="/seller/*" element={<Sellers />} />
+        <Route path='/form' element={<Formulaire />} />
       </Routes>
       <Footer />
     </BrowserRouter>

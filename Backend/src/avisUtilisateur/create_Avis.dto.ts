@@ -10,7 +10,10 @@ import {
     Max,
     Min,
 } from 'class-validator';
-  
+
+
+// This DTO (Data Transfer Object) is used for creating a new user review (AvisUtilisateur).
+// It contains validation rules for the fields that are required when creating a new review.
 export class CreateAvisUtilisateurDto {
 
     @IsString()
@@ -28,8 +31,9 @@ export class CreateAvisUtilisateurDto {
   
     @IsBoolean()
     visible: boolean;
-  
-    @IsOptional()
+
+    
+    @IsNotEmpty()
     utilisateur_id?: number;
   
     @IsNotEmpty()

@@ -16,6 +16,9 @@ export class Produit {
   @Column({type: 'int'})
   stock!: number;
 
+  @Column({type: 'date'})
+  dateAjout!: Date;
+
   @Column({type: 'varchar', length: 100})
   description!: string;
 

@@ -13,13 +13,15 @@ import { TransactionModule } from './transaction/transaction.module';
 import { AvisUtilisateurModule } from './avisUtilisateur/avisUtilisateur.module';
 import { VisiteurModule } from './visiteur/visiteur.module';
 import { AlerteModule } from './alerte/alerte.module';
+import { AuthModule } from './authentification/auth.module';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
+      host: 'mysql_db',
       port: 3306,
       username: 'root',
       password: 'azerty',
@@ -27,8 +29,12 @@ import { AlerteModule } from './alerte/alerte.module';
       autoLoadEntities: true,
       synchronize: true,
     }),
-    UtilisateurModule,
+    JwtModule.register({
+      secret: process.env.JWT_SECRET,
+      signOptions: { expiresIn: '1d' },
+    }),
     RoleModule,
+    UtilisateurModule,
     MagasinModule,
     ProduitModule,
     ProduitParJourModule,
@@ -36,7 +42,8 @@ import { AlerteModule } from './alerte/alerte.module';
     TransactionModule,
     AvisUtilisateurModule,
     VisiteurModule,
-    AlerteModule
+    AlerteModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

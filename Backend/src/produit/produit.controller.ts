@@ -5,8 +5,5 @@ import { ProduitService } from './produit.service';
 export class ProduitController {
   constructor(private readonly appService: ProduitService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+  
 }

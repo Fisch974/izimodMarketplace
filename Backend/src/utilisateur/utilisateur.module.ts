@@ -3,11 +3,21 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Utilisateur } from './utilisateur.entity';
 import { UtilisateurService } from './utilisateur.service';
 import { UtilisateurController } from './utilisateur.controller';
+import { Magasin } from 'src/magasin/magasin.entity';
+import { Role } from 'src/role/role.entity';
+import { AvisUtilisateur } from 'src/avisUtilisateur/avisUtilisateur.entity';
+import { ProduitParJour } from 'src/produitParJour/produitParJour.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Utilisateur])],
+  imports: [TypeOrmModule.forFeature([Utilisateur,
+    Magasin,
+    Role,
+    AvisUtilisateur,
+    ProduitParJour
+  ])],
   controllers: [UtilisateurController],
   providers: [UtilisateurService],
-  exports: [TypeOrmModule],
+  exports: [UtilisateurService],
 })
 export class UtilisateurModule {}
+
