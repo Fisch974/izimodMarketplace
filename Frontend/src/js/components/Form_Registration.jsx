@@ -31,6 +31,10 @@ function Formulaire() {
       });
 
       const result = await response.json();
+      if (result.user?.id) {
+        localStorage.setItem("utilisateur_id", result.user.id);
+      }
+
 
       if (!response.ok) throw new Error(result.message || 'Erreur lors de l\'inscription');
 
@@ -38,7 +42,11 @@ function Formulaire() {
       setRegistered(true); // on affiche le message seul
 
       setTimeout(() => {
-        navigate("/login");
+        if (result.user && result.user.role === 'vendeur') {
+          navigate("/creer-magasin"); // rediriger vers la création de magasin
+        } else {
+          navigate("/login");
+        }
       }, 8000);
 
     } catch (err) {
@@ -84,14 +92,42 @@ function Formulaire() {
 
         <div>
           <label htmlFor="mail" className="form-label">Email:</label>
-          <input type="email" id="mail" className="form-control" {...register("mail", { required: true })} />
-          {errors.mail && <div className="text-danger">Email requis</div>}
+          <input
+            type="email"
+            id="mail"
+            className="form-control"
+            {...register("mail", {
+              required: true,
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Adresse email invalide"
+              }
+            })}
+          />
+          {errors.mail && <div className="text-danger">{errors.mail.message || "Email requis"}</div>}
+
         </div>
 
         <div>
           <label htmlFor="password" className="form-label">Mot de passe:</label>
-          <input type="password" id="password" className="form-control" {...register("password", { required: true, minLength: 6 })} />
-          {errors.password && <div className="text-danger">Mot de passe (min 6 caractères) requis</div>}
+          <input
+            type="password"
+            id="password"
+            className="form-control"
+            {...register("password", {
+              required: true,
+              minLength: {
+                value: 8,
+                message: "Le mot de passe doit contenir au moins 6 caractères",
+              },
+              pattern: {
+                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                message: "Le mot de passe doit contenir au moins une lettre et un chiffre",
+              },
+            })}
+          />
+          {errors.password && <div className="text-danger">{errors.password.message}</div>}
+
         </div>
 
         <RoleSelector onSelect={setSelectedRole} />

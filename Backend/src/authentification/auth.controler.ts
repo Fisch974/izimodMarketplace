@@ -6,9 +6,10 @@ import { RegisterUserDto } from './register_user.dto';
 
 
 
+
 @Controller('auth')
 export class AuthController {
-  constructor(private authService: AuthService, private utilisateurService: UtilisateurService) {}
+  constructor(private authService: AuthService) {}
 
   @Post('login')
   async login(@Body() body: { mail: string; motDePasse: string }) {

@@ -27,32 +27,37 @@ export class ProduitService {
   // Create a new product
   // This method creates a new product with the provided data and associates it with the specified store and user review.
   async CreateProduit(dto: CreateProduitDto): Promise<Produit> {
-
-    const magasin = await this.magasinRepo.findOne({ where: { id: dto.magasin_id } });
-    if (!magasin) {
-      throw new Error('Magasin not found');
-    }
-    const avisUtilisateur = await this.avisUtilisateurRepo.findOne({ where: { id: dto.avisUtilisateur_id } });
-
-    if (!avisUtilisateur) {
-      throw new Error('AvisUtilisateur not found');
-    }
-
-
-    const newProduit = this.produitRepo.create({
-      designation: dto.designation,
-      description: dto.description,
-      prix: dto.prix,
-      stock: dto.stock,
-      dateAjout: dto.dateAjout ? new Date(dto.dateAjout) : new Date(),
-      categorie: dto.categorie,
-      imagePath: dto.imagePath,
-      magasin: magasin,
-      avisUtilisateurs: [avisUtilisateur],
-    });
-
-    return this.produitRepo.save(newProduit);
+  const magasin = await this.magasinRepo.findOne({ where: { id: dto.magasin_id } });
+  if (!magasin) {
+    throw new Error('Magasin not found');
   }
+
+  let avisUtilisateur: AvisUtilisateur | null = null;
+
+  if (dto.avisUtilisateur_id) {
+    avisUtilisateur = await this.avisUtilisateurRepo.findOne({ where: { id: dto.avisUtilisateur_id } });
+
+    // Tu peux choisir d'ignorer ou de lever une erreur ici
+    if (!avisUtilisateur) {
+      console.warn(`⚠️ Aucun avis utilisateur trouvé pour l'id ${dto.avisUtilisateur_id}`);
+    }
+  }
+
+  const newProduit = this.produitRepo.create({
+    designation: dto.designation,
+    description: dto.description,
+    prix: dto.prix,
+    stock: dto.stock,
+    dateAjout: dto.dateAjout ? new Date(dto.dateAjout) : new Date(),
+    categorie: dto.categorie,
+    imagePath: dto.imagePath,
+    magasin: magasin,
+    avisUtilisateur: avisUtilisateur ? [avisUtilisateur] : [],
+  });
+
+  return this.produitRepo.save(newProduit);
+}
+
 
   // Update an existing product
   // This method updates an existing product with the provided data and associates it with the specified store and user review.
@@ -83,7 +88,7 @@ export class ProduitService {
     produit.categorie = dto.categorie;
     if (dto.imagePath !== undefined) produit.imagePath = dto.imagePath;
     produit.magasin = magasin;
-    produit.avisUtilisateurs = [avisUtilisateur];
+    produit.avisUtilisateur = [avisUtilisateur];
 
     return this.produitRepo.save(produit);
   }

@@ -152,6 +152,7 @@ export class AuthService {
   async register(nom: string, prenom: string, adresse: string, mail: string, motDePasse: string, role: string) {
     try {
 
+
       const existingUser = await this.utilisateurRepo.findOne({ where: { mail } });
       if (existingUser) {
         throw new ConflictException("Un utilisateur avec cet email existe déjà.");

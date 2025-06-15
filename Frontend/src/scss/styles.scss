@@ -507,12 +507,11 @@ table td button:hover {
 }
 
 .carte-vendeur {
-	width: 60%;
+	width: 40%;
 	border-radius: 20px;
 
-
 	@include responsive('xs') {
-		width: 80%;
+		width: 90%;
 	}
 }
 

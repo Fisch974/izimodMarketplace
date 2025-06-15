@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, OneToOne } from "typeorm";
 import { IsEmail, IsString, Length } from "class-validator";
 import { Role } from '../role/role.entity';
 import { Magasin } from '../magasin/magasin.entity';
@@ -39,8 +39,9 @@ export class Utilisateur {
   @ManyToOne(() => Role, { eager: true }) // eager si on veut auto-charger les rôles à chaque fois
   role!: Role;
 
-  @ManyToOne(() => Magasin, { nullable: true })
+  @OneToOne(() => Magasin, magasin => magasin.utilisateur)
   magasin?: Magasin;
+
 
   @OneToMany(() => ProduitParJour, (produit) => produit.utilisateur)
   produitsParJour?: ProduitParJour[];

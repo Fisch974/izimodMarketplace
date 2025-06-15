@@ -5,6 +5,7 @@ import {
     IsOptional,
     IsString,
     IsNumber,
+    IsInt,
 } from 'class-validator';
 
 
@@ -15,21 +16,16 @@ export class CreateMagasinDto {
     @IsString()
     @IsNotEmpty()
     nom: string;
-  
-    @IsDateString()
-    @IsNotEmpty()
-    creerLe: string;
-  
+
     @IsString()
     @IsNotEmpty()
-    type: string;
+    telephone: string;
 
+    @IsDateString()
     @IsNotEmpty()
-    visiteur_id: number;
-
+    creerLe: Date;
+  
     @IsNotEmpty()
-    produit_id: number;
-
-    @IsNotEmpty()
-    avisUtilisateur_id: number;
+    @IsInt()
+    utilisateurId: number; // pour associer au vendeur
 }

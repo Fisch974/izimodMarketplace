@@ -66,8 +66,8 @@ function Menus_aside({ userRole = 'admin' }) {
     // Function to handle the click event on the menu links
     return (
         <>
-            <button className="btn btn-primary m-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
-                {roleLabels[userRole] || 'Menu'}
+            <button className="btn btn-primary m-2 d-flex gap-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">
+                {roleLabels[userRole] || 'Menu'}<Menu />
             </button>
 
             <div ref={offcanvasRef} className="sidebar offcanvas offcanvas-top" tabIndex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">

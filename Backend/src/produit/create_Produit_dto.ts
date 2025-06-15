@@ -28,7 +28,7 @@ export class CreateProduitDto {
 
     @IsDateString()
     @IsNotEmpty()
-    dateAjout: string;
+    dateAjout: Date;
 
     @IsString()
     @IsNotEmpty()

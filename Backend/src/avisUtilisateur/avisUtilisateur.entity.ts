@@ -2,6 +2,8 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 't
 import { Utilisateur } from '../utilisateur/utilisateur.entity';
 import { Magasin } from '../magasin/magasin.entity';
 import { Produit } from '../produit/produit.entity';
+import { Transform } from 'class-transformer';
+import sanitizeHtml from 'sanitize-html';
 
 // AvisUtilisateur Entity
 // This entity represents the user reviews in the database.
@@ -11,12 +13,16 @@ export class AvisUtilisateur {
   @PrimaryGeneratedColumn()
   id!: number;
 
+
+  @Transform(({ value }) => sanitizeHtml(value))
   @Column({ type: 'text' })
   commentaire!: string;
 
+  @Transform(({ value }) => sanitizeHtml(value))
   @Column({ type: 'date' })
   date!: Date;
 
+  @Transform(({ value }) => sanitizeHtml(value))
   @Column({ type: 'int'})
   note!: number;
 
@@ -35,7 +41,7 @@ export class AvisUtilisateur {
   magasin!: Magasin;
 
   // Produit is required, so we don't use nullable
-  @ManyToOne(() => Produit, produit => produit.avisUtilisateurs)
+  @ManyToOne(() => Produit, produit => produit.avisUtilisateur)
   @JoinColumn({ name: 'produit_id' })
   produit!: Produit;
 

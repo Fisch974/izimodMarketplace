@@ -6,6 +6,7 @@ import {
   Body,
   Delete,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { AvisUtilisateurService } from './avisUtilisateur.service';
 import { AvisUtilisateur } from './avisUtilisateur.entity';
@@ -13,6 +14,7 @@ import { CreateAvisUtilisateurDto } from './create_Avis.dto';
 import { Magasin } from '../magasin/magasin.entity';
 import { Utilisateur } from '../utilisateur/utilisateur.entity';
 import { Produit } from '../produit/produit.entity';
+import { JwtAuthGuard } from 'src/authentification/jwt-auth.guard';
 
 // This module for managing user reviews (AvisUtilisateur).
 // It imports the necessary entities and services, and sets up the controller and service for handling requests related to user reviews.
@@ -20,6 +22,7 @@ import { Produit } from '../produit/produit.entity';
 export class AvisUtilisateurController {
   constructor(private readonly appService: AvisUtilisateurService) {}
 
+  @UseGuards(JwtAuthGuard)
   // Get all reviews
   @Get()
     getAllAvis(): Promise<AvisUtilisateur[]> {
@@ -32,12 +35,14 @@ export class AvisUtilisateurController {
       return this.appService.getAvisByMagasinId(magasinId);
     }
 
+  @UseGuards(JwtAuthGuard)
   // Get reviews by product ID
   @Post('create')
     createAvis(dto: CreateAvisUtilisateurDto): Promise<AvisUtilisateur> {
       return this.appService.createAvis(dto);
     }
 
+  @UseGuards(JwtAuthGuard)
   // Get reviews by user ID
   @Put('update/:id')
     updateAvis(
@@ -46,7 +51,8 @@ export class AvisUtilisateurController {
     ): Promise<AvisUtilisateur> {
       return this.appService.updateAvis(id, dto);
     }
-  
+
+  @UseGuards(JwtAuthGuard)
   // Delete a review by ID
   @Delete('delete/:id')
     deleteAvis(id: number): Promise<void> {   
