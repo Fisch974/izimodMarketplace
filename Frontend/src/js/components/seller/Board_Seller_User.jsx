@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
-import '../../scss/_root.scss';
+import '../../bootstrap.js';
+import '../../../scss/_root.scss';
 
 function DashboardInfoCard({ title = '', initialData = {}, fields = [], onSave }) {
   const [formData, setFormData] = useState(initialData);

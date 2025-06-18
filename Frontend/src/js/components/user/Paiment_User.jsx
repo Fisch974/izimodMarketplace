@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
-import { sendAlert } from './Alert_System.jsx';
+import '../../bootstrap.js';
+import { sendAlert } from '../Alert_System.jsx';
 
 
 // PaimentUser component to display and manage user payment methods

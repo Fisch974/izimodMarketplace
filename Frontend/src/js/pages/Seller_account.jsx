@@ -1,14 +1,14 @@
 import { Routes, Route, Navigate, Link } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import '../bootstrap.js';
-import Menus_aside from '../components/aside_menus.jsx';
-import DashboardInfoCard from "../components/Board_Seller_User.jsx";
-import Orders_seller from "../components/Orders_Seller.jsx";
-import ProductSeller from "../components/Product_seller.jsx";
-import AlertSeller from "../components/Alert_Seller.jsx";
-import StatsSeller from "../components/Stats_Seller.jsx";
-import ReviewSeller from "../components/Review_Seller.jsx";
-import CreerMagasin from "../components/CreateMagasin.jsx";
+import Menus_aside from "../components/Menus.jsx";
+import DashboardInfoCard from "../components/seller/Board_Seller_User.jsx";
+import Orders_seller from "../components/seller/Orders_Seller.jsx";
+import ProductSeller from "../components/seller/Product_seller.jsx";
+import AlertSeller from "../components/seller/Alert_Seller.jsx";
+import StatsSeller from "../components/seller/Stats_Seller.jsx";
+import ReviewSeller from "../components/seller/Review_Seller.jsx";
+import CreerMagasin from "../components/seller/CreateMagasin.jsx";
 
 
 // Components

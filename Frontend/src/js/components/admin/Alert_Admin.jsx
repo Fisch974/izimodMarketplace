@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 // Initial list of alerts with information such as type, message, and status
 const initialAlerts = [

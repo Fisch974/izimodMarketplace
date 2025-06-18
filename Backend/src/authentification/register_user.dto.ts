@@ -1,6 +1,6 @@
 import { Transform } from 'class-transformer';
 import { IsEmail, IsIn, IsNotEmpty, IsString, Matches, MinLength } from 'class-validator';
-import sanitizeHtml from 'sanitize-html';
+import * as sanitizeHtml from 'sanitize-html';
 
 export class RegisterUserDto {
 

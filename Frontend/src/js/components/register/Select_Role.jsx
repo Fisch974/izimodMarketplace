@@ -1,6 +1,6 @@
 // src/components/RoleSelector.jsx
 import React from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 const RoleSelector = ({ onSelect }) => {
   return (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 // OrdersSeller component to display and manage seller orders
 // This component is responsible for showing the orders based on their status (Paid, Shipped, Pending)

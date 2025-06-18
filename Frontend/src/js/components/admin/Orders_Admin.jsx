@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 // Orders component to display and manage orders
 // This component is responsible for showing the list of orders and allowing filtering by status and store

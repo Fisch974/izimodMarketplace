@@ -1,6 +1,7 @@
 
 import {
     IsDateString,
+    IsInt,
     IsNotEmpty,
     IsNumber,
     IsOptional,
@@ -40,7 +41,7 @@ export class CreateProduitDto {
     imagePath?: string;
 
 
-    @IsNotEmpty()
+    @IsInt()
     @IsOptional()
     avisUtilisateur_id?: number;
 

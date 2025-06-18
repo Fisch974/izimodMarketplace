@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseInterceptors, UploadedFile, ParseIntPipe, Param, UseGuards, UploadedFiles } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseInterceptors, UploadedFile, ParseIntPipe, Param, UseGuards, UploadedFiles, Patch, Delete } from '@nestjs/common';
 import { ProduitService } from './produit.service';
 import { CreateProduitDto } from './create_Produit_dto';
 import { Produit } from './produit.entity';
@@ -16,15 +16,13 @@ export class ProduitController {
   @Post('create')
   @UseInterceptors(FilesInterceptor('images', 5, {
     storage: diskStorage({
-      destination: './uploads',
+      destination: './uploads', // Directory where files will be stored
       filename: (req, file, callback) => {
         const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
         callback(null, `images-${uniqueSuffix}${extname(file.originalname)}`);
       }
     })
   }))
-
-  @UseGuards(JwtAuthGuard)
   async createProduit(
     @UploadedFiles() files: Express.Multer.File[],
     @Body() body: any
@@ -45,5 +43,36 @@ export class ProduitController {
     const produits = await this.appService.getProduitByMagasinId(magasinId);
     return produits;
   }
+
+  @UseGuards(JwtAuthGuard)
+  @Patch('update/:id')
+  @UseInterceptors(FilesInterceptor('images', 5, {
+    storage: diskStorage({
+      destination: './uploads',
+      filename: (req, file, callback) => {
+        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
+        callback(null, `images-${uniqueSuffix}${extname(file.originalname)}`);
+      },
+    }),
+  }))
+  async updateProduit(
+    @Param('id', ParseIntPipe) id: number,
+    @UploadedFiles() files: Express.Multer.File[],
+    @Body() body: CreateProduitDto
+  ) {
+    const imagePaths = files.map(file => file.filename);
+
+    return this.appService.UpdateProduit(id, {
+      ...body,
+      imagePath: imagePaths.length > 0 ? imagePaths[0] : body.imagePath,
+    });
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Delete(':id')
+  async deleteProduit(@Param('id', ParseIntPipe) id: number): Promise<void> {
+    return this.appService.deleteProduit(id);
+  }
+
 
 }

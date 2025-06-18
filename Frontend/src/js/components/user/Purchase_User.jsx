@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 
 // Dummy data for purchases

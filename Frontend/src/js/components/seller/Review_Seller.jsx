@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 
 // ReviewSeller component to display and manage customer reviews for a seller

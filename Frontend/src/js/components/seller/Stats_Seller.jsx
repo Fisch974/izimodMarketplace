@@ -3,7 +3,7 @@ import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
   BarChart, Bar
 } from 'recharts';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 
 // StatsSeller component to display statistics for the seller

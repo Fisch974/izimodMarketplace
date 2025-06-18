@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 // Product_Manager component to display and manage products
 // This component is responsible for showing the list of products, allowing validation, deletion, and editing of products

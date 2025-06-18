@@ -3,11 +3,19 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { join } from 'path';
 import * as express from 'express';
+import * as fs from 'fs';
+import * as path from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-  app.use('/uploads', express.static(join(__dirname, '..', 'uploads')));
+  const uploadPath = path.join(__dirname, '..', 'uploads');
+
+  if (!fs.existsSync(uploadPath)) {
+    fs.mkdirSync(uploadPath, { recursive: true });
+  }
+  
+  app.use('/uploads', express.static(join(process.cwd(), uploadPath)));
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,       // enlève les propriétés non déclarées
     forbidNonWhitelisted: true, // bloque la requête si une prop non attendue est présente

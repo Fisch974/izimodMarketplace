@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 // Dummy data for user reviews
 // This data is used to simulate user reviews for different stores

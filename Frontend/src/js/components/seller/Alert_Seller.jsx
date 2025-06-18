@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../bootstrap.js';
+import '../../bootstrap.js';
 
 // AlertSeller component to display and manage seller alerts
 // This component is responsible for showing alerts related to the seller's account
