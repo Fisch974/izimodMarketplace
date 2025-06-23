@@ -143,7 +143,7 @@ const SubHeader = () => {
         <Menu size={20} className="me-1" /> Catégories
       </button>
       <Link className="text-decoration-none menuLink" to="/" aria-selected="true">Accueil</Link>
-      <Link className="text-decoration-none menuLink text-black-50" to="login" aria-selected="false">Boutique</Link>
+      <Link className="text-decoration-none menuLink text-black-50" to="boutique" aria-selected="false">Boutiques</Link>
       <Link className="text-decoration-none menuLink text-black-50" to="login" aria-selected="false">Produits</Link>
       <Link className="text-decoration-none menuLink text-black-50" to="https://github.com/Fisch974/izimodMarketplace/tree/develop" target="_blank" aria-selected="false">À propos</Link>
     </div>

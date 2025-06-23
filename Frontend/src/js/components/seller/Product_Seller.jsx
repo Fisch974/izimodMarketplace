@@ -4,6 +4,8 @@ import { Menu, Store, Brush, Radio, RectangleEllipsis, ArrowDownToLine } from 'l
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import OnlineProducts from '../menu_seller/OnlineProducts.jsx';
+import ProductCreate from '../menu_seller/CreateProduct.jsx';
+import Create_Product from '../menu_seller/CreateProduct.jsx';
 
 function ProductSeller() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -18,6 +20,8 @@ function ProductSeller() {
   const [produits, setProduits] = useState([]);
   const [isLoadingProduits, setIsLoadingProduits] = useState(false);
   const [errorProduits, setErrorProduits] = useState(null);
+  const [editingProduct, setEditingProduct] = useState(null);
+
 
   const fetchProduits = async () => {
     if (!magasinData?.id) return;
@@ -94,6 +98,11 @@ function ProductSeller() {
     );
   }
 
+  const handleProductDeleted = () => {
+    fetchProduits(); // Recharge les produits après suppression
+  };
+
+
   return (
     <div className="row">
       <div className="d-lg-none mb-3">
@@ -109,17 +118,17 @@ function ProductSeller() {
         
         <h3 className="text-center mb-4">Mon Marketplace</h3>
         <div className="d-flex flex-column">
+
           <button onClick={() => setActiveTab('onlineProduct')} className="btn btn-dark text-start mb-2">
             <ArrowDownToLine className='me-2' /> Produits en ligne
           </button>
+
+          <button onClick={() => setActiveTab('createProduct')} className="btn btn-dark text-start mb-2">
+            <Brush className='me-2' /> Créer produit ou service
+          </button>
+          
           <button className="btn btn-dark text-start mb-2">
             <Store className='me-2' /> Aperçu Marketplace
-          </button>
-          <button className="btn btn-dark text-start mb-2">
-            <Brush className='me-2' /> Personnalisation
-          </button>
-          <button className="btn btn-dark text-start mb-2">
-            <RectangleEllipsis className='me-2' /> Modifier Produits
           </button>
           <button className="btn btn-dark text-start mb-2">
             <Radio className='me-2' /> Partager la page
@@ -128,15 +137,22 @@ function ProductSeller() {
       </div>
       {/* Contenu à droite */}
       <div className="col-lg-9">
+        {activeTab === 'createProduct' && (
+          <Create_Product magasinId={magasinData.id} onProductCreated={fetchProduits} />
+        )}
         {activeTab === 'onlineProduct' && (
           <OnlineProducts
             produits={produits}
+            magasinId={magasinData.id}
             isLoading={isLoadingProduits}
             error={errorProduits}
             showMenu={showMenu}
             setShowMenu={setShowMenu}
+            onDeleteSuccess={handleProductDeleted}
           />
         )}
+        
+
       </div>
 
     </div>

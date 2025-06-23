@@ -146,5 +146,4 @@ export class ProduitService {
     await this.produitRepo.remove(produit);
   }
 
-
 }

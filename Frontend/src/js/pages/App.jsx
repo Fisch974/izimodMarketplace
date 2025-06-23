@@ -9,7 +9,9 @@ import Product from './Product_page.jsx';
 import Sellers from './Seller_account.jsx';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Formulaire from '../components/register/Form_Registration.jsx';
-
+import DisplayStore from './Display_Product.jsx';
+import Home from './Home_page.jsx';
+import DisplayProduct from './Display_Product.jsx';
 // Components
 // This component is responsible for rendering the header, footer, and the main content based on the current route
 import Header from '../components/header_footer/Header.jsx';
@@ -23,12 +25,16 @@ function App() {
     <BrowserRouter> {/*Integrated routing to redirect links */}
       <Header />
       <Routes>
-        <Route path="/" element={<Product />} /> {/* Add link with path*/}
+        <Route path='/' element={<Home />} /> 
+        <Route path="/produit/*" element={<DisplayProduct />} />
+        <Route path="/boutique/*" element={<Product />} /> 
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/users/*" element={<User />} />
         <Route path="/login/*" element={<Login />} />
         <Route path="/seller/*" element={<Sellers />} />
         <Route path='/form' element={<Formulaire />} />
+        <Route path="/store/*" element={<DisplayStore />} />
+        {/* Add link with path */}
       </Routes>
       <Footer />
     </BrowserRouter>

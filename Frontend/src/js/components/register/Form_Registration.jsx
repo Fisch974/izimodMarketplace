@@ -126,7 +126,7 @@ function Formulaire() {
               },
             })}
           />
-          {errors.password && <div className="text-danger">{errors.password.message}</div>}
+          {errors.password && <div className="text-danger">{errors.password.message || "Mot de passe requis"}</div>}
 
         </div>
 
@@ -140,4 +140,6 @@ function Formulaire() {
 }
 
 export default Formulaire;
+
+
 

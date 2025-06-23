@@ -15,7 +15,8 @@ async function bootstrap() {
     fs.mkdirSync(uploadPath, { recursive: true });
   }
   
-  app.use('/uploads', express.static(join(process.cwd(), uploadPath)));
+  app.use('/uploads', express.static(uploadPath));
+
   app.useGlobalPipes(new ValidationPipe({
     whitelist: true,       // enlève les propriétés non déclarées
     forbidNonWhitelisted: true, // bloque la requête si une prop non attendue est présente

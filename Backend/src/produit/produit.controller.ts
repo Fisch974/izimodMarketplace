@@ -44,29 +44,33 @@ export class ProduitController {
     return produits;
   }
 
-  @UseGuards(JwtAuthGuard)
   @Patch('update/:id')
-  @UseInterceptors(FilesInterceptor('images', 5, {
-    storage: diskStorage({
-      destination: './uploads',
-      filename: (req, file, callback) => {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-        callback(null, `images-${uniqueSuffix}${extname(file.originalname)}`);
-      },
-    }),
-  }))
+  @UseInterceptors(FileInterceptor('images'))
   async updateProduit(
-    @Param('id', ParseIntPipe) id: number,
-    @UploadedFiles() files: Express.Multer.File[],
-    @Body() body: CreateProduitDto
-  ) {
-    const imagePaths = files.map(file => file.filename);
-
-    return this.appService.UpdateProduit(id, {
+    @Param('id') id: number,
+    @Body() body: any,
+    @UploadedFile() file: Express.Multer.File,
+  ): Promise<Produit> {
+    // Parser les valeurs correctement
+    const dto = {
       ...body,
-      imagePath: imagePaths.length > 0 ? imagePaths[0] : body.imagePath,
-    });
+      prix: parseFloat(body.prix),
+      stock: parseInt(body.stock),
+      magasin_id: parseInt(body.magasin_id),
+      avisUtilisateur_id: body.avisUtilisateur_id ? parseInt(body.avisUtilisateur_id) : undefined,
+      imagePath: file ? file.filename : body.imagePath,
+    };
+
+    return this.appService.UpdateProduit(id, dto);
   }
+
+
+  @UseGuards(JwtAuthGuard)
+  @Get(':id')
+  async getProduitById(@Param('id', ParseIntPipe) id: number): Promise<Produit> {
+    return this.appService.getProduitById(id);
+  }
+
 
   @UseGuards(JwtAuthGuard)
   @Delete(':id')
