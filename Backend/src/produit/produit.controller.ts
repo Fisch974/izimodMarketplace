@@ -8,10 +8,14 @@ import { extname } from 'path';
 import { JwtAuthGuard } from 'src/authentification/jwt-auth.guard';
 
 // Controller for managing products in a store
+// It provides endpoints to create, update, retrieve, and delete products.
+// It uses the ProduitService to handle business logic related to products.
 @Controller('produits')
 export class ProduitController {
   constructor(private readonly appService: ProduitService) {}
 
+  // Create a new product
+  // This method allows authenticated users to create a new product with images.
   @UseGuards(JwtAuthGuard)
   @Post('create')
   @UseInterceptors(FilesInterceptor('images', 5, {
@@ -37,6 +41,8 @@ export class ProduitController {
     });
   }
 
+  // Get all products
+  // This method retrieves all products from the database.
   @UseGuards(JwtAuthGuard)
   @Get('magasin/:id')
   async getProduitsByMagasin(@Param('id', ParseIntPipe) magasinId: number) {
@@ -44,6 +50,8 @@ export class ProduitController {
     return produits;
   }
 
+  // Get all products
+  // This method retrieves all products from the database.
   @Patch('update/:id')
   @UseInterceptors(FileInterceptor('images'))
   async updateProduit(
@@ -65,6 +73,8 @@ export class ProduitController {
   }
 
 
+  // Get a product by ID
+  // This method retrieves a specific product by its ID.
   @UseGuards(JwtAuthGuard)
   @Get(':id')
   async getProduitById(@Param('id', ParseIntPipe) id: number): Promise<Produit> {

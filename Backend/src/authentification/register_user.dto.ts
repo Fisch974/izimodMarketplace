@@ -2,6 +2,8 @@ import { Transform } from 'class-transformer';
 import { IsEmail, IsIn, IsNotEmpty, IsString, Matches, MinLength } from 'class-validator';
 import * as sanitizeHtml from 'sanitize-html';
 
+// RegisterUserDto
+// This DTO is used for registering a new user in the system.
 export class RegisterUserDto {
 
   @IsString()

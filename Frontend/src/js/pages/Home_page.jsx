@@ -35,8 +35,8 @@ function Home() {
 
               {/* Subtitle */}
               <p className="lead text-muted mb-5 mx-auto" style={{maxWidth: '600px'}}>
-                Une sélection unique de produits exceptionnels, choisis avec soin pour vous offrir 
-                la meilleure expérience d'achat. Qualité, style et innovation réunis en un seul endroit.
+                Une sélection unique de produits et services exceptionnels, choisis avec soin pour vous offrir 
+                la meilleure expérience d'achat. Qualité, et innovation réunis en un seul endroit.
               </p>
 
               {/* CTA Button */}

@@ -1,5 +1,7 @@
 import { IsEmail, IsString, Length, IsOptional, IsNotEmpty, IsNumber, IsDateString } from 'class-validator';
 
+// This DTO (Data Transfer Object) is used for creating a new user.
+// It contains validation rules for the fields that are required when creating a new user.
 export class CreateUtilisateurDto {
   @IsString()
   @Length(1, 30)

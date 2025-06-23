@@ -5,8 +5,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { RegisterUserDto } from './register_user.dto';
 
 
-
-
+// This controller handles authentication-related requests such as login and registration.
+// It uses the AuthService to manage user authentication and registration processes.
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}

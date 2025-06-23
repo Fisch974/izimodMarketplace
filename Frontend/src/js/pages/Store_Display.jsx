@@ -8,14 +8,10 @@ import ProductService from '../components/seller/Service_product_card.jsx';
 
 // Product component to display the main product page
 // This component is responsible for showing the product selection and related services
-function Product() {
-  const [magasinData, setMagasinData] = useState(null);
-
-
+function Store() {
 
     return (
       <>
-
         <ProductService />
         <Card_product />
         <Middle_ReducedPrice />
@@ -25,4 +21,4 @@ function Product() {
     
 }
 
-export default Product;
+export default Store;

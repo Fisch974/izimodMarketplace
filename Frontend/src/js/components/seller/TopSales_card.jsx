@@ -49,14 +49,6 @@ function Card_product() {
       <div className='pt-md-5 pt-3'>
         <div className="d-flex justify-content-around align-items-center pt-md-5 pb-5">
           <div className='fw-bold fs-3'>✨ Nos produits phares ✨</div>
-          {/* <div className='mb-2'>
-          <button className='btn btn-outline-primary border-1 rounded-pill me-2'>
-            <ArrowLeft />
-          </button>
-          <button className='btn btn-outline-primary border-1 rounded-pill'>
-            <ArrowRight />
-          </button>
-        </div> */}
         </div>
 
         <div className="cardProducts mx-5 ps-5">
@@ -86,21 +78,6 @@ function Card_product() {
             </div>
           ))}
         </div>
-
-        {/* <div className="product-grid">
-        {products.map((product) => (
-          <div className="product-card" key={product.id}>
-            <img src={product.image} alt={'Acheter ' + product.name} />
-            <div>
-              <p className='text-primary fw-light'>{product.name}</p>
-              <p className='fw-bold'>{product.price} €</p>
-            </div>
-            <button className='btn btn-outline-primary rounded-3 button-panie'>
-              <ShoppingCart />
-            </button>
-          </div>
-        ))}
-      </div> */}
       </div>
     )
   } else {

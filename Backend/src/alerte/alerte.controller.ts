@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Body, Param, Patch } from '@nestjs/common';
 import { AlerteService } from './alerte.service';
 
+// This controller handles requests related to alerts in the application.
+// It provides endpoints to create, retrieve, and update alerts.
 @Controller('alertes')
 export class AlerteController {
   constructor(private readonly alerteService: AlerteService) {}

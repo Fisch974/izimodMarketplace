@@ -30,14 +30,6 @@ function Middle_ReducedPrice() {
       <div className='pt-md-5 py-5'>
         <div className="d-flex justify-content-around align-items-center pt-md-3 pb-5">
           <div className='fw-bold fs-3'>💖 Nos produits soldés 💖</div>
-          {/* <div className='mb-3'>
-            <button className='btn btn-outline-primary border-1 rounded-pill me-2'>
-              <ArrowLeft />
-            </button>
-            <button className='btn btn-outline-primary border-1 rounded-pill'>
-              <ArrowRight />
-            </button>
-          </div> */}
         </div>
 
         <div className="cardProducts mx-5 ps-5">
@@ -46,37 +38,9 @@ function Middle_ReducedPrice() {
               <div className="img-fluid rounded-top-3 d-flex flex-column mb-2">
                 <img className='' src={img.src} alt={'Acheter ' + img.name} />
               </div>
-              {/* <div className="hstack">
-                <div className="">
-                  <div className="">
-                    <p className="fs-6 fw-lighter text-primary">
-                      {img.name}
-                    </p>
-                    <p className="fw-bold">
-                      {img.price} €
-                      {ifSales && <span className="fw-lighter text-decoration-line-through text-black-50"> {img.price * 2} €</span>}
-                    </p>
-                  </div>
-                </div>
-                <div className="mb-4 me-lg-5 ms-auto">
-                  <button className="btn btn-outline-primary rounded-3">
-                    <ShoppingCart size={20} />
-                  </button>
-                </div>
-              </div> */}
             </div>
           ))}
         </div>
-
-        {/* <div className="big-card">
-      <h2>Nos prix réduit 💖</h2>
-      <div className="big-card-images">
-        {productImages.map((img) => (
-          <img src={img.src} alt={img.name} className="big-card-image" />
-
-        ))}
-      </div>
-    </div> */}
       </div>
     )
   } else {

@@ -5,6 +5,8 @@ import { IsIn, IsOptional } from "class-validator";
 import sanitizeHtml from 'sanitize-html';
 import { Transform } from "class-transformer";
 
+// Produit Entity
+// This entity represents products in the database.
 @Entity()
 export class Produit {
   @PrimaryGeneratedColumn()

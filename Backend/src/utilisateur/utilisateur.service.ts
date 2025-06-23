@@ -8,6 +8,8 @@ import * as bcrypt from 'bcrypt';
 import { Role } from 'src/role/role.entity';
 import { UpdateUtilisateurDto } from './update-utilisateur.dto';
 
+// This service is responsible for managing users (Utilisateur).
+// It provides methods to create, find, update, and delete users, as well as handling
 @Injectable()
 export class UtilisateurService {
   constructor(

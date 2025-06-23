@@ -11,7 +11,8 @@ import { RoleService } from 'src/role/role.service';
 
 
 
-
+// Service for managing authentication, including login, registration, and Google OAuth
+// This service provides methods to validate users, generate JWT tokens, and handle Google OAuth registration and
 @Injectable()
 export class AuthService {
   private googleClient: OAuth2Client;
@@ -43,7 +44,8 @@ export class AuthService {
   }
 
 
-
+  // Validate user credentials
+  // This method checks if the provided email and password match an existing user in the database.
   async validateUser(mail: string, pass: string): Promise<any> {
     const user = await this.utilisateurService.findByEmail(mail);
 
@@ -68,6 +70,8 @@ export class AuthService {
     };
   }
 
+  // Find a Google user by email
+  // This method retrieves a user from the database based on their email address.
   async findGoogleUserByEmail(mail: string) {
     const user = await this.utilisateurService.findByEmail(mail);
     if (!user) throw new UnauthorizedException('Utilisateur non trouvé');
@@ -75,6 +79,8 @@ export class AuthService {
     return user;
   }
 
+  // Register a new Google user
+  // This method verifies the Google ID token, extracts user information, and registers the user in
   async registerGoogleUser(idToken: string, roleName: string) {
     const ticket = await (this.googleClient as any).verifyIdToken({
     idToken,

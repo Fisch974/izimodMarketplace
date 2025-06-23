@@ -9,7 +9,8 @@ import { Utilisateur } from 'src/utilisateur/utilisateur.entity';
 
 
 
-
+// This module is responsible for managing roles (Role).
+// It imports the necessary entities and services, and sets up the controller and service for handling requests
 @Module({
   imports: [
     TypeOrmModule.forFeature([Role,

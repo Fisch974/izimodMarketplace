@@ -16,7 +16,8 @@ import { UpdateUtilisateurDto } from './update-utilisateur.dto';
 import { Utilisateur } from './utilisateur.entity';
 import { JwtAuthGuard } from '../authentification/jwt-auth.guard';
 
-
+// This controller handles requests related to users in the application.
+// It provides endpoints to create, retrieve, update, and delete users.
 @Controller('utilisateurs')
 export class UtilisateurController {
   constructor(private readonly utilisateurService: UtilisateurService) {}

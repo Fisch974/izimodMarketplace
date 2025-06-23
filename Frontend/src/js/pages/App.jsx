@@ -5,13 +5,13 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Admin from './Admin_account.jsx';
 import Login from './Login_page.jsx';
 import User from './User_account.jsx';
-import Product from './Product_page.jsx';
+import Store from './Store_Display.jsx';
 import Sellers from './Seller_account.jsx';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Formulaire from '../components/register/Form_Registration.jsx';
-import DisplayStore from './Display_Product.jsx';
 import Home from './Home_page.jsx';
-import DisplayProduct from './Display_Product.jsx';
+import ProductDetail from './Display_Product.jsx';
+import SearchPageStore from './Search_Store.jsx';
 // Components
 // This component is responsible for rendering the header, footer, and the main content based on the current route
 import Header from '../components/header_footer/Header.jsx';
@@ -26,14 +26,14 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} /> 
-        <Route path="/produit/*" element={<DisplayProduct />} />
-        <Route path="/boutique/*" element={<Product />} /> 
+        <Route path="/produit/*" element={<ProductDetail />} />
+        <Route path="/boutiques/*" element={<SearchPageStore />} />
+        <Route path="/boutique/*" element={<Store />} /> 
         <Route path="/admin/*" element={<Admin />} />
         <Route path="/users/*" element={<User />} />
         <Route path="/login/*" element={<Login />} />
         <Route path="/seller/*" element={<Sellers />} />
         <Route path='/form' element={<Formulaire />} />
-        <Route path="/store/*" element={<DisplayStore />} />
         {/* Add link with path */}
       </Routes>
       <Footer />

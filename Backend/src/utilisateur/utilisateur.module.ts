@@ -8,6 +8,8 @@ import { Role } from 'src/role/role.entity';
 import { AvisUtilisateur } from 'src/avisUtilisateur/avisUtilisateur.entity';
 import { ProduitParJour } from 'src/produitParJour/produitParJour.entity';
 
+// This module is responsible for managing users (Utilisateur).
+// It imports the necessary entities and services, and sets up the controller and service for handling requests
 @Module({
   imports: [TypeOrmModule.forFeature([Utilisateur,
     Magasin,

@@ -8,7 +8,8 @@ import {
     IsString,
 } from 'class-validator';
 
-
+// This DTO (Data Transfer Object) is used for creating a new product (Produit).
+// It contains validation rules for the fields that are required when creating a new product.
 export class CreateProduitDto {
 
     @IsString()

@@ -6,6 +6,9 @@ import { ProduitParJour } from "../produitParJour/produitParJour.entity";
 import { Paiement } from '../paiement/paiement.entity';
 import { AvisUtilisateur } from "../avisUtilisateur/avisUtilisateur.entity";
 
+// Utilisateur Entity
+// This entity represents users in the database.
+// It contains fields for the user ID, name, first name, address, email, password, creation date, role, and relationships with other entities.
 @Entity()
 export class Utilisateur {
   @PrimaryGeneratedColumn()
