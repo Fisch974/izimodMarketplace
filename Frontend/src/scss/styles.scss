@@ -507,12 +507,11 @@ table td button:hover {
 }
 
 .carte-vendeur {
-	width: 60%;
+	width: 40%;
 	border-radius: 20px;
 
-
 	@include responsive('xs') {
-		width: 80%;
+		width: 90%;
 	}
 }
 
@@ -536,7 +535,7 @@ table td button:hover {
 }
 
 .list_product {
-	height: 700px;
+	height: auto;
 }
 
 .conteneur_alert {
@@ -574,4 +573,28 @@ table td button:hover {
 .line_conteneur {
 	background: linear-gradient(95deg, #121f6b, #3791f1);
 	border-radius: 5px;
+}
+
+.modal-backdrop-custom {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1050;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-custom {
+  background: white;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 100vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
 }

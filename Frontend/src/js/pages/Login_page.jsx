@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { GoogleLogin } from '@react-oauth/google';
 import '../bootstrap.js';
-import RoleSelector from '../components/Select_Role.jsx';
-import Formulaire from '../components/Form_Registration.jsx'
+import RoleSelector from '../components/register/Form_Registration.jsx';
+import Formulaire from '../components/register/Form_Registration.jsx';
 import { Link } from 'react-router-dom';
 
 

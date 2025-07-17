@@ -1,14 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import '../bootstrap.js';
-import DashBoard from '../components/Board_Admin.jsx';
-import List_Users from '../components/Users_list_Admin.jsx';
-import Menus_aside from '../components/aside_menus.jsx';
-import Product_Manager from '../components/Manage_Product_Admin.jsx';
-import Orders from "../components/Orders_admin.jsx";
-import Alerts from "../components/Alert_Admin.jsx";
-import Admin_Stats from "../components/Stats_Admin.jsx";
-import Review from "../components/User_Review_Admin.jsx";
+import DashBoard from "../components/admin/Board_Admin.jsx";
+import List_Users from "../components/admin/Users_list_Admin.jsx"
+import Menus_aside from "../components/Menus.jsx";
+import Product_Manager from '../components/admin/Manage_Product_Admin.jsx';
+import Orders from "../components/admin/Orders_admin.jsx";
+import Alerts from "../components/admin/Alert_Admin.jsx";
+import Admin_Stats from "../components/admin/Stats_Admin.jsx";
+import Review from "../components/admin/User_Review_Admin.jsx";
 
 function Admin() {
   const [userData, setUserData] = useState(null);

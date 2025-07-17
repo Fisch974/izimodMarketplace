@@ -2,6 +2,8 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable } from '@nestjs/common';
 import { Strategy, VerifyCallback } from 'passport-google-oauth20';
 
+// This strategy handles Google OAuth authentication.
+// It uses the passport-google-oauth20 package to authenticate users via their Google accounts.
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy, 'google') {
   constructor() {

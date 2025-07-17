@@ -10,6 +10,9 @@ import { Role } from 'src/role/role.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RoleService } from 'src/role/role.service';
 
+
+// This module handles authentication in the application.
+// It imports the UtilisateurModule for user management, PassportModule for authentication strategies,
 @Module({
   imports: [
     UtilisateurModule,

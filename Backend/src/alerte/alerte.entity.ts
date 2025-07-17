@@ -2,6 +2,9 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import { Utilisateur } from '../utilisateur/utilisateur.entity';
 import { ManyToOne } from 'typeorm';
 
+// Alerte Entity
+// This entity represents alerts in the database.
+// It contains fields for the alert ID, type, message, status, date, and a
 @Entity()
 export class Alerte {
   @PrimaryGeneratedColumn()

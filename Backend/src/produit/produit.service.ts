@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Produit } from './produit.entity';
 import { Repository } from 'typeorm';
@@ -27,17 +27,22 @@ export class ProduitService {
   // Create a new product
   // This method creates a new product with the provided data and associates it with the specified store and user review.
   async CreateProduit(dto: CreateProduitDto): Promise<Produit> {
-
     const magasin = await this.magasinRepo.findOne({ where: { id: dto.magasin_id } });
     if (!magasin) {
       throw new Error('Magasin not found');
     }
-    const avisUtilisateur = await this.avisUtilisateurRepo.findOne({ where: { id: dto.avisUtilisateur_id } });
 
-    if (!avisUtilisateur) {
-      throw new Error('AvisUtilisateur not found');
+    let avisUtilisateur: AvisUtilisateur | null = null;
+
+    if (dto.avisUtilisateur_id && !isNaN(Number(dto.avisUtilisateur_id))) {
+      avisUtilisateur = await this.avisUtilisateurRepo.findOne({
+        where: { id: Number(dto.avisUtilisateur_id) },
+      });
+
+      if (!avisUtilisateur) {
+        console.warn(`⚠️ Aucun avis utilisateur trouvé pour l'id ${dto.avisUtilisateur_id}`);
+      }
     }
-
 
     const newProduit = this.produitRepo.create({
       designation: dto.designation,
@@ -48,31 +53,40 @@ export class ProduitService {
       categorie: dto.categorie,
       imagePath: dto.imagePath,
       magasin: magasin,
-      avisUtilisateurs: [avisUtilisateur],
+      avisUtilisateur: avisUtilisateur ? [avisUtilisateur] : [],
     });
 
     return this.produitRepo.save(newProduit);
   }
+
 
   // Update an existing product
   // This method updates an existing product with the provided data and associates it with the specified store and user review.
   async UpdateProduit(id: number, dto: CreateProduitDto): Promise<Produit> {
     const produit = await this.produitRepo.findOne({ where: { id } });
 
-    if (!produit) {
-      throw new Error('Produit not found');
-    }
+    if (!produit) throw new NotFoundException('Produit introuvable');
 
     const magasin = await this.magasinRepo.findOne({ where: { id: dto.magasin_id } });
-    if (!magasin) {
-      throw new Error('Magasin not found');
+
+    if (!magasin) throw new NotFoundException('Magasin introuvable');
+
+    let avisUtilisateur: AvisUtilisateur | null = null;
+
+    if (dto.avisUtilisateur_id && !isNaN(Number(dto.avisUtilisateur_id))) {
+      avisUtilisateur = await this.avisUtilisateurRepo.findOne({
+        where: { id: Number(dto.avisUtilisateur_id) },
+      });
+
+      if (!avisUtilisateur) {
+        console.warn(`⚠️ Aucun avis utilisateur trouvé pour l'id ${dto.avisUtilisateur_id}`);
+      }
     }
 
-    const avisUtilisateur = await this.avisUtilisateurRepo.findOne({ where: { id: dto.avisUtilisateur_id } });
-
-    if (!avisUtilisateur) {
-      throw new Error('AvisUtilisateur not found');
+    if (dto.dateAjout) {
+      produit.dateAjout = new Date(dto.dateAjout);
     }
+
 
 
     produit.designation = dto.designation;
@@ -83,7 +97,7 @@ export class ProduitService {
     produit.categorie = dto.categorie;
     if (dto.imagePath !== undefined) produit.imagePath = dto.imagePath;
     produit.magasin = magasin;
-    produit.avisUtilisateurs = [avisUtilisateur];
+    produit.avisUtilisateur = avisUtilisateur ? [avisUtilisateur] : [];
 
     return this.produitRepo.save(produit);
   }
@@ -124,11 +138,12 @@ export class ProduitService {
 
   async deleteProduit(id: number): Promise<void> {
     const produit = await this.produitRepo.findOne({ where: { id } });
+
     if (!produit) {
-      throw new Error('Produit not found');
+      throw new NotFoundException('Produit introuvable');
     }
+
     await this.produitRepo.remove(produit);
   }
-
 
 }

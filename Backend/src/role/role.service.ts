@@ -4,6 +4,8 @@ import { Repository } from 'typeorm';
 import { Role } from './role.entity';
 import { CreateRoleDto } from './create_Role.dto';
 
+// This service is responsible for managing roles in the application.
+// It provides methods to create, find, and delete roles, as well as seeding initial
 @Injectable()
 export class RoleService implements OnApplicationBootstrap {
   constructor(

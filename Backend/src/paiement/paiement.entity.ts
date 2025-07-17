@@ -2,7 +2,8 @@ import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Utilisateur } from "../utilisateur/utilisateur.entity";
 import { ProduitParJour } from '../produitParJour/produitParJour.entity';
 import { Transactions } from '../transaction/transaction.entity';
-
+import { Transform } from "class-transformer";
+import sanitizeHtml from 'sanitize-html';
 
 // Paiement Entity
 // This entity represents the payment in the database.
@@ -17,9 +18,11 @@ export class Paiement {
   @Column({type: 'date'})
   date!: Date;
 
+  @Transform(({ value }) => sanitizeHtml(value))
   @Column({type: 'varchar', length: 65})
   status!: string;
 
+  @Transform(({ value }) => sanitizeHtml(value))
   @Column({type: 'varchar', length: 65})
   mode!: string;
 

@@ -24,7 +24,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "qunit"
+    "test": "jest"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -41,8 +41,16 @@
     "recharts": "^2.15.3"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "@vitejs/plugin-legacy": "^6.0.2",
     "autoprefixer": "^10.4.20",
+    "babel-jest": "^30.0.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^30.0.1",
+    "jest-environment-jsdom": "^30.0.1",
     "postcss": "^8.5.3",
     "postcss-cli": "^11.0.0",
     "postcss-nested": "^7.0.2",
@@ -53,5 +61,15 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "private": false
+  "private": false,
+  "jest": {
+    "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"],
+    "testEnvironment": "jest-environment-jsdom",
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "identity-obj-proxy"
+    },
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    }
+  }
 }

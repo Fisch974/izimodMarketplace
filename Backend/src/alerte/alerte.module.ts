@@ -5,7 +5,8 @@ import { AlerteService } from './alerte.service';
 import { AlerteController } from './alerte.controller';
 import { Utilisateur } from 'src/utilisateur/utilisateur.entity';
 
-
+// This module handles alerts in the application.
+// It imports the TypeOrmModule for database interactions and provides the AlerteService and A
 @Module({
   imports: [TypeOrmModule.forFeature([Alerte, Utilisateur])],
   controllers: [AlerteController],

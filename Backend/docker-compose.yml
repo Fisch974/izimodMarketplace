@@ -35,6 +35,7 @@ services:
       - SYS_TIME             
     volumes:
       - /etc/localtime:/etc/localtime:ro 
+      - ./uploads:/app/uploads
 
 networks:
   backend:

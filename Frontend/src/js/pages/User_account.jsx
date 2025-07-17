@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from "react-router-dom";
-import Menus_aside from '../components/aside_menus.jsx';
-import DashboardInfoCard from "../components/Board_Seller_User.jsx";
-import PurchaseUser from "../components/Purchase_User.jsx";
-import PaimentUser from "../components/Paiment_User.jsx";
-import ReviewUser from "../components/Review_User.jsx";
+import Menus_aside from "../components/Menus.jsx";
+import DashboardInfoCard from "../components/seller/Board_Seller_User.jsx";
+import PurchaseUser from "../components/user/Purchase_User.jsx";
+import PaimentUser from "../components/user/Paiment_User.jsx";
+import ReviewUser from "../components/user/Review_User.jsx";
 
 function User() {
   const [userData, setUserData] = useState(null);

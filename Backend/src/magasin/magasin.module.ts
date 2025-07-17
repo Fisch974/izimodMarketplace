@@ -6,6 +6,13 @@ import { MagasinService } from './magasin.service';
 import { AvisUtilisateur } from 'src/avisUtilisateur/avisUtilisateur.entity';
 import { Produit } from 'src/produit/produit.entity';
 import { Visiteur } from 'src/visiteur/visiteur.entity';
+import { UtilisateurService } from 'src/utilisateur/utilisateur.service';
+import { AvisUtilisateurService } from 'src/avisUtilisateur/avisUtilisateur.service';
+import { ProduitService } from 'src/produit/produit.service';
+import { Utilisateur } from 'src/utilisateur/utilisateur.entity';
+import { VisiteurService } from 'src/visiteur/visiteur.service';
+import { Role } from 'src/role/role.entity';
+import { RoleService } from 'src/role/role.service';
 
 
 
@@ -15,12 +22,15 @@ import { Visiteur } from 'src/visiteur/visiteur.entity';
   imports: [
     TypeOrmModule.forFeature([
     Magasin, 
-    AvisUtilisateur, 
-    Produit, 
-    Visiteur])],
+    Utilisateur,
+    Produit,
+    AvisUtilisateur,
+    Visiteur,
+    Role
+  ])],
 
   controllers: [MagasinController],
-  providers: [MagasinService],
+  providers: [MagasinService, UtilisateurService, AvisUtilisateurService, ProduitService, VisiteurService, RoleService],
   exports: [TypeOrmModule, MagasinService],
 })
 export class MagasinModule {}

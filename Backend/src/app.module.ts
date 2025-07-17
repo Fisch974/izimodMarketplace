@@ -16,6 +16,9 @@ import { AlerteModule } from './alerte/alerte.module';
 import { AuthModule } from './authentification/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 
+
+// This is the main application module for a NestJS application.
+// It imports various modules such as ConfigModule for configuration management, TypeOrmModule for database interactions
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),

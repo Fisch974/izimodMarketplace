@@ -1,13 +1,15 @@
 
 import {
     IsDateString,
+    IsInt,
     IsNotEmpty,
     IsNumber,
     IsOptional,
     IsString,
 } from 'class-validator';
 
-
+// This DTO (Data Transfer Object) is used for creating a new product (Produit).
+// It contains validation rules for the fields that are required when creating a new product.
 export class CreateProduitDto {
 
     @IsString()
@@ -28,7 +30,7 @@ export class CreateProduitDto {
 
     @IsDateString()
     @IsNotEmpty()
-    dateAjout: string;
+    dateAjout: Date;
 
     @IsString()
     @IsNotEmpty()
@@ -40,7 +42,7 @@ export class CreateProduitDto {
     imagePath?: string;
 
 
-    @IsNotEmpty()
+    @IsInt()
     @IsOptional()
     avisUtilisateur_id?: number;
 
